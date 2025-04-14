@@ -1,14 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFrameworks>net9.0;net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <LangVersion>13</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
     <DefineConstants Condition="$(RuntimeIdentifier)=='linux-x64'">$(DefineConstants);LINUX</DefineConstants>
     <DefineConstants Condition="$(RuntimeIdentifier)=='linux-x86'">$(DefineConstants);LINUX</DefineConstants>
     <DefineConstants Condition="$(RuntimeIdentifier)=='osx-x64'">$(DefineConstants);OSX</DefineConstants>
-</PropertyGroup>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="README.md"/>
+    <EmbeddedResource Include="..\..\LICENSE" />
+  </ItemGroup>
 
 </Project>
