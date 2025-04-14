@@ -57,7 +57,7 @@ unsafe
 
 [BlasSharp.OpenBlas](https://www.nuget.org/packages/BlasSharp.OpenBlas/)をプロジェクトに追加することで、OpenBlasのバイナリとバインディングが利用可能になります。
 
-BlasSharp.OpenBlasは各種プラットフォーム(win-x64, osx-x64, osx-arm64, linux-x64, linux-arm64)に対応しています。
+BlasSharp.OpenBlasは各種プラットフォーム(`win-x64`, `osx-x64`, `osx-arm64`, `linux-x64`, `linux-arm64`)に対応しています。
 
 ### .NET CLI
 
@@ -97,7 +97,7 @@ MKLを利用するには、Intel公式が提供するMKLのNuGetパッケージ(
 
 [BlasSharp.AppleAccelerate](https://www.nuget.org/packages/BlasSharp.AppleAccelerate/)をプロジェクトに追加することで、AppleのAccelerateのバインディングが利用可能になります。
 
-BlasSharp.AppleAccelerateはosx-arm64のみに対応しています。
+BlasSharp.AppleAccelerateは`osx-arm64`のみに対応しています。
 
 ### .NET CLI
 
