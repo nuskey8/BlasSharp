@@ -25,7 +25,7 @@
     <None Include="runtimes\win-x64\native\libopenblas.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="runtimes\win-x84\native\libopenblas.dll">
+    <None Include="runtimes\win-x86\native\libopenblas.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
