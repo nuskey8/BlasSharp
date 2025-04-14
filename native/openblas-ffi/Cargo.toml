@@ -1,0 +1,13 @@
+[package]
+name = "openblas-ffi"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+
+[build-dependencies]
+bindgen = "0.71.1"
+csbindgen = "1.9.3"

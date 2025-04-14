@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/sandbox/">
+    <Project Path="sandbox/Benchmark/Benchmark.csproj" />
+    <Project Path="sandbox/ConsoleApp1/ConsoleApp1.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/BlasSharp.AppleAccelerate/BlasSharp.AppleAccelerate.csproj" />
+    <Project Path="src/BlasSharp.Mkl/BlasSharp.Mkl.csproj" />
+    <Project Path="src/BlasSharp.OpenBlas/BlasSharp.OpenBlas.csproj" />
+    <Project Path="src/BlasSharp.Shared/BlasSharp.Shared.csproj" />
+  </Folder>
+</Solution>

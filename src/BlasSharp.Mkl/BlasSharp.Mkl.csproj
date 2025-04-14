@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+    <DefineConstants Condition="$(RuntimeIdentifier)=='linux-x64'">$(DefineConstants);LINUX</DefineConstants>
+    <DefineConstants Condition="$(RuntimeIdentifier)=='linux-x86'">$(DefineConstants);LINUX</DefineConstants>
+    <DefineConstants Condition="$(RuntimeIdentifier)=='osx-x64'">$(DefineConstants);OSX</DefineConstants>
+</PropertyGroup>
+
+</Project>
