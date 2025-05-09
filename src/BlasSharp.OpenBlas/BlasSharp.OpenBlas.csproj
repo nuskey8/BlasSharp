@@ -13,21 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="runtimes\linux-arm64\native\libopenblas.so">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="runtimes\linux-x64\native\libopenblas.so">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="runtimes\osx-arm64\native\libopenblas.dylib">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="runtimes\win-x64\native\libopenblas.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="runtimes\win-x86\native\libopenblas.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="runtimes\linux-arm64\native\libopenblas.so" Pack="true" PackagePath="runtimes\linux-arm64\native\" CopyToOutputDirectory="Always"/>
+    <None Include="runtimes\linux-x64\native\libopenblas.so" Pack="true" PackagePath="runtimes\linux-x64\native\" CopyToOutputDirectory="Always"/>
+    <None Include="runtimes\osx-arm64\native\libopenblas.dylib" Pack="true" PackagePath="runtimes\osx-arm64\native\" CopyToOutputDirectory="Always"/>
+    <None Include="runtimes\win-x64\native\libopenblas.dll" Pack="true" PackagePath="runtimes\win-x64\native\" CopyToOutputDirectory="Always"/>
+    <None Include="runtimes\win-x86\native\libopenblas.dll" Pack="true" PackagePath="runtimes\win-x86\native\" CopyToOutputDirectory="Always"/>
   </ItemGroup>
 
   <ItemGroup>
