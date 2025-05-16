@@ -28,7 +28,7 @@ public unsafe interface IBlasLevel1
     void ZDotc(int n, void* x, int incX, void* y, int incY, void* dotc);
 
     void Cdotu(int n, void* x, int incX, void* y, int incY, void* dotc);
-    void Zdotu(int n, void* x, int incX, void* y, int incY);
+    void Zdotu(int n, void* x, int incX, void* y, int incY, void* dotc);
 
     float Snrm2(int n, float* x, int incX);
     double Dnrm2(int n, double* x, int incX);

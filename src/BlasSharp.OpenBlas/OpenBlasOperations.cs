@@ -610,10 +610,10 @@ public sealed class OpenBlasOperations : IBlasOperations
         Unsafe.Copy(ref result, dotc);
     }
 
-    public unsafe void Zdotu(int n, void* x, int incX, void* y, int incY)
+    public unsafe void Zdotu(int n, void* x, int incX, void* y, int incY, void* dotc)
     {
         var result = cblas_zdotu(n, x, incX, y, incY);
-        Unsafe.Copy(ref result, y);
+        Unsafe.Copy(ref result, dotc);
     }
 
     public unsafe void Zdrot(int n, void* x, int incX, void* y, int incY, double c, double s)

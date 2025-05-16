@@ -607,9 +607,9 @@ public sealed class AppleAccelerateBlasOperations : IBlasOperations
         cblas_zdotc_sub(n, x, incX, y, incY, dotc);
     }
 
-    public unsafe void Zdotu(int n, void* x, int incX, void* y, int incY)
+    public unsafe void Zdotu(int n, void* x, int incX, void* y, int incY, void* dotu)
     {
-        cblas_zdotu_sub(n, x, incX, y, incY, y);
+        cblas_zdotu_sub(n, x, incX, y, incY, dotu);
     }
 
     public unsafe void Zdrot(int n, void* x, int incX, void* y, int incY, double c, double s)
