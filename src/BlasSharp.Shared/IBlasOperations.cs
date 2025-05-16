@@ -16,10 +16,10 @@ public unsafe interface IBlasLevel1
     float Csasum(int n, void* x, int incX);
     double Dzasum(int n, void* x, int incX);
 
-    float Scopy(int n, float* x, int incX, float* y, int incY);
-    double Dcopy(int n, double* x, int incX, double* y, int incY);
-    float Ccopy(int n, float* x, int incX, float* y, int incY);
-    double Zcopy(int n, double* x, int incX, double* y, int incY);
+    void Scopy(int n, float* x, int incX, float* y, int incY);
+    void Dcopy(int n, double* x, int incX, double* y, int incY);
+    void Ccopy(int n, float* x, int incX, float* y, int incY);
+    void Zcopy(int n, double* x, int incX, double* y, int incY);
 
     float Sdot(int n, float* x, int incX, float* y, int* incY);
     double Ddot(int n, double* x, int incX, double* y, int* incY);
