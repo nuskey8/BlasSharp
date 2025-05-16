@@ -11,7 +11,7 @@ public sealed class MklBlasOperations : IBlasOperations
         cblas_caxpy(n, alpha, x, incX, y, incY);
     }
 
-    public unsafe void Ccopy(int n, float* x, int incX, float* y, int incY)
+    public unsafe void Ccopy(int n, void* x, int incX, void* y, int incY)
     {
         cblas_ccopy(n, x, incX, y, incY);
     }
@@ -576,7 +576,7 @@ public sealed class MklBlasOperations : IBlasOperations
         cblas_zaxpy(n, alpha, x, incX, y, incY);
     }
 
-    public unsafe void Zcopy(int n, double* x, int incX, double* y, int incY)
+    public unsafe void Zcopy(int n, void* x, int incX, void* y, int incY)
     {
         cblas_zcopy(n, x, incX, y, incY);
     }

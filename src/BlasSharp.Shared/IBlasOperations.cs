@@ -18,8 +18,8 @@ public unsafe interface IBlasLevel1
 
     void Scopy(int n, float* x, int incX, float* y, int incY);
     void Dcopy(int n, double* x, int incX, double* y, int incY);
-    void Ccopy(int n, float* x, int incX, float* y, int incY);
-    void Zcopy(int n, double* x, int incX, double* y, int incY);
+    void Ccopy(int n, void* x, int incX, void* y, int incY);
+    void Zcopy(int n, void* x, int incX, void* y, int incY);
 
     float Sdot(int n, float* x, int incX, float* y, int incY);
     double Ddot(int n, double* x, int incX, double* y, int incY);
