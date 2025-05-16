@@ -24,11 +24,11 @@ public unsafe interface IBlasLevel1
     float Sdot(int n, float* x, int incX, float* y, int* incY);
     double Ddot(int n, double* x, int incX, double* y, int* incY);
 
-    void CDotc(int n, void* x, int* incx, void* y, int incY, void* dotc);
-    void ZDotc(int n, void* x, int* incx, void* y, int incY, void* dotc);
+    void CDotc(int n, void* x, int incX, void* y, int incY, void* dotc);
+    void ZDotc(int n, void* x, int incX, void* y, int incY, void* dotc);
 
     void Cdotu(int n, void* x, int incX, void* y, int incY, void* dotc);
-    void Zdotu(int n, void* x, int* incX, void* y, int* incY);
+    void Zdotu(int n, void* x, int incX, void* y, int* incY);
 
     float Snrm2(int n, float* x, int incX);
     double Dnrm2(int n, double* x, int incX);
@@ -176,34 +176,34 @@ public unsafe interface IBlasLevel2
 
 public unsafe interface IBlasLevel3
 {
-    void Sgemm(uint order, uint transA, uint TransB, int m, int n, int K, float alpha, float* a, int ldA, float* b, int ldB, float beta, float* C, int ldc);
-    void Dgemm(uint order, uint transA, uint TransB, int m, int n, int K, double alpha, double* a, int ldA, double* b, int ldB, double beta, double* C, int ldc);
-    void Cgemm(uint order, uint transA, uint TransB, int m, int n, int K, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* C, int ldc);
-    void Zgemm(uint order, uint transA, uint TransB, int m, int n, int K, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* C, int ldc);
+    void Sgemm(uint order, uint transA, uint transB, int m, int n, int k, float alpha, float* a, int ldA, float* b, int ldB, float beta, float* c, int ldC);
+    void Dgemm(uint order, uint transA, uint transB, int m, int n, int k, double alpha, double* a, int ldA, double* b, int ldB, double beta, double* c, int ldC);
+    void Cgemm(uint order, uint transA, uint transB, int m, int n, int k, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* c, int ldC);
+    void Zgemm(uint order, uint transA, uint transB, int m, int n, int k, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* c, int ldC);
 
-    void Chemm(uint order, uint side, uint uplo, int m, int n, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* C, int ldc);
-    void Zhemm(uint order, uint side, uint uplo, int m, int n, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* C, int ldc);
+    void Chemm(uint order, uint side, uint uplo, int m, int n, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* c, int ldC);
+    void Zhemm(uint order, uint side, uint uplo, int m, int n, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* c, int ldC);
 
-    void Cherk(uint order, uint uplo, uint Trans, int n, int K, float alpha, void* a, int ldA, float beta, void* C, int ldc);
-    void Zherk(uint order, uint uplo, uint Trans, int n, int K, double alpha, void* a, int ldA, double beta, void* C, int ldc);
+    void Cherk(uint order, uint uplo, uint trans, int n, int k, float alpha, void* a, int ldA, float beta, void* c, int ldC);
+    void Zherk(uint order, uint uplo, uint trans, int n, int k, double alpha, void* a, int ldA, double beta, void* c, int ldC);
 
-    void Cher2k(uint order, uint uplo, uint Trans, int n, int K, void* alpha, void* a, int ldA, void* b, int ldB, float beta, void* C, int ldc);
-    void Zher2k(uint order, uint uplo, uint Trans, int n, int K, void* alpha, void* a, int ldA, void* b, int ldB, double beta, void* C, int ldc);
+    void Cher2k(uint order, uint uplo, uint trans, int n, int k, void* alpha, void* a, int ldA, void* b, int ldB, float beta, void* c, int ldC);
+    void Zher2k(uint order, uint uplo, uint trans, int n, int k, void* alpha, void* a, int ldA, void* b, int ldB, double beta, void* c, int ldC);
 
-    void Ssymm(uint order, uint side, uint uplo, int m, int n, float alpha, float* a, int ldA, float* b, int ldB, float beta, float* C, int ldc);
-    void Dsymm(uint order, uint side, uint uplo, int m, int n, double alpha, double* a, int ldA, double* b, int ldB, double beta, double* C, int ldc);
-    void Csymm(uint order, uint side, uint uplo, int m, int n, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* C, int ldc);
-    void Zsymm(uint order, uint side, uint uplo, int m, int n, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* C, int ldc);
+    void Ssymm(uint order, uint side, uint uplo, int m, int n, float alpha, float* a, int ldA, float* b, int ldB, float beta, float* c, int ldC);
+    void Dsymm(uint order, uint side, uint uplo, int m, int n, double alpha, double* a, int ldA, double* b, int ldB, double beta, double* c, int ldC);
+    void Csymm(uint order, uint side, uint uplo, int m, int n, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* c, int ldC);
+    void Zsymm(uint order, uint side, uint uplo, int m, int n, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* c, int ldC);
 
-    void Ssyrk(uint order, uint uplo, uint Trans, int n, int K, float alpha, float* a, int ldA, float beta, float* C, int ldc);
-    void Dsyrk(uint order, uint uplo, uint Trans, int n, int K, double alpha, double* a, int ldA, double beta, double* C, int ldc);
-    void Csyrk(uint order, uint uplo, uint Trans, int n, int K, void* alpha, void* a, int ldA, void* beta, void* C, int ldc);
-    void Zsyrk(uint order, uint uplo, uint Trans, int n, int K, void* alpha, void* a, int ldA, void* beta, void* C, int ldc);
+    void Ssyrk(uint order, uint uplo, uint trans, int n, int k, float alpha, float* a, int ldA, float beta, float* c, int ldC);
+    void Dsyrk(uint order, uint uplo, uint trans, int n, int k, double alpha, double* a, int ldA, double beta, double* c, int ldC);
+    void Csyrk(uint order, uint uplo, uint trans, int n, int k, void* alpha, void* a, int ldA, void* beta, void* c, int ldC);
+    void Zsyrk(uint order, uint uplo, uint trans, int n, int k, void* alpha, void* a, int ldA, void* beta, void* c, int ldC);
 
-    void Ssyr2k(uint order, uint uplo, uint Trans, int n, int K, float alpha, float* a, int ldA, float* b, int ldB, float beta, float* C, int ldc);
-    void Dsyr2k(uint order, uint uplo, uint Trans, int n, int K, double alpha, double* a, int ldA, double* b, int ldB, double beta, double* C, int ldc);
-    void Csyr2k(uint order, uint uplo, uint Trans, int n, int K, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* C, int ldc);
-    void Zsyr2k(uint order, uint uplo, uint Trans, int n, int K, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* C, int ldc);
+    void Ssyr2k(uint order, uint uplo, uint trans, int n, int k, float alpha, float* a, int ldA, float* b, int ldB, float beta, float* c, int ldC);
+    void Dsyr2k(uint order, uint uplo, uint trans, int n, int k, double alpha, double* a, int ldA, double* b, int ldB, double beta, double* c, int ldC);
+    void Csyr2k(uint order, uint uplo, uint trans, int n, int k, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* c, int ldC);
+    void Zsyr2k(uint order, uint uplo, uint trans, int n, int k, void* alpha, void* a, int ldA, void* b, int ldB, void* beta, void* c, int ldC);
 
     void Strmm(uint order, uint side, uint uplo, uint transA, uint diag, int m, int n, float alpha, float* a, int ldA, float* b, int ldB);
     void Dtrmm(uint order, uint side, uint uplo, uint transA, uint diag, int m, int n, double alpha, double* a, int ldA, double* b, int ldB);
