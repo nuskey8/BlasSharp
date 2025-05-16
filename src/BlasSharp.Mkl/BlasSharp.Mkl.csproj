@@ -14,8 +14,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\README.md" Pack="true" PackagePath="README.md"/>
+    <None Include="..\..\README.md" Pack="true" PackagePath="README.md" />
     <EmbeddedResource Include="..\..\LICENSE" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlasSharp.Shared\BlasSharp.Shared.csproj" />
   </ItemGroup>
 
 </Project>
