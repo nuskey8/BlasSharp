@@ -1,6 +1,6 @@
 namespace BlasSharp;
 
-public interface IBlas : IBlasLevel1, IBlasLevel2, IBlasLevel3
+public interface IBlasOperations : IBlasLevel1, IBlasLevel2, IBlasLevel3
 {
 }
 
