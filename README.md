@@ -1,7 +1,7 @@
 # BlasSharp
  BLAS/LAPACK bindings for .NET (OpenBLAS, MKL, Apple Accelerate)
 
-[![Releases](https://img.shields.io/github/release/nuskey8/BlasSharp.svg)](https://github.com/nuskey8/BlasSharp/releases)  
+[![Releases](https://img.shields.io/github/release/nuskey8/BlasSharp.svg)](https://github.com/nuskey8/BlasSharp/releases)
 [![GitHub license](https://img.shields.io/github/license/nuskey8/BlasSharp.svg)](./LICENSE)
 
 English | [日本語](./README_JA.md)
@@ -11,9 +11,6 @@ English | [日本語](./README_JA.md)
 BlasSharp is a library that provides bindings to BLAS/LAPACK for .NET.
 
 BLAS/LAPACK libraries optimized for various CPUs are provided by Intel, Apple, and others. By bringing these libraries into C#, you can perform linear algebra computations with optimal performance.
-
-> [!CAUTION]
-> This library is currently provided as an alpha version and may introduce breaking changes without notice.
 
 ## Usage
 
