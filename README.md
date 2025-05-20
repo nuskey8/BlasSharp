@@ -53,8 +53,6 @@ unsafe
 
 ## IBlasOperations
 
-## IBlasOperations
-
 The BlasSharp.Shared package provides `IBlasOperations`, which abstracts BLAS methods. Each package provides its own implementation.
 
 ```cs
