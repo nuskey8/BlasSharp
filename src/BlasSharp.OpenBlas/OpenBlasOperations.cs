@@ -17,7 +17,7 @@ public sealed class OpenBlasOperations : IBlasOperations
         cblas_ccopy(n, x, incX, y, incY);
     }
 
-    public unsafe void CDotc(int n, void* x, int incX, void* y, int incY, void* dotc)
+    public unsafe void Cdotc(int n, void* x, int incX, void* y, int incY, void* dotc)
     {
         var result = cblas_cdotc(n, x, incX, y, incY);
         Unsafe.Copy(ref result, dotc);
@@ -604,7 +604,7 @@ public sealed class OpenBlasOperations : IBlasOperations
         cblas_zcopy(n, x, incX, y, incY);
     }
 
-    public unsafe void ZDotc(int n, void* x, int incX, void* y, int incY, void* dotc)
+    public unsafe void Zdotc(int n, void* x, int incX, void* y, int incY, void* dotc)
     {
         var result = cblas_zdotc(n, x, incX, y, incY);
         Unsafe.Copy(ref result, dotc);

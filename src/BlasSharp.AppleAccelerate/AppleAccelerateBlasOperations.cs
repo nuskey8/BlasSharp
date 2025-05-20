@@ -16,7 +16,7 @@ public sealed class AppleAccelerateBlasOperations : IBlasOperations
         cblas_ccopy(n, x, incX, y, incY);
     }
 
-    public unsafe void CDotc(int n, void* x, int incX, void* y, int incY, void* dotc)
+    public unsafe void Cdotc(int n, void* x, int incX, void* y, int incY, void* dotc)
     {
         cblas_cdotc_sub(n, x, incX, y, incY, dotc);
     }
@@ -602,7 +602,7 @@ public sealed class AppleAccelerateBlasOperations : IBlasOperations
         cblas_zcopy(n, x, incX, y, incY);
     }
 
-    public unsafe void ZDotc(int n, void* x, int incX, void* y, int incY, void* dotc)
+    public unsafe void Zdotc(int n, void* x, int incX, void* y, int incY, void* dotc)
     {
         cblas_zdotc_sub(n, x, incX, y, incY, dotc);
     }
