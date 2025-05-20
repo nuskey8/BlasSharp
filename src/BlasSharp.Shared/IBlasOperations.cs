@@ -24,8 +24,8 @@ public unsafe interface IBlasLevel1
     float Sdot(int n, float* x, int incX, float* y, int incY);
     double Ddot(int n, double* x, int incX, double* y, int incY);
 
-    void CDotc(int n, void* x, int incX, void* y, int incY, void* dotc);
-    void ZDotc(int n, void* x, int incX, void* y, int incY, void* dotc);
+    void Cdotc(int n, void* x, int incX, void* y, int incY, void* dotc);
+    void Zdotc(int n, void* x, int incX, void* y, int incY, void* dotc);
 
     void Cdotu(int n, void* x, int incX, void* y, int incY, void* dotc);
     void Zdotu(int n, void* x, int incX, void* y, int incY, void* dotc);
