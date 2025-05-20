@@ -51,6 +51,26 @@ unsafe
 }
 ```
 
+## IBlasOperations
+
+BlasSharp.SharedパッケージではBLASのメソッドを抽象化する`IBlasOperations`を提供しており、それぞれのパッケージで実装が用意されています。
+
+```cs
+public interface IBlasOperations : IBlasLevel1, IBlasLevel2, IBlasLevel3
+{
+}
+
+public unsafe interface IBlasLevel1
+{
+    void Saxpy(int n, float alpha, float* x, int incX, float* y, int incY);
+    void Daxpy(int n, double alpha, double* x, int incX, double* y, int incY);
+    void Caxpy(int n, void* alpha, void* x, int incX, void* y, int incY);
+    void Zaxpy(int n, void* alpha, void* x, int incX, void* y, int incY);
+
+    ...
+}
+```
+
 ## OpenBLAS
 
 [![NuGet](https://img.shields.io/nuget/v/BlasSharp.OpenBlas.svg)](https://www.nuget.org/packages/BlasSharp.OpenBlas)
