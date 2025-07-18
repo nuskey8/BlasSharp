@@ -413,6 +413,44 @@ pub unsafe extern "C" fn ffi_cblas_saxpy(
 }
 
 #[no_mangle]
+pub unsafe extern "C" fn ffi_catlas_saxpby(
+    __N: c_int,
+    __alpha: f32,
+    __X: *const f32,
+    __incX: c_int,
+    __beta: f32,
+    __Y: *mut f32,
+    __incY: c_int
+)
+{
+    catlas_saxpby(
+        __N,
+        __alpha,
+        __X,
+        __incX,
+        __beta,
+        __Y,
+        __incY
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_catlas_sset(
+    __N: c_int,
+    __alpha: f32,
+    __X: *mut f32,
+    __incX: c_int
+)
+{
+    catlas_sset(
+        __N,
+        __alpha,
+        __X,
+        __incX
+    )
+}
+
+#[no_mangle]
 pub unsafe extern "C" fn ffi_cblas_dswap(
     __N: c_int,
     __X: *mut f64,
@@ -465,6 +503,44 @@ pub unsafe extern "C" fn ffi_cblas_daxpy(
         __incX,
         __Y,
         __incY
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_catlas_daxpby(
+    __N: c_int,
+    __alpha: f64,
+    __X: *const f64,
+    __incX: c_int,
+    __beta: f64,
+    __Y: *mut f64,
+    __incY: c_int
+)
+{
+    catlas_daxpby(
+        __N,
+        __alpha,
+        __X,
+        __incX,
+        __beta,
+        __Y,
+        __incY
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_catlas_dset(
+    __N: c_int,
+    __alpha: f64,
+    __X: *mut f64,
+    __incX: c_int
+)
+{
+    catlas_dset(
+        __N,
+        __alpha,
+        __X,
+        __incX
     )
 }
 
@@ -525,6 +601,44 @@ pub unsafe extern "C" fn ffi_cblas_caxpy(
 }
 
 #[no_mangle]
+pub unsafe extern "C" fn ffi_catlas_caxpby(
+    __N: c_int,
+    __alpha: *const c_void,
+    __X: *const c_void,
+    __incX: c_int,
+    __beta: *const c_void,
+    __Y: *mut c_void,
+    __incY: c_int
+)
+{
+    catlas_caxpby(
+        __N,
+        __alpha,
+        __X,
+        __incX,
+        __beta,
+        __Y,
+        __incY
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_catlas_cset(
+    __N: c_int,
+    __alpha: *const c_void,
+    __X: *mut c_void,
+    __incX: c_int
+)
+{
+    catlas_cset(
+        __N,
+        __alpha,
+        __X,
+        __incX
+    )
+}
+
+#[no_mangle]
 pub unsafe extern "C" fn ffi_cblas_zswap(
     __N: c_int,
     __X: *mut c_void,
@@ -577,6 +691,44 @@ pub unsafe extern "C" fn ffi_cblas_zaxpy(
         __incX,
         __Y,
         __incY
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_catlas_zaxpby(
+    __N: c_int,
+    __alpha: *const c_void,
+    __X: *const c_void,
+    __incX: c_int,
+    __beta: *const c_void,
+    __Y: *mut c_void,
+    __incY: c_int
+)
+{
+    catlas_zaxpby(
+        __N,
+        __alpha,
+        __X,
+        __incX,
+        __beta,
+        __Y,
+        __incY
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_catlas_zset(
+    __N: c_int,
+    __alpha: *const c_void,
+    __X: *mut c_void,
+    __incX: c_int
+)
+{
+    catlas_zset(
+        __N,
+        __alpha,
+        __X,
+        __incX
     )
 }
 
@@ -3785,6 +3937,16 @@ pub unsafe extern "C" fn ffi_appleblas_dgeadd(
 }
 
 #[no_mangle]
+pub unsafe extern "C" fn ffi_SetBLASParamErrorProc(
+    __ErrorProc: BLASParamErrorProc
+)
+{
+    SetBLASParamErrorProc(
+        __ErrorProc
+    )
+}
+
+#[no_mangle]
 pub unsafe extern "C" fn ffi_sparse_inner_product_dense_float(
     nz: sparse_dimension,
     x: *const f32,
@@ -4951,6 +5113,44562 @@ pub unsafe extern "C" fn ffi_sparse_unpack_vector_double(
         indx,
         y,
         incy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cbdsqr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ncvt: *mut __CLPK_integer,
+    __nru: *mut __CLPK_integer,
+    __ncc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __vt: *mut __CLPK_complex,
+    __ldvt: *mut __CLPK_integer,
+    __u: *mut __CLPK_complex,
+    __ldu: *mut __CLPK_integer,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cbdsqr_(
+        __uplo,
+        __n,
+        __ncvt,
+        __nru,
+        __ncc,
+        __d__,
+        __e,
+        __vt,
+        __ldvt,
+        __u,
+        __ldu,
+        __c__,
+        __ldc,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgbbrd_(
+    __vect: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ncc: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __pt: *mut __CLPK_complex,
+    __ldpt: *mut __CLPK_integer,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgbbrd_(
+        __vect,
+        __m,
+        __n,
+        __ncc,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __d__,
+        __e,
+        __q,
+        __ldq,
+        __pt,
+        __ldpt,
+        __c__,
+        __ldc,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgbcon_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgbcon_(
+        __norm,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgbequ_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rowcnd: *mut __CLPK_real,
+    __colcnd: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgbequ_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgbequb_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rowcnd: *mut __CLPK_real,
+    __colcnd: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgbequb_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgbrfs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_complex,
+    __ldafb: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgbrfs_(
+        __trans,
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgbsv_(
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgbsv_(
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgbsvx_(
+    __fact: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_complex,
+    __ldafb: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgbsvx_(
+        __fact,
+        __trans,
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __ipiv,
+        __equed,
+        __r__,
+        __c__,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgbtf2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgbtf2_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgbtrf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgbtrf_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgbtrs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgbtrs_(
+        __trans,
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgebak_(
+    __job: *mut c_char,
+    __side: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __ldv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgebak_(
+        __job,
+        __side,
+        __n,
+        __ilo,
+        __ihi,
+        __scale,
+        __m,
+        __v,
+        __ldv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgebal_(
+    __job: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgebal_(
+        __job,
+        __n,
+        __a,
+        __lda,
+        __ilo,
+        __ihi,
+        __scale,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgebd2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __tauq: *mut __CLPK_complex,
+    __taup: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgebd2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tauq,
+        __taup,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgebrd_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __tauq: *mut __CLPK_complex,
+    __taup: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgebrd_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tauq,
+        __taup,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgecon_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgecon_(
+        __norm,
+        __n,
+        __a,
+        __lda,
+        __anorm,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgeequ_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rowcnd: *mut __CLPK_real,
+    __colcnd: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgeequ_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgeequb_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rowcnd: *mut __CLPK_real,
+    __colcnd: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgeequb_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgees_(
+    __jobvs: *mut c_char,
+    __sort: *mut c_char,
+    __select: __CLPK_L_fp,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __w: *mut __CLPK_complex,
+    __vs: *mut __CLPK_complex,
+    __ldvs: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgees_(
+        __jobvs,
+        __sort,
+        __select,
+        __n,
+        __a,
+        __lda,
+        __sdim,
+        __w,
+        __vs,
+        __ldvs,
+        __work,
+        __lwork,
+        __rwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgeesx_(
+    __jobvs: *mut c_char,
+    __sort: *mut c_char,
+    __select: __CLPK_L_fp,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __w: *mut __CLPK_complex,
+    __vs: *mut __CLPK_complex,
+    __ldvs: *mut __CLPK_integer,
+    __rconde: *mut __CLPK_real,
+    __rcondv: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgeesx_(
+        __jobvs,
+        __sort,
+        __select,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __sdim,
+        __w,
+        __vs,
+        __ldvs,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __rwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgeev_(
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __w: *mut __CLPK_complex,
+    __vl: *mut __CLPK_complex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_complex,
+    __ldvr: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgeev_(
+        __jobvl,
+        __jobvr,
+        __n,
+        __a,
+        __lda,
+        __w,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgeevx_(
+    __balanc: *mut c_char,
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __w: *mut __CLPK_complex,
+    __vl: *mut __CLPK_complex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_complex,
+    __ldvr: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __abnrm: *mut __CLPK_real,
+    __rconde: *mut __CLPK_real,
+    __rcondv: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgeevx_(
+        __balanc,
+        __jobvl,
+        __jobvr,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __w,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __ilo,
+        __ihi,
+        __scale,
+        __abnrm,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgegs_(
+    __jobvsl: *mut c_char,
+    __jobvsr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __beta: *mut __CLPK_complex,
+    __vsl: *mut __CLPK_complex,
+    __ldvsl: *mut __CLPK_integer,
+    __vsr: *mut __CLPK_complex,
+    __ldvsr: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgegs_(
+        __jobvsl,
+        __jobvsr,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __vsl,
+        __ldvsl,
+        __vsr,
+        __ldvsr,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgegv_(
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __beta: *mut __CLPK_complex,
+    __vl: *mut __CLPK_complex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_complex,
+    __ldvr: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgegv_(
+        __jobvl,
+        __jobvr,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgehd2_(
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgehd2_(
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgehrd_(
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgehrd_(
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgelq2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgelq2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgelqf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgelqf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgels_(
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgels_(
+        __trans,
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgelsd_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgelsd_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __s,
+        __rcond,
+        __rank,
+        __work,
+        __lwork,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgelss_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgelss_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __s,
+        __rcond,
+        __rank,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgelsx_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgelsx_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __jpvt,
+        __rcond,
+        __rank,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgelsy_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgelsy_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __jpvt,
+        __rcond,
+        __rank,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgeql2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgeql2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgeqlf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgeqlf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgeqp3_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgeqp3_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgeqpf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgeqpf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgeqr2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgeqr2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgeqrf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgeqrf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgerfs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_complex,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgerfs_(
+        __trans,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgerq2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgerq2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgerqf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgerqf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgesc2_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __rhs: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __jpiv: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real
+) -> c_int
+{
+    cgesc2_(
+        __n,
+        __a,
+        __lda,
+        __rhs,
+        __ipiv,
+        __jpiv,
+        __scale
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgesdd_(
+    __jobz: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __u: *mut __CLPK_complex,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_complex,
+    __ldvt: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgesdd_(
+        __jobz,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __work,
+        __lwork,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgesv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgesv_(
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgesvd_(
+    __jobu: *mut c_char,
+    __jobvt: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __u: *mut __CLPK_complex,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_complex,
+    __ldvt: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgesvd_(
+        __jobu,
+        __jobvt,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgesvx_(
+    __fact: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_complex,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgesvx_(
+        __fact,
+        __trans,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __equed,
+        __r__,
+        __c__,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgetc2_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __jpiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgetc2_(
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __jpiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgetf2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgetf2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgetrf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgetrf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgetri_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgetri_(
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgetrs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgetrs_(
+        __trans,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cggbak_(
+    __job: *mut c_char,
+    __side: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __lscale: *mut __CLPK_real,
+    __rscale: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __ldv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cggbak_(
+        __job,
+        __side,
+        __n,
+        __ilo,
+        __ihi,
+        __lscale,
+        __rscale,
+        __m,
+        __v,
+        __ldv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cggbal_(
+    __job: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __lscale: *mut __CLPK_real,
+    __rscale: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cggbal_(
+        __job,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __ilo,
+        __ihi,
+        __lscale,
+        __rscale,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgges_(
+    __jobvsl: *mut c_char,
+    __jobvsr: *mut c_char,
+    __sort: *mut c_char,
+    __selctg: __CLPK_L_fp,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __beta: *mut __CLPK_complex,
+    __vsl: *mut __CLPK_complex,
+    __ldvsl: *mut __CLPK_integer,
+    __vsr: *mut __CLPK_complex,
+    __ldvsr: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgges_(
+        __jobvsl,
+        __jobvsr,
+        __sort,
+        __selctg,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __sdim,
+        __alpha,
+        __beta,
+        __vsl,
+        __ldvsl,
+        __vsr,
+        __ldvsr,
+        __work,
+        __lwork,
+        __rwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cggesx_(
+    __jobvsl: *mut c_char,
+    __jobvsr: *mut c_char,
+    __sort: *mut c_char,
+    __selctg: __CLPK_L_fp,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __beta: *mut __CLPK_complex,
+    __vsl: *mut __CLPK_complex,
+    __ldvsl: *mut __CLPK_integer,
+    __vsr: *mut __CLPK_complex,
+    __ldvsr: *mut __CLPK_integer,
+    __rconde: *mut __CLPK_real,
+    __rcondv: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cggesx_(
+        __jobvsl,
+        __jobvsr,
+        __sort,
+        __selctg,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __sdim,
+        __alpha,
+        __beta,
+        __vsl,
+        __ldvsl,
+        __vsr,
+        __ldvsr,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __rwork,
+        __iwork,
+        __liwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cggev_(
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __beta: *mut __CLPK_complex,
+    __vl: *mut __CLPK_complex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_complex,
+    __ldvr: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cggev_(
+        __jobvl,
+        __jobvr,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cggevx_(
+    __balanc: *mut c_char,
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __beta: *mut __CLPK_complex,
+    __vl: *mut __CLPK_complex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_complex,
+    __ldvr: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __lscale: *mut __CLPK_real,
+    __rscale: *mut __CLPK_real,
+    __abnrm: *mut __CLPK_real,
+    __bbnrm: *mut __CLPK_real,
+    __rconde: *mut __CLPK_real,
+    __rcondv: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cggevx_(
+        __balanc,
+        __jobvl,
+        __jobvr,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __ilo,
+        __ihi,
+        __lscale,
+        __rscale,
+        __abnrm,
+        __bbnrm,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __rwork,
+        __iwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cggglm_(
+    __n: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __d__: *mut __CLPK_complex,
+    __x: *mut __CLPK_complex,
+    __y: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cggglm_(
+        __n,
+        __m,
+        __p,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __d__,
+        __x,
+        __y,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgghrd_(
+    __compq: *mut c_char,
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgghrd_(
+        __compq,
+        __compz,
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgglse_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_complex,
+    __d__: *mut __CLPK_complex,
+    __x: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgglse_(
+        __m,
+        __n,
+        __p,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __d__,
+        __x,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cggqrf_(
+    __n: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __taua: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __taub: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cggqrf_(
+        __n,
+        __m,
+        __p,
+        __a,
+        __lda,
+        __taua,
+        __b,
+        __ldb,
+        __taub,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cggrqf_(
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __taua: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __taub: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cggrqf_(
+        __m,
+        __p,
+        __n,
+        __a,
+        __lda,
+        __taua,
+        __b,
+        __ldb,
+        __taub,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cggsvd_(
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobq: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __u: *mut __CLPK_complex,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __ldv: *mut __CLPK_integer,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cggsvd_(
+        __jobu,
+        __jobv,
+        __jobq,
+        __m,
+        __n,
+        __p,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __q,
+        __ldq,
+        __work,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cggsvp_(
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobq: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __tola: *mut __CLPK_real,
+    __tolb: *mut __CLPK_real,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __u: *mut __CLPK_complex,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __ldv: *mut __CLPK_integer,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cggsvp_(
+        __jobu,
+        __jobv,
+        __jobq,
+        __m,
+        __p,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __tola,
+        __tolb,
+        __k,
+        __l,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __q,
+        __ldq,
+        __iwork,
+        __rwork,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgtcon_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __dl: *mut __CLPK_complex,
+    __d__: *mut __CLPK_complex,
+    __du: *mut __CLPK_complex,
+    __du2: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgtcon_(
+        __norm,
+        __n,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgtrfs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_complex,
+    __d__: *mut __CLPK_complex,
+    __du: *mut __CLPK_complex,
+    __dlf: *mut __CLPK_complex,
+    __df: *mut __CLPK_complex,
+    __duf: *mut __CLPK_complex,
+    __du2: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgtrfs_(
+        __trans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __dlf,
+        __df,
+        __duf,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgtsv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_complex,
+    __d__: *mut __CLPK_complex,
+    __du: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgtsv_(
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgtsvx_(
+    __fact: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_complex,
+    __d__: *mut __CLPK_complex,
+    __du: *mut __CLPK_complex,
+    __dlf: *mut __CLPK_complex,
+    __df: *mut __CLPK_complex,
+    __duf: *mut __CLPK_complex,
+    __du2: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgtsvx_(
+        __fact,
+        __trans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __dlf,
+        __df,
+        __duf,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgttrf_(
+    __n: *mut __CLPK_integer,
+    __dl: *mut __CLPK_complex,
+    __d__: *mut __CLPK_complex,
+    __du: *mut __CLPK_complex,
+    __du2: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgttrf_(
+        __n,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgttrs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_complex,
+    __d__: *mut __CLPK_complex,
+    __du: *mut __CLPK_complex,
+    __du2: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cgttrs_(
+        __trans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cgtts2_(
+    __itrans: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_complex,
+    __d__: *mut __CLPK_complex,
+    __du: *mut __CLPK_complex,
+    __du2: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    cgtts2_(
+        __itrans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chbev_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chbev_(
+        __jobz,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chbevd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chbevd_(
+        __jobz,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chbevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chbevx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __q,
+        __ldq,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chbgst_(
+    __vect: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_complex,
+    __ldbb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chbgst_(
+        __vect,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __x,
+        __ldx,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chbgv_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_complex,
+    __ldbb: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chbgv_(
+        __jobz,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chbgvd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_complex,
+    __ldbb: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chbgvd_(
+        __jobz,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chbgvx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_complex,
+    __ldbb: *mut __CLPK_integer,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chbgvx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __q,
+        __ldq,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chbtrd_(
+    __vect: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chbtrd_(
+        __vect,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __d__,
+        __e,
+        __q,
+        __ldq,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_checon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    checon_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cheequb_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cheequb_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cheev_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cheev_(
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __w,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cheevd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cheevd_(
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __w,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cheevr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cheevr_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cheevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cheevx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chegs2_(
+    __itype: *mut __CLPK_integer,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chegs2_(
+        __itype,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chegst_(
+    __itype: *mut __CLPK_integer,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chegst_(
+        __itype,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chegv_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chegv_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __w,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chegvd_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chegvd_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __w,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chegvx_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chegvx_(
+        __itype,
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cherfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_complex,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cherfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chesv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chesv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chesvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_complex,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chesvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chetd2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __tau: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chetd2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chetf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chetf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chetrd_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chetrd_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chetrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chetrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chetri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chetri_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chetrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chetrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chfrk_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_real,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __beta: *mut __CLPK_real,
+    __c__: *mut __CLPK_complex
+) -> c_int
+{
+    chfrk_(
+        __transr,
+        __uplo,
+        __trans,
+        __n,
+        __k,
+        __alpha,
+        __a,
+        __lda,
+        __beta,
+        __c__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chgeqz_(
+    __job: *mut c_char,
+    __compq: *mut c_char,
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_complex,
+    __ldh: *mut __CLPK_integer,
+    __t: *mut __CLPK_complex,
+    __ldt: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __beta: *mut __CLPK_complex,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chgeqz_(
+        __job,
+        __compq,
+        __compz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __t,
+        __ldt,
+        __alpha,
+        __beta,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chla_transtype__(
+    __ret_val: *mut c_char,
+    __ret_val_len: __CLPK_ftnlen,
+    __trans: *mut __CLPK_integer
+)
+{
+    chla_transtype__(
+        __ret_val,
+        __ret_val_len,
+        __trans
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chpcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chpcon_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chpev_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chpev_(
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chpevd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chpevd_(
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chpevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chpevx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __ap,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chpgst_(
+    __itype: *mut __CLPK_integer,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __bp: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chpgst_(
+        __itype,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chpgv_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __bp: *mut __CLPK_complex,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chpgv_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chpgvd_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __bp: *mut __CLPK_complex,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chpgvd_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chpgvx_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __bp: *mut __CLPK_complex,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chpgvx_(
+        __itype,
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chprfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __afp: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chprfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chpsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chpsv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chpsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __afp: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chpsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chptrd_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __tau: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chptrd_(
+        __uplo,
+        __n,
+        __ap,
+        __d__,
+        __e,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chptrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chptrf_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chptri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chptri_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chptrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chptrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chsein_(
+    __side: *mut c_char,
+    __eigsrc: *mut c_char,
+    __initv: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __h__: *mut __CLPK_complex,
+    __ldh: *mut __CLPK_integer,
+    __w: *mut __CLPK_complex,
+    __vl: *mut __CLPK_complex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_complex,
+    __ldvr: *mut __CLPK_integer,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __ifaill: *mut __CLPK_integer,
+    __ifailr: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chsein_(
+        __side,
+        __eigsrc,
+        __initv,
+        __select,
+        __n,
+        __h__,
+        __ldh,
+        __w,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __mm,
+        __m,
+        __work,
+        __rwork,
+        __ifaill,
+        __ifailr,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_chseqr_(
+    __job: *mut c_char,
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_complex,
+    __ldh: *mut __CLPK_integer,
+    __w: *mut __CLPK_complex,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    chseqr_(
+        __job,
+        __compz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clabrd_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __tauq: *mut __CLPK_complex,
+    __taup: *mut __CLPK_complex,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __y: *mut __CLPK_complex,
+    __ldy: *mut __CLPK_integer
+) -> c_int
+{
+    clabrd_(
+        __m,
+        __n,
+        __nb,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tauq,
+        __taup,
+        __x,
+        __ldx,
+        __y,
+        __ldy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clacgv_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer
+) -> c_int
+{
+    clacgv_(
+        __n,
+        __x,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clacn2_(
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __x: *mut __CLPK_complex,
+    __est: *mut __CLPK_real,
+    __kase: *mut __CLPK_integer,
+    __isave: *mut __CLPK_integer
+) -> c_int
+{
+    clacn2_(
+        __n,
+        __v,
+        __x,
+        __est,
+        __kase,
+        __isave
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clacon_(
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __x: *mut __CLPK_complex,
+    __est: *mut __CLPK_real,
+    __kase: *mut __CLPK_integer
+) -> c_int
+{
+    clacon_(
+        __n,
+        __v,
+        __x,
+        __est,
+        __kase
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clacp2_(
+    __uplo: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    clacp2_(
+        __uplo,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clacpy_(
+    __uplo: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    clacpy_(
+        __uplo,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clacrm_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real
+) -> c_int
+{
+    clacrm_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __rwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clacrt_(
+    __n: *mut __CLPK_integer,
+    __cx: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer,
+    __cy: *mut __CLPK_complex,
+    __incy: *mut __CLPK_integer,
+    __c__: *mut __CLPK_complex,
+    __s: *mut __CLPK_complex
+) -> c_int
+{
+    clacrt_(
+        __n,
+        __cx,
+        __incx,
+        __cy,
+        __incy,
+        __c__,
+        __s
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cladiv_(
+    __ret_val: *mut __CLPK_complex,
+    __x: *mut __CLPK_complex,
+    __y: *mut __CLPK_complex
+)
+{
+    cladiv_(
+        __ret_val,
+        __x,
+        __y
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claed0_(
+    __qsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __qstore: *mut __CLPK_complex,
+    __ldqs: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    claed0_(
+        __qsiz,
+        __n,
+        __d__,
+        __e,
+        __q,
+        __ldq,
+        __qstore,
+        __ldqs,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claed7_(
+    __n: *mut __CLPK_integer,
+    __cutpnt: *mut __CLPK_integer,
+    __qsiz: *mut __CLPK_integer,
+    __tlvls: *mut __CLPK_integer,
+    __curlvl: *mut __CLPK_integer,
+    __curpbm: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_real,
+    __indxq: *mut __CLPK_integer,
+    __qstore: *mut __CLPK_real,
+    __qptr: *mut __CLPK_integer,
+    __prmptr: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    claed7_(
+        __n,
+        __cutpnt,
+        __qsiz,
+        __tlvls,
+        __curlvl,
+        __curpbm,
+        __d__,
+        __q,
+        __ldq,
+        __rho,
+        __indxq,
+        __qstore,
+        __qptr,
+        __prmptr,
+        __perm,
+        __givptr,
+        __givcol,
+        __givnum,
+        __work,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claed8_(
+    __k: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __qsiz: *mut __CLPK_integer,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __rho: *mut __CLPK_real,
+    __cutpnt: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __dlamda: *mut __CLPK_real,
+    __q2: *mut __CLPK_complex,
+    __ldq2: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __indxp: *mut __CLPK_integer,
+    __indx: *mut __CLPK_integer,
+    __indxq: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    claed8_(
+        __k,
+        __n,
+        __qsiz,
+        __q,
+        __ldq,
+        __d__,
+        __rho,
+        __cutpnt,
+        __z__,
+        __dlamda,
+        __q2,
+        __ldq2,
+        __w,
+        __indxp,
+        __indx,
+        __indxq,
+        __perm,
+        __givptr,
+        __givcol,
+        __givnum,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claein_(
+    __rightv: *mut __CLPK_logical,
+    __noinit: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __h__: *mut __CLPK_complex,
+    __ldh: *mut __CLPK_integer,
+    __w: *mut __CLPK_complex,
+    __v: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __eps3: *mut __CLPK_real,
+    __smlnum: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    claein_(
+        __rightv,
+        __noinit,
+        __n,
+        __h__,
+        __ldh,
+        __w,
+        __v,
+        __b,
+        __ldb,
+        __rwork,
+        __eps3,
+        __smlnum,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claesy_(
+    __a: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __rt1: *mut __CLPK_complex,
+    __rt2: *mut __CLPK_complex,
+    __evscal: *mut __CLPK_complex,
+    __cs1: *mut __CLPK_complex,
+    __sn1: *mut __CLPK_complex
+) -> c_int
+{
+    claesy_(
+        __a,
+        __b,
+        __c__,
+        __rt1,
+        __rt2,
+        __evscal,
+        __cs1,
+        __sn1
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claev2_(
+    __a: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __rt1: *mut __CLPK_real,
+    __rt2: *mut __CLPK_real,
+    __cs1: *mut __CLPK_real,
+    __sn1: *mut __CLPK_complex
+) -> c_int
+{
+    claev2_(
+        __a,
+        __b,
+        __c__,
+        __rt1,
+        __rt2,
+        __cs1,
+        __sn1
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clag2z_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __sa: *mut __CLPK_complex,
+    __ldsa: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clag2z_(
+        __m,
+        __n,
+        __sa,
+        __ldsa,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clags2_(
+    __upper: *mut __CLPK_logical,
+    __a1: *mut __CLPK_real,
+    __a2: *mut __CLPK_complex,
+    __a3: *mut __CLPK_real,
+    __b1: *mut __CLPK_real,
+    __b2: *mut __CLPK_complex,
+    __b3: *mut __CLPK_real,
+    __csu: *mut __CLPK_real,
+    __snu: *mut __CLPK_complex,
+    __csv: *mut __CLPK_real,
+    __snv: *mut __CLPK_complex,
+    __csq: *mut __CLPK_real,
+    __snq: *mut __CLPK_complex
+) -> c_int
+{
+    clags2_(
+        __upper,
+        __a1,
+        __a2,
+        __a3,
+        __b1,
+        __b2,
+        __b3,
+        __csu,
+        __snu,
+        __csv,
+        __snv,
+        __csq,
+        __snq
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clagtm_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_real,
+    __dl: *mut __CLPK_complex,
+    __d__: *mut __CLPK_complex,
+    __du: *mut __CLPK_complex,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __beta: *mut __CLPK_real,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    clagtm_(
+        __trans,
+        __n,
+        __nrhs,
+        __alpha,
+        __dl,
+        __d__,
+        __du,
+        __x,
+        __ldx,
+        __beta,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clahef_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __w: *mut __CLPK_complex,
+    __ldw: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clahef_(
+        __uplo,
+        __n,
+        __nb,
+        __kb,
+        __a,
+        __lda,
+        __ipiv,
+        __w,
+        __ldw,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clahqr_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_complex,
+    __ldh: *mut __CLPK_integer,
+    __w: *mut __CLPK_complex,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clahqr_(
+        __wantt,
+        __wantz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __w,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clahr2_(
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __t: *mut __CLPK_complex,
+    __ldt: *mut __CLPK_integer,
+    __y: *mut __CLPK_complex,
+    __ldy: *mut __CLPK_integer
+) -> c_int
+{
+    clahr2_(
+        __n,
+        __k,
+        __nb,
+        __a,
+        __lda,
+        __tau,
+        __t,
+        __ldt,
+        __y,
+        __ldy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clahrd_(
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __t: *mut __CLPK_complex,
+    __ldt: *mut __CLPK_integer,
+    __y: *mut __CLPK_complex,
+    __ldy: *mut __CLPK_integer
+) -> c_int
+{
+    clahrd_(
+        __n,
+        __k,
+        __nb,
+        __a,
+        __lda,
+        __tau,
+        __t,
+        __ldt,
+        __y,
+        __ldy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claic1_(
+    __job: *mut __CLPK_integer,
+    __j: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __sest: *mut __CLPK_real,
+    __w: *mut __CLPK_complex,
+    __gamma: *mut __CLPK_complex,
+    __sestpr: *mut __CLPK_real,
+    __s: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex
+) -> c_int
+{
+    claic1_(
+        __job,
+        __j,
+        __x,
+        __sest,
+        __w,
+        __gamma,
+        __sestpr,
+        __s,
+        __c__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clals0_(
+    __icompq: *mut __CLPK_integer,
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __bx: *mut __CLPK_complex,
+    __ldbx: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_real,
+    __ldgnum: *mut __CLPK_integer,
+    __poles: *mut __CLPK_real,
+    __difl: *mut __CLPK_real,
+    __difr: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __k: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clals0_(
+        __icompq,
+        __nl,
+        __nr,
+        __sqre,
+        __nrhs,
+        __b,
+        __ldb,
+        __bx,
+        __ldbx,
+        __perm,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __givnum,
+        __ldgnum,
+        __poles,
+        __difl,
+        __difr,
+        __z__,
+        __k,
+        __c__,
+        __s,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clalsa_(
+    __icompq: *mut __CLPK_integer,
+    __smlsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __bx: *mut __CLPK_complex,
+    __ldbx: *mut __CLPK_integer,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_real,
+    __k: *mut __CLPK_integer,
+    __difl: *mut __CLPK_real,
+    __difr: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __poles: *mut __CLPK_real,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clalsa_(
+        __icompq,
+        __smlsiz,
+        __n,
+        __nrhs,
+        __b,
+        __ldb,
+        __bx,
+        __ldbx,
+        __u,
+        __ldu,
+        __vt,
+        __k,
+        __difl,
+        __difr,
+        __z__,
+        __poles,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __perm,
+        __givnum,
+        __c__,
+        __s,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clalsd_(
+    __uplo: *mut c_char,
+    __smlsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clalsd_(
+        __uplo,
+        __smlsiz,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb,
+        __rcond,
+        __rank,
+        __work,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clangb_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    clangb_(
+        __norm,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clange_(
+    __norm: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    clange_(
+        __norm,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clangt_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __dl: *mut __CLPK_complex,
+    __d__: *mut __CLPK_complex,
+    __du: *mut __CLPK_complex
+) -> __CLPK_doublereal
+{
+    clangt_(
+        __norm,
+        __n,
+        __dl,
+        __d__,
+        __du
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clanhb_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    clanhb_(
+        __norm,
+        __uplo,
+        __n,
+        __k,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clanhe_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    clanhe_(
+        __norm,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clanhf_(
+    __norm: *mut c_char,
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    clanhf_(
+        __norm,
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clanhp_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    clanhp_(
+        __norm,
+        __uplo,
+        __n,
+        __ap,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clanhs_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    clanhs_(
+        __norm,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clanht_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_complex
+) -> __CLPK_doublereal
+{
+    clanht_(
+        __norm,
+        __n,
+        __d__,
+        __e
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clansb_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    clansb_(
+        __norm,
+        __uplo,
+        __n,
+        __k,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clansp_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    clansp_(
+        __norm,
+        __uplo,
+        __n,
+        __ap,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clansy_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    clansy_(
+        __norm,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clantb_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    clantb_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __k,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clantp_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    clantp_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __ap,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clantr_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    clantr_(
+        __norm,
+        __uplo,
+        __diag,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clapll_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer,
+    __y: *mut __CLPK_complex,
+    __incy: *mut __CLPK_integer,
+    __ssmin: *mut __CLPK_real
+) -> c_int
+{
+    clapll_(
+        __n,
+        __x,
+        __incx,
+        __y,
+        __incy,
+        __ssmin
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clapmt_(
+    __forwrd: *mut __CLPK_logical,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer
+) -> c_int
+{
+    clapmt_(
+        __forwrd,
+        __m,
+        __n,
+        __x,
+        __ldx,
+        __k
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqgb_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rowcnd: *mut __CLPK_real,
+    __colcnd: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __equed: *mut c_char
+) -> c_int
+{
+    claqgb_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqge_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rowcnd: *mut __CLPK_real,
+    __colcnd: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __equed: *mut c_char
+) -> c_int
+{
+    claqge_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqhb_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __equed: *mut c_char
+) -> c_int
+{
+    claqhb_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqhe_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __equed: *mut c_char
+) -> c_int
+{
+    claqhe_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqhp_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __equed: *mut c_char
+) -> c_int
+{
+    claqhp_(
+        __uplo,
+        __n,
+        __ap,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqp2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __offset: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __vn1: *mut __CLPK_real,
+    __vn2: *mut __CLPK_real,
+    __work: *mut __CLPK_complex
+) -> c_int
+{
+    claqp2_(
+        __m,
+        __n,
+        __offset,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __vn1,
+        __vn2,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqps_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __offset: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __vn1: *mut __CLPK_real,
+    __vn2: *mut __CLPK_real,
+    __auxv: *mut __CLPK_complex,
+    __f: *mut __CLPK_complex,
+    __ldf: *mut __CLPK_integer
+) -> c_int
+{
+    claqps_(
+        __m,
+        __n,
+        __offset,
+        __nb,
+        __kb,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __vn1,
+        __vn2,
+        __auxv,
+        __f,
+        __ldf
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqr0_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_complex,
+    __ldh: *mut __CLPK_integer,
+    __w: *mut __CLPK_complex,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    claqr0_(
+        __wantt,
+        __wantz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __w,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqr1_(
+    __n: *mut __CLPK_integer,
+    __h__: *mut __CLPK_complex,
+    __ldh: *mut __CLPK_integer,
+    __s1: *mut __CLPK_complex,
+    __s2: *mut __CLPK_complex,
+    __v: *mut __CLPK_complex
+) -> c_int
+{
+    claqr1_(
+        __n,
+        __h__,
+        __ldh,
+        __s1,
+        __s2,
+        __v
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqr2_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ktop: *mut __CLPK_integer,
+    __kbot: *mut __CLPK_integer,
+    __nw: *mut __CLPK_integer,
+    __h__: *mut __CLPK_complex,
+    __ldh: *mut __CLPK_integer,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __ns: *mut __CLPK_integer,
+    __nd: *mut __CLPK_integer,
+    __sh: *mut __CLPK_complex,
+    __v: *mut __CLPK_complex,
+    __ldv: *mut __CLPK_integer,
+    __nh: *mut __CLPK_integer,
+    __t: *mut __CLPK_complex,
+    __ldt: *mut __CLPK_integer,
+    __nv: *mut __CLPK_integer,
+    __wv: *mut __CLPK_complex,
+    __ldwv: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer
+) -> c_int
+{
+    claqr2_(
+        __wantt,
+        __wantz,
+        __n,
+        __ktop,
+        __kbot,
+        __nw,
+        __h__,
+        __ldh,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __ns,
+        __nd,
+        __sh,
+        __v,
+        __ldv,
+        __nh,
+        __t,
+        __ldt,
+        __nv,
+        __wv,
+        __ldwv,
+        __work,
+        __lwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqr3_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ktop: *mut __CLPK_integer,
+    __kbot: *mut __CLPK_integer,
+    __nw: *mut __CLPK_integer,
+    __h__: *mut __CLPK_complex,
+    __ldh: *mut __CLPK_integer,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __ns: *mut __CLPK_integer,
+    __nd: *mut __CLPK_integer,
+    __sh: *mut __CLPK_complex,
+    __v: *mut __CLPK_complex,
+    __ldv: *mut __CLPK_integer,
+    __nh: *mut __CLPK_integer,
+    __t: *mut __CLPK_complex,
+    __ldt: *mut __CLPK_integer,
+    __nv: *mut __CLPK_integer,
+    __wv: *mut __CLPK_complex,
+    __ldwv: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer
+) -> c_int
+{
+    claqr3_(
+        __wantt,
+        __wantz,
+        __n,
+        __ktop,
+        __kbot,
+        __nw,
+        __h__,
+        __ldh,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __ns,
+        __nd,
+        __sh,
+        __v,
+        __ldv,
+        __nh,
+        __t,
+        __ldt,
+        __nv,
+        __wv,
+        __ldwv,
+        __work,
+        __lwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqr4_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_complex,
+    __ldh: *mut __CLPK_integer,
+    __w: *mut __CLPK_complex,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    claqr4_(
+        __wantt,
+        __wantz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __w,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqr5_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __kacc22: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ktop: *mut __CLPK_integer,
+    __kbot: *mut __CLPK_integer,
+    __nshfts: *mut __CLPK_integer,
+    __s: *mut __CLPK_complex,
+    __h__: *mut __CLPK_complex,
+    __ldh: *mut __CLPK_integer,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __ldv: *mut __CLPK_integer,
+    __u: *mut __CLPK_complex,
+    __ldu: *mut __CLPK_integer,
+    __nv: *mut __CLPK_integer,
+    __wv: *mut __CLPK_complex,
+    __ldwv: *mut __CLPK_integer,
+    __nh: *mut __CLPK_integer,
+    __wh: *mut __CLPK_complex,
+    __ldwh: *mut __CLPK_integer
+) -> c_int
+{
+    claqr5_(
+        __wantt,
+        __wantz,
+        __kacc22,
+        __n,
+        __ktop,
+        __kbot,
+        __nshfts,
+        __s,
+        __h__,
+        __ldh,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __v,
+        __ldv,
+        __u,
+        __ldu,
+        __nv,
+        __wv,
+        __ldwv,
+        __nh,
+        __wh,
+        __ldwh
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqsb_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __equed: *mut c_char
+) -> c_int
+{
+    claqsb_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqsp_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __equed: *mut c_char
+) -> c_int
+{
+    claqsp_(
+        __uplo,
+        __n,
+        __ap,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claqsy_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __equed: *mut c_char
+) -> c_int
+{
+    claqsy_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clar1v_(
+    __n: *mut __CLPK_integer,
+    __b1: *mut __CLPK_integer,
+    __bn: *mut __CLPK_integer,
+    __lambda: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __l: *mut __CLPK_real,
+    __ld: *mut __CLPK_real,
+    __lld: *mut __CLPK_real,
+    __pivmin: *mut __CLPK_real,
+    __gaptol: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __wantnc: *mut __CLPK_logical,
+    __negcnt: *mut __CLPK_integer,
+    __ztz: *mut __CLPK_real,
+    __mingma: *mut __CLPK_real,
+    __r__: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __nrminv: *mut __CLPK_real,
+    __resid: *mut __CLPK_real,
+    __rqcorr: *mut __CLPK_real,
+    __work: *mut __CLPK_real
+) -> c_int
+{
+    clar1v_(
+        __n,
+        __b1,
+        __bn,
+        __lambda,
+        __d__,
+        __l,
+        __ld,
+        __lld,
+        __pivmin,
+        __gaptol,
+        __z__,
+        __wantnc,
+        __negcnt,
+        __ztz,
+        __mingma,
+        __r__,
+        __isuppz,
+        __nrminv,
+        __resid,
+        __rqcorr,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clar2v_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __y: *mut __CLPK_complex,
+    __z__: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_complex,
+    __incc: *mut __CLPK_integer
+) -> c_int
+{
+    clar2v_(
+        __n,
+        __x,
+        __y,
+        __z__,
+        __incx,
+        __c__,
+        __s,
+        __incc
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clarcm_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real
+) -> c_int
+{
+    clarcm_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __rwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clarf_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __incv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex
+) -> c_int
+{
+    clarf_(
+        __side,
+        __m,
+        __n,
+        __v,
+        __incv,
+        __tau,
+        __c__,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clarfb_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __ldv: *mut __CLPK_integer,
+    __t: *mut __CLPK_complex,
+    __ldt: *mut __CLPK_integer,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __ldwork: *mut __CLPK_integer
+) -> c_int
+{
+    clarfb_(
+        __side,
+        __trans,
+        __direct,
+        __storev,
+        __m,
+        __n,
+        __k,
+        __v,
+        __ldv,
+        __t,
+        __ldt,
+        __c__,
+        __ldc,
+        __work,
+        __ldwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clarfg_(
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __x: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex
+) -> c_int
+{
+    clarfg_(
+        __n,
+        __alpha,
+        __x,
+        __incx,
+        __tau
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clarfp_(
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __x: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex
+) -> c_int
+{
+    clarfp_(
+        __n,
+        __alpha,
+        __x,
+        __incx,
+        __tau
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clarft_(
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __ldv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __t: *mut __CLPK_complex,
+    __ldt: *mut __CLPK_integer
+) -> c_int
+{
+    clarft_(
+        __direct,
+        __storev,
+        __n,
+        __k,
+        __v,
+        __ldv,
+        __tau,
+        __t,
+        __ldt
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clarfx_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex
+) -> c_int
+{
+    clarfx_(
+        __side,
+        __m,
+        __n,
+        __v,
+        __tau,
+        __c__,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clargv_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer,
+    __y: *mut __CLPK_complex,
+    __incy: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __incc: *mut __CLPK_integer
+) -> c_int
+{
+    clargv_(
+        __n,
+        __x,
+        __incx,
+        __y,
+        __incy,
+        __c__,
+        __incc
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clarnv_(
+    __idist: *mut __CLPK_integer,
+    __iseed: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex
+) -> c_int
+{
+    clarnv_(
+        __idist,
+        __iseed,
+        __n,
+        __x
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clarrv_(
+    __n: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __l: *mut __CLPK_real,
+    __pivmin: *mut __CLPK_real,
+    __isplit: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __dol: *mut __CLPK_integer,
+    __dou: *mut __CLPK_integer,
+    __minrgp: *mut __CLPK_real,
+    __rtol1: *mut __CLPK_real,
+    __rtol2: *mut __CLPK_real,
+    __w: *mut __CLPK_real,
+    __werr: *mut __CLPK_real,
+    __wgap: *mut __CLPK_real,
+    __iblock: *mut __CLPK_integer,
+    __indexw: *mut __CLPK_integer,
+    __gers: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clarrv_(
+        __n,
+        __vl,
+        __vu,
+        __d__,
+        __l,
+        __pivmin,
+        __isplit,
+        __m,
+        __dol,
+        __dou,
+        __minrgp,
+        __rtol1,
+        __rtol2,
+        __w,
+        __werr,
+        __wgap,
+        __iblock,
+        __indexw,
+        __gers,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clarscl2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer
+) -> c_int
+{
+    clarscl2_(
+        __m,
+        __n,
+        __d__,
+        __x,
+        __ldx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clartg_(
+    __f: *mut __CLPK_complex,
+    __g: *mut __CLPK_complex,
+    __cs: *mut __CLPK_real,
+    __sn: *mut __CLPK_complex,
+    __r__: *mut __CLPK_complex
+) -> c_int
+{
+    clartg_(
+        __f,
+        __g,
+        __cs,
+        __sn,
+        __r__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clartv_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer,
+    __y: *mut __CLPK_complex,
+    __incy: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_complex,
+    __incc: *mut __CLPK_integer
+) -> c_int
+{
+    clartv_(
+        __n,
+        __x,
+        __incx,
+        __y,
+        __incy,
+        __c__,
+        __s,
+        __incc
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clarz_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __incv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex
+) -> c_int
+{
+    clarz_(
+        __side,
+        __m,
+        __n,
+        __l,
+        __v,
+        __incv,
+        __tau,
+        __c__,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clarzb_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __ldv: *mut __CLPK_integer,
+    __t: *mut __CLPK_complex,
+    __ldt: *mut __CLPK_integer,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __ldwork: *mut __CLPK_integer
+) -> c_int
+{
+    clarzb_(
+        __side,
+        __trans,
+        __direct,
+        __storev,
+        __m,
+        __n,
+        __k,
+        __l,
+        __v,
+        __ldv,
+        __t,
+        __ldt,
+        __c__,
+        __ldc,
+        __work,
+        __ldwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clarzt_(
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __ldv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __t: *mut __CLPK_complex,
+    __ldt: *mut __CLPK_integer
+) -> c_int
+{
+    clarzt_(
+        __direct,
+        __storev,
+        __n,
+        __k,
+        __v,
+        __ldv,
+        __tau,
+        __t,
+        __ldt
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clascl_(
+    __type__: *mut c_char,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __cfrom: *mut __CLPK_real,
+    __cto: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clascl_(
+        __type__,
+        __kl,
+        __ku,
+        __cfrom,
+        __cto,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clascl2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer
+) -> c_int
+{
+    clascl2_(
+        __m,
+        __n,
+        __d__,
+        __x,
+        __ldx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claset_(
+    __uplo: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __beta: *mut __CLPK_complex,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer
+) -> c_int
+{
+    claset_(
+        __uplo,
+        __m,
+        __n,
+        __alpha,
+        __beta,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clasr_(
+    __side: *mut c_char,
+    __pivot: *mut c_char,
+    __direct: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer
+) -> c_int
+{
+    clasr_(
+        __side,
+        __pivot,
+        __direct,
+        __m,
+        __n,
+        __c__,
+        __s,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_classq_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __sumsq: *mut __CLPK_real
+) -> c_int
+{
+    classq_(
+        __n,
+        __x,
+        __incx,
+        __scale,
+        __sumsq
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_claswp_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __k1: *mut __CLPK_integer,
+    __k2: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __incx: *mut __CLPK_integer
+) -> c_int
+{
+    claswp_(
+        __n,
+        __a,
+        __lda,
+        __k1,
+        __k2,
+        __ipiv,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clasyf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __w: *mut __CLPK_complex,
+    __ldw: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clasyf_(
+        __uplo,
+        __n,
+        __nb,
+        __kb,
+        __a,
+        __lda,
+        __ipiv,
+        __w,
+        __ldw,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clatbs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __normin: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __scale: *mut __CLPK_real,
+    __cnorm: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clatbs_(
+        __uplo,
+        __trans,
+        __diag,
+        __normin,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __x,
+        __scale,
+        __cnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clatdf_(
+    __ijob: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __rhs: *mut __CLPK_complex,
+    __rdsum: *mut __CLPK_real,
+    __rdscal: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __jpiv: *mut __CLPK_integer
+) -> c_int
+{
+    clatdf_(
+        __ijob,
+        __n,
+        __z__,
+        __ldz,
+        __rhs,
+        __rdsum,
+        __rdscal,
+        __ipiv,
+        __jpiv
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clatps_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __normin: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __x: *mut __CLPK_complex,
+    __scale: *mut __CLPK_real,
+    __cnorm: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clatps_(
+        __uplo,
+        __trans,
+        __diag,
+        __normin,
+        __n,
+        __ap,
+        __x,
+        __scale,
+        __cnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clatrd_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __e: *mut __CLPK_real,
+    __tau: *mut __CLPK_complex,
+    __w: *mut __CLPK_complex,
+    __ldw: *mut __CLPK_integer
+) -> c_int
+{
+    clatrd_(
+        __uplo,
+        __n,
+        __nb,
+        __a,
+        __lda,
+        __e,
+        __tau,
+        __w,
+        __ldw
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clatrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __normin: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __scale: *mut __CLPK_real,
+    __cnorm: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clatrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __normin,
+        __n,
+        __a,
+        __lda,
+        __x,
+        __scale,
+        __cnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clatrz_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex
+) -> c_int
+{
+    clatrz_(
+        __m,
+        __n,
+        __l,
+        __a,
+        __lda,
+        __tau,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clatzm_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __incv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c1: *mut __CLPK_complex,
+    __c2: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex
+) -> c_int
+{
+    clatzm_(
+        __side,
+        __m,
+        __n,
+        __v,
+        __incv,
+        __tau,
+        __c1,
+        __c2,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clauu2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clauu2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_clauum_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    clauum_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpbcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpbcon_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __anorm,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpbequ_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpbequ_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpbrfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_complex,
+    __ldafb: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpbrfs_(
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpbstf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpbstf_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpbsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpbsv_(
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpbsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_complex,
+    __ldafb: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __s: *mut __CLPK_real,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpbsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __equed,
+        __s,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpbtf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpbtf2_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpbtrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpbtrf_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpbtrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpbtrs_(
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpftrf_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpftrf_(
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpftri_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpftri_(
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpftrs_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpftrs_(
+        __transr,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpocon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpocon_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __anorm,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpoequ_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpoequ_(
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpoequb_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpoequb_(
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cporfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_complex,
+    __ldaf: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cporfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cposv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cposv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cposvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_complex,
+    __ldaf: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __s: *mut __CLPK_real,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cposvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __equed,
+        __s,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpotf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpotf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpotrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpotrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpotri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpotri_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpotrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpotrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cppcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cppcon_(
+        __uplo,
+        __n,
+        __ap,
+        __anorm,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cppequ_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cppequ_(
+        __uplo,
+        __n,
+        __ap,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpprfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __afp: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpprfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cppsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cppsv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cppsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __afp: *mut __CLPK_complex,
+    __equed: *mut c_char,
+    __s: *mut __CLPK_real,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cppsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __equed,
+        __s,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpptrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpptrf_(
+        __uplo,
+        __n,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpptri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpptri_(
+        __uplo,
+        __n,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpptrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpptrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpstf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __piv: *mut __CLPK_integer,
+    __rank: *mut __CLPK_integer,
+    __tol: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpstf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __piv,
+        __rank,
+        __tol,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpstrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __piv: *mut __CLPK_integer,
+    __rank: *mut __CLPK_integer,
+    __tol: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpstrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __piv,
+        __rank,
+        __tol,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cptcon_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_complex,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cptcon_(
+        __n,
+        __d__,
+        __e,
+        __anorm,
+        __rcond,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpteqr_(
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpteqr_(
+        __compz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cptrfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_complex,
+    __df: *mut __CLPK_real,
+    __ef: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cptrfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __df,
+        __ef,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cptsv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cptsv_(
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cptsvx_(
+    __fact: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_complex,
+    __df: *mut __CLPK_real,
+    __ef: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cptsvx_(
+        __fact,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __df,
+        __ef,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpttrf_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpttrf_(
+        __n,
+        __d__,
+        __e,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cpttrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cpttrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cptts2_(
+    __iuplo: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    cptts2_(
+        __iuplo,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_crot_(
+    __n: *mut __CLPK_integer,
+    __cx: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer,
+    __cy: *mut __CLPK_complex,
+    __incy: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_complex
+) -> c_int
+{
+    crot_(
+        __n,
+        __cx,
+        __incx,
+        __cy,
+        __incy,
+        __c__,
+        __s
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cspcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cspcon_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cspmv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __ap: *mut __CLPK_complex,
+    __x: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer,
+    __beta: *mut __CLPK_complex,
+    __y: *mut __CLPK_complex,
+    __incy: *mut __CLPK_integer
+) -> c_int
+{
+    cspmv_(
+        __uplo,
+        __n,
+        __alpha,
+        __ap,
+        __x,
+        __incx,
+        __beta,
+        __y,
+        __incy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cspr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __x: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex
+) -> c_int
+{
+    cspr_(
+        __uplo,
+        __n,
+        __alpha,
+        __x,
+        __incx,
+        __ap
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csprfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __afp: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csprfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cspsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cspsv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cspsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __afp: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cspsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csptrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csptrf_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csptri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csptri_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csptrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csptrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csrscl_(
+    __n: *mut __CLPK_integer,
+    __sa: *mut __CLPK_real,
+    __sx: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer
+) -> c_int
+{
+    csrscl_(
+        __n,
+        __sa,
+        __sx,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cstedc_(
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cstedc_(
+        __compz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cstegr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cstegr_(
+        __jobz,
+        __range,
+        __n,
+        __d__,
+        __e,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cstein_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __iblock: *mut __CLPK_integer,
+    __isplit: *mut __CLPK_integer,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cstein_(
+        __n,
+        __d__,
+        __e,
+        __m,
+        __w,
+        __iblock,
+        __isplit,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cstemr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __nzc: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __tryrac: *mut __CLPK_logical,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cstemr_(
+        __jobz,
+        __range,
+        __n,
+        __d__,
+        __e,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __nzc,
+        __isuppz,
+        __tryrac,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csteqr_(
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csteqr_(
+        __compz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csycon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csycon_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csyequb_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csyequb_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csymv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer,
+    __beta: *mut __CLPK_complex,
+    __y: *mut __CLPK_complex,
+    __incy: *mut __CLPK_integer
+) -> c_int
+{
+    csymv_(
+        __uplo,
+        __n,
+        __alpha,
+        __a,
+        __lda,
+        __x,
+        __incx,
+        __beta,
+        __y,
+        __incy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csyr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __x: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer
+) -> c_int
+{
+    csyr_(
+        __uplo,
+        __n,
+        __alpha,
+        __x,
+        __incx,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csyrfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_complex,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csyrfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csysv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csysv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csysvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_complex,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csysvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csytf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csytf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csytrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csytrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csytri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csytri_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_csytrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    csytrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctbcon_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctbcon_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctbrfs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctbrfs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctbtrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_complex,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctbtrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctfsm_(
+    __transr: *mut c_char,
+    __side: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __a: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    ctfsm_(
+        __transr,
+        __side,
+        __uplo,
+        __trans,
+        __diag,
+        __m,
+        __n,
+        __alpha,
+        __a,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctftri_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctftri_(
+        __transr,
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctfttp_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __arf: *mut __CLPK_complex,
+    __ap: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctfttp_(
+        __transr,
+        __uplo,
+        __n,
+        __arf,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctfttr_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __arf: *mut __CLPK_complex,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctfttr_(
+        __transr,
+        __uplo,
+        __n,
+        __arf,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctgevc_(
+    __side: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __s: *mut __CLPK_complex,
+    __lds: *mut __CLPK_integer,
+    __p: *mut __CLPK_complex,
+    __ldp: *mut __CLPK_integer,
+    __vl: *mut __CLPK_complex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_complex,
+    __ldvr: *mut __CLPK_integer,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctgevc_(
+        __side,
+        __howmny,
+        __select,
+        __n,
+        __s,
+        __lds,
+        __p,
+        __ldp,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __mm,
+        __m,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctgex2_(
+    __wantq: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __j1: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctgex2_(
+        __wantq,
+        __wantz,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __j1,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctgexc_(
+    __wantq: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __ifst: *mut __CLPK_integer,
+    __ilst: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctgexc_(
+        __wantq,
+        __wantz,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __ifst,
+        __ilst,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctgsen_(
+    __ijob: *mut __CLPK_integer,
+    __wantq: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_complex,
+    __beta: *mut __CLPK_complex,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_complex,
+    __ldz: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __pl: *mut __CLPK_real,
+    __pr: *mut __CLPK_real,
+    __dif: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctgsen_(
+        __ijob,
+        __wantq,
+        __wantz,
+        __select,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __m,
+        __pl,
+        __pr,
+        __dif,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctgsja_(
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobq: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __tola: *mut __CLPK_real,
+    __tolb: *mut __CLPK_real,
+    __alpha: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __u: *mut __CLPK_complex,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_complex,
+    __ldv: *mut __CLPK_integer,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __ncycle: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctgsja_(
+        __jobu,
+        __jobv,
+        __jobq,
+        __m,
+        __p,
+        __n,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __tola,
+        __tolb,
+        __alpha,
+        __beta,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __q,
+        __ldq,
+        __work,
+        __ncycle,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctgsna_(
+    __job: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __vl: *mut __CLPK_complex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_complex,
+    __ldvr: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __dif: *mut __CLPK_real,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctgsna_(
+        __job,
+        __howmny,
+        __select,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __s,
+        __dif,
+        __mm,
+        __m,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctgsy2_(
+    __trans: *mut c_char,
+    __ijob: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_complex,
+    __ldd: *mut __CLPK_integer,
+    __e: *mut __CLPK_complex,
+    __lde: *mut __CLPK_integer,
+    __f: *mut __CLPK_complex,
+    __ldf: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __rdsum: *mut __CLPK_real,
+    __rdscal: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctgsy2_(
+        __trans,
+        __ijob,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __d__,
+        __ldd,
+        __e,
+        __lde,
+        __f,
+        __ldf,
+        __scale,
+        __rdsum,
+        __rdscal,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctgsyl_(
+    __trans: *mut c_char,
+    __ijob: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_complex,
+    __ldd: *mut __CLPK_integer,
+    __e: *mut __CLPK_complex,
+    __lde: *mut __CLPK_integer,
+    __f: *mut __CLPK_complex,
+    __ldf: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __dif: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctgsyl_(
+        __trans,
+        __ijob,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __d__,
+        __ldd,
+        __e,
+        __lde,
+        __f,
+        __ldf,
+        __scale,
+        __dif,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctpcon_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctpcon_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __ap,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctprfs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctprfs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctptri_(
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctptri_(
+        __uplo,
+        __diag,
+        __n,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctptrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctptrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctpttf_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __arf: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctpttf_(
+        __transr,
+        __uplo,
+        __n,
+        __ap,
+        __arf,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctpttr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctpttr_(
+        __uplo,
+        __n,
+        __ap,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctrcon_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctrcon_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __lda,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctrevc_(
+    __side: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_complex,
+    __ldt: *mut __CLPK_integer,
+    __vl: *mut __CLPK_complex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_complex,
+    __ldvr: *mut __CLPK_integer,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctrevc_(
+        __side,
+        __howmny,
+        __select,
+        __n,
+        __t,
+        __ldt,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __mm,
+        __m,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctrexc_(
+    __compq: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_complex,
+    __ldt: *mut __CLPK_integer,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __ifst: *mut __CLPK_integer,
+    __ilst: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctrexc_(
+        __compq,
+        __n,
+        __t,
+        __ldt,
+        __q,
+        __ldq,
+        __ifst,
+        __ilst,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctrrfs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_complex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctrrfs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctrsen_(
+    __job: *mut c_char,
+    __compq: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_complex,
+    __ldt: *mut __CLPK_integer,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __w: *mut __CLPK_complex,
+    __m: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __sep: *mut __CLPK_real,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctrsen_(
+        __job,
+        __compq,
+        __select,
+        __n,
+        __t,
+        __ldt,
+        __q,
+        __ldq,
+        __w,
+        __m,
+        __s,
+        __sep,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctrsna_(
+    __job: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_complex,
+    __ldt: *mut __CLPK_integer,
+    __vl: *mut __CLPK_complex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_complex,
+    __ldvr: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __sep: *mut __CLPK_real,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __ldwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctrsna_(
+        __job,
+        __howmny,
+        __select,
+        __n,
+        __t,
+        __ldt,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __s,
+        __sep,
+        __mm,
+        __m,
+        __work,
+        __ldwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctrsyl_(
+    __trana: *mut c_char,
+    __tranb: *mut c_char,
+    __isgn: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctrsyl_(
+        __trana,
+        __tranb,
+        __isgn,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __scale,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctrti2_(
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctrti2_(
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctrtri_(
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctrtri_(
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctrtrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_complex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctrtrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctrttf_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __arf: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctrttf_(
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __arf,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctrttp_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctrttp_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctzrqf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctzrqf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ctzrzf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ctzrzf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cung2l_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cung2l_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cung2r_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cung2r_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cungbr_(
+    __vect: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cungbr_(
+        __vect,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunghr_(
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunghr_(
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cungl2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cungl2_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunglq_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunglq_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cungql_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cungql_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cungqr_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cungqr_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cungr2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cungr2_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cungrq_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cungrq_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cungtr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cungtr_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunm2l_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunm2l_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunm2r_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunm2r_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunmbr_(
+    __vect: *mut c_char,
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunmbr_(
+        __vect,
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunmhr_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunmhr_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunml2_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunml2_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunmlq_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunmlq_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunmql_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunmql_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunmqr_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunmqr_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunmr2_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunmr2_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunmr3_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunmr3_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunmrq_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunmrq_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunmrz_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunmrz_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cunmtr_(
+    __side: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cunmtr_(
+        __side,
+        __uplo,
+        __trans,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cupgtr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __tau: *mut __CLPK_complex,
+    __q: *mut __CLPK_complex,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cupgtr_(
+        __uplo,
+        __n,
+        __ap,
+        __tau,
+        __q,
+        __ldq,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_cupmtr_(
+    __side: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_complex,
+    __tau: *mut __CLPK_complex,
+    __c__: *mut __CLPK_complex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_complex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    cupmtr_(
+        __side,
+        __uplo,
+        __trans,
+        __m,
+        __n,
+        __ap,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dbdsdc_(
+    __uplo: *mut c_char,
+    __compq: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_doublereal,
+    __ldvt: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublereal,
+    __iq: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dbdsdc_(
+        __uplo,
+        __compq,
+        __n,
+        __d__,
+        __e,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __q,
+        __iq,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dbdsqr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ncvt: *mut __CLPK_integer,
+    __nru: *mut __CLPK_integer,
+    __ncc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __vt: *mut __CLPK_doublereal,
+    __ldvt: *mut __CLPK_integer,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dbdsqr_(
+        __uplo,
+        __n,
+        __ncvt,
+        __nru,
+        __ncc,
+        __d__,
+        __e,
+        __vt,
+        __ldvt,
+        __u,
+        __ldu,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ddisna_(
+    __job: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __sep: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ddisna_(
+        __job,
+        __m,
+        __n,
+        __d__,
+        __sep,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgbbrd_(
+    __vect: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ncc: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __pt: *mut __CLPK_doublereal,
+    __ldpt: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgbbrd_(
+        __vect,
+        __m,
+        __n,
+        __ncc,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __d__,
+        __e,
+        __q,
+        __ldq,
+        __pt,
+        __ldpt,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgbcon_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgbcon_(
+        __norm,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgbequ_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rowcnd: *mut __CLPK_doublereal,
+    __colcnd: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgbequ_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgbequb_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rowcnd: *mut __CLPK_doublereal,
+    __colcnd: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgbequb_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgbrfs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_doublereal,
+    __ldafb: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgbrfs_(
+        __trans,
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgbsv_(
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgbsv_(
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgbsvx_(
+    __fact: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_doublereal,
+    __ldafb: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgbsvx_(
+        __fact,
+        __trans,
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __ipiv,
+        __equed,
+        __r__,
+        __c__,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgbtf2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgbtf2_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgbtrf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgbtrf_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgbtrs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgbtrs_(
+        __trans,
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgebak_(
+    __job: *mut c_char,
+    __side: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgebak_(
+        __job,
+        __side,
+        __n,
+        __ilo,
+        __ihi,
+        __scale,
+        __m,
+        __v,
+        __ldv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgebal_(
+    __job: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgebal_(
+        __job,
+        __n,
+        __a,
+        __lda,
+        __ilo,
+        __ihi,
+        __scale,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgebd2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __tauq: *mut __CLPK_doublereal,
+    __taup: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgebd2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tauq,
+        __taup,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgebrd_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __tauq: *mut __CLPK_doublereal,
+    __taup: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgebrd_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tauq,
+        __taup,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgecon_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgecon_(
+        __norm,
+        __n,
+        __a,
+        __lda,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgeequ_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rowcnd: *mut __CLPK_doublereal,
+    __colcnd: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgeequ_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgeequb_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rowcnd: *mut __CLPK_doublereal,
+    __colcnd: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgeequb_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgees_(
+    __jobvs: *mut c_char,
+    __sort: *mut c_char,
+    __select: __CLPK_L_fp,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __wr: *mut __CLPK_doublereal,
+    __wi: *mut __CLPK_doublereal,
+    __vs: *mut __CLPK_doublereal,
+    __ldvs: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgees_(
+        __jobvs,
+        __sort,
+        __select,
+        __n,
+        __a,
+        __lda,
+        __sdim,
+        __wr,
+        __wi,
+        __vs,
+        __ldvs,
+        __work,
+        __lwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgeesx_(
+    __jobvs: *mut c_char,
+    __sort: *mut c_char,
+    __select: __CLPK_L_fp,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __wr: *mut __CLPK_doublereal,
+    __wi: *mut __CLPK_doublereal,
+    __vs: *mut __CLPK_doublereal,
+    __ldvs: *mut __CLPK_integer,
+    __rconde: *mut __CLPK_doublereal,
+    __rcondv: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgeesx_(
+        __jobvs,
+        __sort,
+        __select,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __sdim,
+        __wr,
+        __wi,
+        __vs,
+        __ldvs,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgeev_(
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __wr: *mut __CLPK_doublereal,
+    __wi: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublereal,
+    __ldvr: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgeev_(
+        __jobvl,
+        __jobvr,
+        __n,
+        __a,
+        __lda,
+        __wr,
+        __wi,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgeevx_(
+    __balanc: *mut c_char,
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __wr: *mut __CLPK_doublereal,
+    __wi: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublereal,
+    __ldvr: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __abnrm: *mut __CLPK_doublereal,
+    __rconde: *mut __CLPK_doublereal,
+    __rcondv: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgeevx_(
+        __balanc,
+        __jobvl,
+        __jobvr,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __wr,
+        __wi,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __ilo,
+        __ihi,
+        __scale,
+        __abnrm,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgegs_(
+    __jobvsl: *mut c_char,
+    __jobvsr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_doublereal,
+    __alphai: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __vsl: *mut __CLPK_doublereal,
+    __ldvsl: *mut __CLPK_integer,
+    __vsr: *mut __CLPK_doublereal,
+    __ldvsr: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgegs_(
+        __jobvsl,
+        __jobvsr,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alphar,
+        __alphai,
+        __beta,
+        __vsl,
+        __ldvsl,
+        __vsr,
+        __ldvsr,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgegv_(
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_doublereal,
+    __alphai: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublereal,
+    __ldvr: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgegv_(
+        __jobvl,
+        __jobvr,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alphar,
+        __alphai,
+        __beta,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgehd2_(
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgehd2_(
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgehrd_(
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgehrd_(
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgejsv_(
+    __joba: *mut c_char,
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobr: *mut c_char,
+    __jobt: *mut c_char,
+    __jobp: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __sva: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgejsv_(
+        __joba,
+        __jobu,
+        __jobv,
+        __jobr,
+        __jobt,
+        __jobp,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __sva,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgelq2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgelq2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgelqf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgelqf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgels_(
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgels_(
+        __trans,
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgelsd_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgelsd_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __s,
+        __rcond,
+        __rank,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgelss_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgelss_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __s,
+        __rcond,
+        __rank,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgelsx_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgelsx_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __jpvt,
+        __rcond,
+        __rank,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgelsy_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgelsy_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __jpvt,
+        __rcond,
+        __rank,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgeql2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgeql2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgeqlf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgeqlf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgeqp3_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgeqp3_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgeqpf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgeqpf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgeqr2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgeqr2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgeqrf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgeqrf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgerfs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublereal,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgerfs_(
+        __trans,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgerq2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgerq2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgerqf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgerqf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgesc2_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __rhs: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __jpiv: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal
+) -> c_int
+{
+    dgesc2_(
+        __n,
+        __a,
+        __lda,
+        __rhs,
+        __ipiv,
+        __jpiv,
+        __scale
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgesdd_(
+    __jobz: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_doublereal,
+    __ldvt: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgesdd_(
+        __jobz,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgesv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgesv_(
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgesvd_(
+    __jobu: *mut c_char,
+    __jobvt: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_doublereal,
+    __ldvt: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgesvd_(
+        __jobu,
+        __jobvt,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgesvj_(
+    __joba: *mut c_char,
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __sva: *mut __CLPK_doublereal,
+    __mv: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgesvj_(
+        __joba,
+        __jobu,
+        __jobv,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __sva,
+        __mv,
+        __v,
+        __ldv,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgesvx_(
+    __fact: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublereal,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgesvx_(
+        __fact,
+        __trans,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __equed,
+        __r__,
+        __c__,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgetc2_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __jpiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgetc2_(
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __jpiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgetf2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgetf2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgetrf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgetrf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgetri_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgetri_(
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgetrs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgetrs_(
+        __trans,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dggbak_(
+    __job: *mut c_char,
+    __side: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __lscale: *mut __CLPK_doublereal,
+    __rscale: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dggbak_(
+        __job,
+        __side,
+        __n,
+        __ilo,
+        __ihi,
+        __lscale,
+        __rscale,
+        __m,
+        __v,
+        __ldv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dggbal_(
+    __job: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __lscale: *mut __CLPK_doublereal,
+    __rscale: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dggbal_(
+        __job,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __ilo,
+        __ihi,
+        __lscale,
+        __rscale,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgges_(
+    __jobvsl: *mut c_char,
+    __jobvsr: *mut c_char,
+    __sort: *mut c_char,
+    __selctg: __CLPK_L_fp,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_doublereal,
+    __alphai: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __vsl: *mut __CLPK_doublereal,
+    __ldvsl: *mut __CLPK_integer,
+    __vsr: *mut __CLPK_doublereal,
+    __ldvsr: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgges_(
+        __jobvsl,
+        __jobvsr,
+        __sort,
+        __selctg,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __sdim,
+        __alphar,
+        __alphai,
+        __beta,
+        __vsl,
+        __ldvsl,
+        __vsr,
+        __ldvsr,
+        __work,
+        __lwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dggesx_(
+    __jobvsl: *mut c_char,
+    __jobvsr: *mut c_char,
+    __sort: *mut c_char,
+    __selctg: __CLPK_L_fp,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_doublereal,
+    __alphai: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __vsl: *mut __CLPK_doublereal,
+    __ldvsl: *mut __CLPK_integer,
+    __vsr: *mut __CLPK_doublereal,
+    __ldvsr: *mut __CLPK_integer,
+    __rconde: *mut __CLPK_doublereal,
+    __rcondv: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dggesx_(
+        __jobvsl,
+        __jobvsr,
+        __sort,
+        __selctg,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __sdim,
+        __alphar,
+        __alphai,
+        __beta,
+        __vsl,
+        __ldvsl,
+        __vsr,
+        __ldvsr,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dggev_(
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_doublereal,
+    __alphai: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublereal,
+    __ldvr: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dggev_(
+        __jobvl,
+        __jobvr,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alphar,
+        __alphai,
+        __beta,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dggevx_(
+    __balanc: *mut c_char,
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_doublereal,
+    __alphai: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublereal,
+    __ldvr: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __lscale: *mut __CLPK_doublereal,
+    __rscale: *mut __CLPK_doublereal,
+    __abnrm: *mut __CLPK_doublereal,
+    __bbnrm: *mut __CLPK_doublereal,
+    __rconde: *mut __CLPK_doublereal,
+    __rcondv: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dggevx_(
+        __balanc,
+        __jobvl,
+        __jobvr,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alphar,
+        __alphai,
+        __beta,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __ilo,
+        __ihi,
+        __lscale,
+        __rscale,
+        __abnrm,
+        __bbnrm,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __iwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dggglm_(
+    __n: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __y: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dggglm_(
+        __n,
+        __m,
+        __p,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __d__,
+        __x,
+        __y,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgghrd_(
+    __compq: *mut c_char,
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgghrd_(
+        __compq,
+        __compz,
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgglse_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgglse_(
+        __m,
+        __n,
+        __p,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __d__,
+        __x,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dggqrf_(
+    __n: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __taua: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __taub: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dggqrf_(
+        __n,
+        __m,
+        __p,
+        __a,
+        __lda,
+        __taua,
+        __b,
+        __ldb,
+        __taub,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dggrqf_(
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __taua: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __taub: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dggrqf_(
+        __m,
+        __p,
+        __n,
+        __a,
+        __lda,
+        __taua,
+        __b,
+        __ldb,
+        __taub,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dggsvd_(
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobq: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dggsvd_(
+        __jobu,
+        __jobv,
+        __jobq,
+        __m,
+        __n,
+        __p,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __q,
+        __ldq,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dggsvp_(
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobq: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __tola: *mut __CLPK_doublereal,
+    __tolb: *mut __CLPK_doublereal,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dggsvp_(
+        __jobu,
+        __jobv,
+        __jobq,
+        __m,
+        __p,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __tola,
+        __tolb,
+        __k,
+        __l,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __q,
+        __ldq,
+        __iwork,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgsvj0_(
+    __jobv: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __sva: *mut __CLPK_doublereal,
+    __mv: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __eps: *mut __CLPK_doublereal,
+    __sfmin: *mut __CLPK_doublereal,
+    __tol: *mut __CLPK_doublereal,
+    __nsweep: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgsvj0_(
+        __jobv,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __sva,
+        __mv,
+        __v,
+        __ldv,
+        __eps,
+        __sfmin,
+        __tol,
+        __nsweep,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgsvj1_(
+    __jobv: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __n1: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __sva: *mut __CLPK_doublereal,
+    __mv: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __eps: *mut __CLPK_doublereal,
+    __sfmin: *mut __CLPK_doublereal,
+    __tol: *mut __CLPK_doublereal,
+    __nsweep: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgsvj1_(
+        __jobv,
+        __m,
+        __n,
+        __n1,
+        __a,
+        __lda,
+        __d__,
+        __sva,
+        __mv,
+        __v,
+        __ldv,
+        __eps,
+        __sfmin,
+        __tol,
+        __nsweep,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgtcon_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __du: *mut __CLPK_doublereal,
+    __du2: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgtcon_(
+        __norm,
+        __n,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgtrfs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __du: *mut __CLPK_doublereal,
+    __dlf: *mut __CLPK_doublereal,
+    __df: *mut __CLPK_doublereal,
+    __duf: *mut __CLPK_doublereal,
+    __du2: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgtrfs_(
+        __trans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __dlf,
+        __df,
+        __duf,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgtsv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __du: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgtsv_(
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgtsvx_(
+    __fact: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __du: *mut __CLPK_doublereal,
+    __dlf: *mut __CLPK_doublereal,
+    __df: *mut __CLPK_doublereal,
+    __duf: *mut __CLPK_doublereal,
+    __du2: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgtsvx_(
+        __fact,
+        __trans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __dlf,
+        __df,
+        __duf,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgttrf_(
+    __n: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __du: *mut __CLPK_doublereal,
+    __du2: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgttrf_(
+        __n,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgttrs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __du: *mut __CLPK_doublereal,
+    __du2: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dgttrs_(
+        __trans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dgtts2_(
+    __itrans: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __du: *mut __CLPK_doublereal,
+    __du2: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    dgtts2_(
+        __itrans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dhgeqz_(
+    __job: *mut c_char,
+    __compq: *mut c_char,
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublereal,
+    __ldh: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_doublereal,
+    __alphai: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dhgeqz_(
+        __job,
+        __compq,
+        __compz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __t,
+        __ldt,
+        __alphar,
+        __alphai,
+        __beta,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dhsein_(
+    __side: *mut c_char,
+    __eigsrc: *mut c_char,
+    __initv: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublereal,
+    __ldh: *mut __CLPK_integer,
+    __wr: *mut __CLPK_doublereal,
+    __wi: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublereal,
+    __ldvr: *mut __CLPK_integer,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __ifaill: *mut __CLPK_integer,
+    __ifailr: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dhsein_(
+        __side,
+        __eigsrc,
+        __initv,
+        __select,
+        __n,
+        __h__,
+        __ldh,
+        __wr,
+        __wi,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __mm,
+        __m,
+        __work,
+        __ifaill,
+        __ifailr,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dhseqr_(
+    __job: *mut c_char,
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublereal,
+    __ldh: *mut __CLPK_integer,
+    __wr: *mut __CLPK_doublereal,
+    __wi: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dhseqr_(
+        __job,
+        __compz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __wr,
+        __wi,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_disnan_(
+    __din: *mut __CLPK_doublereal
+) -> __CLPK_logical
+{
+    disnan_(
+        __din
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlabad_(
+    __small: *mut __CLPK_doublereal,
+    __large: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlabad_(
+        __small,
+        __large
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlabrd_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __tauq: *mut __CLPK_doublereal,
+    __taup: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __y: *mut __CLPK_doublereal,
+    __ldy: *mut __CLPK_integer
+) -> c_int
+{
+    dlabrd_(
+        __m,
+        __n,
+        __nb,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tauq,
+        __taup,
+        __x,
+        __ldx,
+        __y,
+        __ldy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlacn2_(
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __isgn: *mut __CLPK_integer,
+    __est: *mut __CLPK_doublereal,
+    __kase: *mut __CLPK_integer,
+    __isave: *mut __CLPK_integer
+) -> c_int
+{
+    dlacn2_(
+        __n,
+        __v,
+        __x,
+        __isgn,
+        __est,
+        __kase,
+        __isave
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlacon_(
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __isgn: *mut __CLPK_integer,
+    __est: *mut __CLPK_doublereal,
+    __kase: *mut __CLPK_integer
+) -> c_int
+{
+    dlacon_(
+        __n,
+        __v,
+        __x,
+        __isgn,
+        __est,
+        __kase
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlacpy_(
+    __uplo: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    dlacpy_(
+        __uplo,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dladiv_(
+    __a: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __p: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal
+) -> c_int
+{
+    dladiv_(
+        __a,
+        __b,
+        __c__,
+        __d__,
+        __p,
+        __q
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlae2_(
+    __a: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rt1: *mut __CLPK_doublereal,
+    __rt2: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlae2_(
+        __a,
+        __b,
+        __c__,
+        __rt1,
+        __rt2
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaebz_(
+    __ijob: *mut __CLPK_integer,
+    __nitmax: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __mmax: *mut __CLPK_integer,
+    __minp: *mut __CLPK_integer,
+    __nbmin: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __reltol: *mut __CLPK_doublereal,
+    __pivmin: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __e2: *mut __CLPK_doublereal,
+    __nval: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __mout: *mut __CLPK_integer,
+    __nab: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaebz_(
+        __ijob,
+        __nitmax,
+        __n,
+        __mmax,
+        __minp,
+        __nbmin,
+        __abstol,
+        __reltol,
+        __pivmin,
+        __d__,
+        __e,
+        __e2,
+        __nval,
+        __ab,
+        __c__,
+        __mout,
+        __nab,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaed0_(
+    __icompq: *mut __CLPK_integer,
+    __qsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __qstore: *mut __CLPK_doublereal,
+    __ldqs: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaed0_(
+        __icompq,
+        __qsiz,
+        __n,
+        __d__,
+        __e,
+        __q,
+        __ldq,
+        __qstore,
+        __ldqs,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaed1_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __indxq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_doublereal,
+    __cutpnt: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaed1_(
+        __n,
+        __d__,
+        __q,
+        __ldq,
+        __indxq,
+        __rho,
+        __cutpnt,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaed2_(
+    __k: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __n1: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __indxq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __dlamda: *mut __CLPK_doublereal,
+    __w: *mut __CLPK_doublereal,
+    __q2: *mut __CLPK_doublereal,
+    __indx: *mut __CLPK_integer,
+    __indxc: *mut __CLPK_integer,
+    __indxp: *mut __CLPK_integer,
+    __coltyp: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaed2_(
+        __k,
+        __n,
+        __n1,
+        __d__,
+        __q,
+        __ldq,
+        __indxq,
+        __rho,
+        __z__,
+        __dlamda,
+        __w,
+        __q2,
+        __indx,
+        __indxc,
+        __indxp,
+        __coltyp,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaed3_(
+    __k: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __n1: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_doublereal,
+    __dlamda: *mut __CLPK_doublereal,
+    __q2: *mut __CLPK_doublereal,
+    __indx: *mut __CLPK_integer,
+    __ctot: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaed3_(
+        __k,
+        __n,
+        __n1,
+        __d__,
+        __q,
+        __ldq,
+        __rho,
+        __dlamda,
+        __q2,
+        __indx,
+        __ctot,
+        __w,
+        __s,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaed4_(
+    __n: *mut __CLPK_integer,
+    __i__: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __delta: *mut __CLPK_doublereal,
+    __rho: *mut __CLPK_doublereal,
+    __dlam: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaed4_(
+        __n,
+        __i__,
+        __d__,
+        __z__,
+        __delta,
+        __rho,
+        __dlam,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaed5_(
+    __i__: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __delta: *mut __CLPK_doublereal,
+    __rho: *mut __CLPK_doublereal,
+    __dlam: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlaed5_(
+        __i__,
+        __d__,
+        __z__,
+        __delta,
+        __rho,
+        __dlam
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaed6_(
+    __kniter: *mut __CLPK_integer,
+    __orgati: *mut __CLPK_logical,
+    __rho: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __finit: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaed6_(
+        __kniter,
+        __orgati,
+        __rho,
+        __d__,
+        __z__,
+        __finit,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaed7_(
+    __icompq: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __qsiz: *mut __CLPK_integer,
+    __tlvls: *mut __CLPK_integer,
+    __curlvl: *mut __CLPK_integer,
+    __curpbm: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __indxq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_doublereal,
+    __cutpnt: *mut __CLPK_integer,
+    __qstore: *mut __CLPK_doublereal,
+    __qptr: *mut __CLPK_integer,
+    __prmptr: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaed7_(
+        __icompq,
+        __n,
+        __qsiz,
+        __tlvls,
+        __curlvl,
+        __curpbm,
+        __d__,
+        __q,
+        __ldq,
+        __indxq,
+        __rho,
+        __cutpnt,
+        __qstore,
+        __qptr,
+        __prmptr,
+        __perm,
+        __givptr,
+        __givcol,
+        __givnum,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaed8_(
+    __icompq: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __qsiz: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __indxq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_doublereal,
+    __cutpnt: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __dlamda: *mut __CLPK_doublereal,
+    __q2: *mut __CLPK_doublereal,
+    __ldq2: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_doublereal,
+    __indxp: *mut __CLPK_integer,
+    __indx: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaed8_(
+        __icompq,
+        __k,
+        __n,
+        __qsiz,
+        __d__,
+        __q,
+        __ldq,
+        __indxq,
+        __rho,
+        __cutpnt,
+        __z__,
+        __dlamda,
+        __q2,
+        __ldq2,
+        __w,
+        __perm,
+        __givptr,
+        __givcol,
+        __givnum,
+        __indxp,
+        __indx,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaed9_(
+    __k: *mut __CLPK_integer,
+    __kstart: *mut __CLPK_integer,
+    __kstop: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_doublereal,
+    __dlamda: *mut __CLPK_doublereal,
+    __w: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __lds: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaed9_(
+        __k,
+        __kstart,
+        __kstop,
+        __n,
+        __d__,
+        __q,
+        __ldq,
+        __rho,
+        __dlamda,
+        __w,
+        __s,
+        __lds,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaeda_(
+    __n: *mut __CLPK_integer,
+    __tlvls: *mut __CLPK_integer,
+    __curlvl: *mut __CLPK_integer,
+    __curpbm: *mut __CLPK_integer,
+    __prmptr: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __qptr: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ztemp: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaeda_(
+        __n,
+        __tlvls,
+        __curlvl,
+        __curpbm,
+        __prmptr,
+        __perm,
+        __givptr,
+        __givcol,
+        __givnum,
+        __q,
+        __qptr,
+        __z__,
+        __ztemp,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaein_(
+    __rightv: *mut __CLPK_logical,
+    __noinit: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublereal,
+    __ldh: *mut __CLPK_integer,
+    __wr: *mut __CLPK_doublereal,
+    __wi: *mut __CLPK_doublereal,
+    __vr: *mut __CLPK_doublereal,
+    __vi: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __eps3: *mut __CLPK_doublereal,
+    __smlnum: *mut __CLPK_doublereal,
+    __bignum: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaein_(
+        __rightv,
+        __noinit,
+        __n,
+        __h__,
+        __ldh,
+        __wr,
+        __wi,
+        __vr,
+        __vi,
+        __b,
+        __ldb,
+        __work,
+        __eps3,
+        __smlnum,
+        __bignum,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaev2_(
+    __a: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rt1: *mut __CLPK_doublereal,
+    __rt2: *mut __CLPK_doublereal,
+    __cs1: *mut __CLPK_doublereal,
+    __sn1: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlaev2_(
+        __a,
+        __b,
+        __c__,
+        __rt1,
+        __rt2,
+        __cs1,
+        __sn1
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaexc_(
+    __wantq: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __j1: *mut __CLPK_integer,
+    __n1: *mut __CLPK_integer,
+    __n2: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaexc_(
+        __wantq,
+        __n,
+        __t,
+        __ldt,
+        __q,
+        __ldq,
+        __j1,
+        __n1,
+        __n2,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlag2_(
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __safmin: *mut __CLPK_doublereal,
+    __scale1: *mut __CLPK_doublereal,
+    __scale2: *mut __CLPK_doublereal,
+    __wr1: *mut __CLPK_doublereal,
+    __wr2: *mut __CLPK_doublereal,
+    __wi: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlag2_(
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __safmin,
+        __scale1,
+        __scale2,
+        __wr1,
+        __wr2,
+        __wi
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlag2s_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __sa: *mut __CLPK_real,
+    __ldsa: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlag2s_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __sa,
+        __ldsa,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlags2_(
+    __upper: *mut __CLPK_logical,
+    __a1: *mut __CLPK_doublereal,
+    __a2: *mut __CLPK_doublereal,
+    __a3: *mut __CLPK_doublereal,
+    __b1: *mut __CLPK_doublereal,
+    __b2: *mut __CLPK_doublereal,
+    __b3: *mut __CLPK_doublereal,
+    __csu: *mut __CLPK_doublereal,
+    __snu: *mut __CLPK_doublereal,
+    __csv: *mut __CLPK_doublereal,
+    __snv: *mut __CLPK_doublereal,
+    __csq: *mut __CLPK_doublereal,
+    __snq: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlags2_(
+        __upper,
+        __a1,
+        __a2,
+        __a3,
+        __b1,
+        __b2,
+        __b3,
+        __csu,
+        __snu,
+        __csv,
+        __snv,
+        __csq,
+        __snq
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlagtf_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lambda: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __tol: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __in: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlagtf_(
+        __n,
+        __a,
+        __lambda,
+        __b,
+        __c__,
+        __tol,
+        __d__,
+        __in,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlagtm_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublereal,
+    __dl: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __du: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __beta: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    dlagtm_(
+        __trans,
+        __n,
+        __nrhs,
+        __alpha,
+        __dl,
+        __d__,
+        __du,
+        __x,
+        __ldx,
+        __beta,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlagts_(
+    __job: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __in: *mut __CLPK_integer,
+    __y: *mut __CLPK_doublereal,
+    __tol: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlagts_(
+        __job,
+        __n,
+        __a,
+        __b,
+        __c__,
+        __d__,
+        __in,
+        __y,
+        __tol,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlagv2_(
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_doublereal,
+    __alphai: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __csl: *mut __CLPK_doublereal,
+    __snl: *mut __CLPK_doublereal,
+    __csr: *mut __CLPK_doublereal,
+    __snr: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlagv2_(
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alphar,
+        __alphai,
+        __beta,
+        __csl,
+        __snl,
+        __csr,
+        __snr
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlahqr_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublereal,
+    __ldh: *mut __CLPK_integer,
+    __wr: *mut __CLPK_doublereal,
+    __wi: *mut __CLPK_doublereal,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlahqr_(
+        __wantt,
+        __wantz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __wr,
+        __wi,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlahr2_(
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer,
+    __y: *mut __CLPK_doublereal,
+    __ldy: *mut __CLPK_integer
+) -> c_int
+{
+    dlahr2_(
+        __n,
+        __k,
+        __nb,
+        __a,
+        __lda,
+        __tau,
+        __t,
+        __ldt,
+        __y,
+        __ldy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlahrd_(
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer,
+    __y: *mut __CLPK_doublereal,
+    __ldy: *mut __CLPK_integer
+) -> c_int
+{
+    dlahrd_(
+        __n,
+        __k,
+        __nb,
+        __a,
+        __lda,
+        __tau,
+        __t,
+        __ldt,
+        __y,
+        __ldy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaic1_(
+    __job: *mut __CLPK_integer,
+    __j: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __sest: *mut __CLPK_doublereal,
+    __w: *mut __CLPK_doublereal,
+    __gamma: *mut __CLPK_doublereal,
+    __sestpr: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlaic1_(
+        __job,
+        __j,
+        __x,
+        __sest,
+        __w,
+        __gamma,
+        __sestpr,
+        __s,
+        __c__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaisnan_(
+    __din1: *mut __CLPK_doublereal,
+    __din2: *mut __CLPK_doublereal
+) -> __CLPK_logical
+{
+    dlaisnan_(
+        __din1,
+        __din2
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaln2_(
+    __ltrans: *mut __CLPK_logical,
+    __na: *mut __CLPK_integer,
+    __nw: *mut __CLPK_integer,
+    __smin: *mut __CLPK_doublereal,
+    __ca: *mut __CLPK_doublereal,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __d1: *mut __CLPK_doublereal,
+    __d2: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __wr: *mut __CLPK_doublereal,
+    __wi: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __xnorm: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaln2_(
+        __ltrans,
+        __na,
+        __nw,
+        __smin,
+        __ca,
+        __a,
+        __lda,
+        __d1,
+        __d2,
+        __b,
+        __ldb,
+        __wr,
+        __wi,
+        __x,
+        __ldx,
+        __scale,
+        __xnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlals0_(
+    __icompq: *mut __CLPK_integer,
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __bx: *mut __CLPK_doublereal,
+    __ldbx: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_doublereal,
+    __ldgnum: *mut __CLPK_integer,
+    __poles: *mut __CLPK_doublereal,
+    __difl: *mut __CLPK_doublereal,
+    __difr: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __k: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlals0_(
+        __icompq,
+        __nl,
+        __nr,
+        __sqre,
+        __nrhs,
+        __b,
+        __ldb,
+        __bx,
+        __ldbx,
+        __perm,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __givnum,
+        __ldgnum,
+        __poles,
+        __difl,
+        __difr,
+        __z__,
+        __k,
+        __c__,
+        __s,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlalsa_(
+    __icompq: *mut __CLPK_integer,
+    __smlsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __bx: *mut __CLPK_doublereal,
+    __ldbx: *mut __CLPK_integer,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_doublereal,
+    __k: *mut __CLPK_integer,
+    __difl: *mut __CLPK_doublereal,
+    __difr: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __poles: *mut __CLPK_doublereal,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlalsa_(
+        __icompq,
+        __smlsiz,
+        __n,
+        __nrhs,
+        __b,
+        __ldb,
+        __bx,
+        __ldbx,
+        __u,
+        __ldu,
+        __vt,
+        __k,
+        __difl,
+        __difr,
+        __z__,
+        __poles,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __perm,
+        __givnum,
+        __c__,
+        __s,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlalsd_(
+    __uplo: *mut c_char,
+    __smlsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlalsd_(
+        __uplo,
+        __smlsiz,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb,
+        __rcond,
+        __rank,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlamrg_(
+    __n1: *mut __CLPK_integer,
+    __n2: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __dtrd1: *mut __CLPK_integer,
+    __dtrd2: *mut __CLPK_integer,
+    __index: *mut __CLPK_integer
+) -> c_int
+{
+    dlamrg_(
+        __n1,
+        __n2,
+        __a,
+        __dtrd1,
+        __dtrd2,
+        __index
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaneg_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __lld: *mut __CLPK_doublereal,
+    __sigma: *mut __CLPK_doublereal,
+    __pivmin: *mut __CLPK_doublereal,
+    __r__: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    dlaneg_(
+        __n,
+        __d__,
+        __lld,
+        __sigma,
+        __pivmin,
+        __r__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlangb_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlangb_(
+        __norm,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlange_(
+    __norm: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlange_(
+        __norm,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlangt_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __du: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlangt_(
+        __norm,
+        __n,
+        __dl,
+        __d__,
+        __du
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlanhs_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlanhs_(
+        __norm,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlansb_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlansb_(
+        __norm,
+        __uplo,
+        __n,
+        __k,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlansf_(
+    __norm: *mut c_char,
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlansf_(
+        __norm,
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlansp_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlansp_(
+        __norm,
+        __uplo,
+        __n,
+        __ap,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlanst_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlanst_(
+        __norm,
+        __n,
+        __d__,
+        __e
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlansy_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlansy_(
+        __norm,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlantb_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlantb_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __k,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlantp_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlantp_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __ap,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlantr_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlantr_(
+        __norm,
+        __uplo,
+        __diag,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlanv2_(
+    __a: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __rt1r: *mut __CLPK_doublereal,
+    __rt1i: *mut __CLPK_doublereal,
+    __rt2r: *mut __CLPK_doublereal,
+    __rt2i: *mut __CLPK_doublereal,
+    __cs: *mut __CLPK_doublereal,
+    __sn: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlanv2_(
+        __a,
+        __b,
+        __c__,
+        __d__,
+        __rt1r,
+        __rt1i,
+        __rt2r,
+        __rt2i,
+        __cs,
+        __sn
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlapll_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __incx: *mut __CLPK_integer,
+    __y: *mut __CLPK_doublereal,
+    __incy: *mut __CLPK_integer,
+    __ssmin: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlapll_(
+        __n,
+        __x,
+        __incx,
+        __y,
+        __incy,
+        __ssmin
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlapmt_(
+    __forwrd: *mut __CLPK_logical,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer
+) -> c_int
+{
+    dlapmt_(
+        __forwrd,
+        __m,
+        __n,
+        __x,
+        __ldx,
+        __k
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlapy2_(
+    __x: *mut __CLPK_doublereal,
+    __y: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlapy2_(
+        __x,
+        __y
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlapy3_(
+    __x: *mut __CLPK_doublereal,
+    __y: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlapy3_(
+        __x,
+        __y,
+        __z__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqgb_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rowcnd: *mut __CLPK_doublereal,
+    __colcnd: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __equed: *mut c_char
+) -> c_int
+{
+    dlaqgb_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqge_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rowcnd: *mut __CLPK_doublereal,
+    __colcnd: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __equed: *mut c_char
+) -> c_int
+{
+    dlaqge_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqp2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __offset: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __vn1: *mut __CLPK_doublereal,
+    __vn2: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlaqp2_(
+        __m,
+        __n,
+        __offset,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __vn1,
+        __vn2,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqps_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __offset: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __vn1: *mut __CLPK_doublereal,
+    __vn2: *mut __CLPK_doublereal,
+    __auxv: *mut __CLPK_doublereal,
+    __f: *mut __CLPK_doublereal,
+    __ldf: *mut __CLPK_integer
+) -> c_int
+{
+    dlaqps_(
+        __m,
+        __n,
+        __offset,
+        __nb,
+        __kb,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __vn1,
+        __vn2,
+        __auxv,
+        __f,
+        __ldf
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqr0_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublereal,
+    __ldh: *mut __CLPK_integer,
+    __wr: *mut __CLPK_doublereal,
+    __wi: *mut __CLPK_doublereal,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaqr0_(
+        __wantt,
+        __wantz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __wr,
+        __wi,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqr1_(
+    __n: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublereal,
+    __ldh: *mut __CLPK_integer,
+    __sr1: *mut __CLPK_doublereal,
+    __si1: *mut __CLPK_doublereal,
+    __sr2: *mut __CLPK_doublereal,
+    __si2: *mut __CLPK_doublereal,
+    __v: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlaqr1_(
+        __n,
+        __h__,
+        __ldh,
+        __sr1,
+        __si1,
+        __sr2,
+        __si2,
+        __v
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqr2_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ktop: *mut __CLPK_integer,
+    __kbot: *mut __CLPK_integer,
+    __nw: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublereal,
+    __ldh: *mut __CLPK_integer,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __ns: *mut __CLPK_integer,
+    __nd: *mut __CLPK_integer,
+    __sr: *mut __CLPK_doublereal,
+    __si: *mut __CLPK_doublereal,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __nh: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer,
+    __nv: *mut __CLPK_integer,
+    __wv: *mut __CLPK_doublereal,
+    __ldwv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer
+) -> c_int
+{
+    dlaqr2_(
+        __wantt,
+        __wantz,
+        __n,
+        __ktop,
+        __kbot,
+        __nw,
+        __h__,
+        __ldh,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __ns,
+        __nd,
+        __sr,
+        __si,
+        __v,
+        __ldv,
+        __nh,
+        __t,
+        __ldt,
+        __nv,
+        __wv,
+        __ldwv,
+        __work,
+        __lwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqr3_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ktop: *mut __CLPK_integer,
+    __kbot: *mut __CLPK_integer,
+    __nw: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublereal,
+    __ldh: *mut __CLPK_integer,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __ns: *mut __CLPK_integer,
+    __nd: *mut __CLPK_integer,
+    __sr: *mut __CLPK_doublereal,
+    __si: *mut __CLPK_doublereal,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __nh: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer,
+    __nv: *mut __CLPK_integer,
+    __wv: *mut __CLPK_doublereal,
+    __ldwv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer
+) -> c_int
+{
+    dlaqr3_(
+        __wantt,
+        __wantz,
+        __n,
+        __ktop,
+        __kbot,
+        __nw,
+        __h__,
+        __ldh,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __ns,
+        __nd,
+        __sr,
+        __si,
+        __v,
+        __ldv,
+        __nh,
+        __t,
+        __ldt,
+        __nv,
+        __wv,
+        __ldwv,
+        __work,
+        __lwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqr4_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublereal,
+    __ldh: *mut __CLPK_integer,
+    __wr: *mut __CLPK_doublereal,
+    __wi: *mut __CLPK_doublereal,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaqr4_(
+        __wantt,
+        __wantz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __wr,
+        __wi,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqr5_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __kacc22: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ktop: *mut __CLPK_integer,
+    __kbot: *mut __CLPK_integer,
+    __nshfts: *mut __CLPK_integer,
+    __sr: *mut __CLPK_doublereal,
+    __si: *mut __CLPK_doublereal,
+    __h__: *mut __CLPK_doublereal,
+    __ldh: *mut __CLPK_integer,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __nv: *mut __CLPK_integer,
+    __wv: *mut __CLPK_doublereal,
+    __ldwv: *mut __CLPK_integer,
+    __nh: *mut __CLPK_integer,
+    __wh: *mut __CLPK_doublereal,
+    __ldwh: *mut __CLPK_integer
+) -> c_int
+{
+    dlaqr5_(
+        __wantt,
+        __wantz,
+        __kacc22,
+        __n,
+        __ktop,
+        __kbot,
+        __nshfts,
+        __sr,
+        __si,
+        __h__,
+        __ldh,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __v,
+        __ldv,
+        __u,
+        __ldu,
+        __nv,
+        __wv,
+        __ldwv,
+        __nh,
+        __wh,
+        __ldwh
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqsb_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __equed: *mut c_char
+) -> c_int
+{
+    dlaqsb_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqsp_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __equed: *mut c_char
+) -> c_int
+{
+    dlaqsp_(
+        __uplo,
+        __n,
+        __ap,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqsy_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __equed: *mut c_char
+) -> c_int
+{
+    dlaqsy_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaqtr_(
+    __ltran: *mut __CLPK_logical,
+    __l__CLPK_real: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __w: *mut __CLPK_doublereal,
+    __scale: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlaqtr_(
+        __ltran,
+        __l__CLPK_real,
+        __n,
+        __t,
+        __ldt,
+        __b,
+        __w,
+        __scale,
+        __x,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlar1v_(
+    __n: *mut __CLPK_integer,
+    __b1: *mut __CLPK_integer,
+    __bn: *mut __CLPK_integer,
+    __lambda: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __l: *mut __CLPK_doublereal,
+    __ld: *mut __CLPK_doublereal,
+    __lld: *mut __CLPK_doublereal,
+    __pivmin: *mut __CLPK_doublereal,
+    __gaptol: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __wantnc: *mut __CLPK_logical,
+    __negcnt: *mut __CLPK_integer,
+    __ztz: *mut __CLPK_doublereal,
+    __mingma: *mut __CLPK_doublereal,
+    __r__: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __nrminv: *mut __CLPK_doublereal,
+    __resid: *mut __CLPK_doublereal,
+    __rqcorr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlar1v_(
+        __n,
+        __b1,
+        __bn,
+        __lambda,
+        __d__,
+        __l,
+        __ld,
+        __lld,
+        __pivmin,
+        __gaptol,
+        __z__,
+        __wantnc,
+        __negcnt,
+        __ztz,
+        __mingma,
+        __r__,
+        __isuppz,
+        __nrminv,
+        __resid,
+        __rqcorr,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlar2v_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __y: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __incx: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __incc: *mut __CLPK_integer
+) -> c_int
+{
+    dlar2v_(
+        __n,
+        __x,
+        __y,
+        __z__,
+        __incx,
+        __c__,
+        __s,
+        __incc
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarf_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __incv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlarf_(
+        __side,
+        __m,
+        __n,
+        __v,
+        __incv,
+        __tau,
+        __c__,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarfb_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __ldwork: *mut __CLPK_integer
+) -> c_int
+{
+    dlarfb_(
+        __side,
+        __trans,
+        __direct,
+        __storev,
+        __m,
+        __n,
+        __k,
+        __v,
+        __ldv,
+        __t,
+        __ldt,
+        __c__,
+        __ldc,
+        __work,
+        __ldwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarfg_(
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __incx: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlarfg_(
+        __n,
+        __alpha,
+        __x,
+        __incx,
+        __tau
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarfp_(
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __incx: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlarfp_(
+        __n,
+        __alpha,
+        __x,
+        __incx,
+        __tau
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarft_(
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer
+) -> c_int
+{
+    dlarft_(
+        __direct,
+        __storev,
+        __n,
+        __k,
+        __v,
+        __ldv,
+        __tau,
+        __t,
+        __ldt
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarfx_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlarfx_(
+        __side,
+        __m,
+        __n,
+        __v,
+        __tau,
+        __c__,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlargv_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __incx: *mut __CLPK_integer,
+    __y: *mut __CLPK_doublereal,
+    __incy: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __incc: *mut __CLPK_integer
+) -> c_int
+{
+    dlargv_(
+        __n,
+        __x,
+        __incx,
+        __y,
+        __incy,
+        __c__,
+        __incc
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarnv_(
+    __idist: *mut __CLPK_integer,
+    __iseed: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlarnv_(
+        __idist,
+        __iseed,
+        __n,
+        __x
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarra_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __e2: *mut __CLPK_doublereal,
+    __spltol: *mut __CLPK_doublereal,
+    __tnrm: *mut __CLPK_doublereal,
+    __nsplit: *mut __CLPK_integer,
+    __isplit: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlarra_(
+        __n,
+        __d__,
+        __e,
+        __e2,
+        __spltol,
+        __tnrm,
+        __nsplit,
+        __isplit,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarrb_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __lld: *mut __CLPK_doublereal,
+    __ifirst: *mut __CLPK_integer,
+    __ilast: *mut __CLPK_integer,
+    __rtol1: *mut __CLPK_doublereal,
+    __rtol2: *mut __CLPK_doublereal,
+    __offset: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __wgap: *mut __CLPK_doublereal,
+    __werr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __pivmin: *mut __CLPK_doublereal,
+    __spdiam: *mut __CLPK_doublereal,
+    __twist: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlarrb_(
+        __n,
+        __d__,
+        __lld,
+        __ifirst,
+        __ilast,
+        __rtol1,
+        __rtol2,
+        __offset,
+        __w,
+        __wgap,
+        __werr,
+        __work,
+        __iwork,
+        __pivmin,
+        __spdiam,
+        __twist,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarrc_(
+    __jobt: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __pivmin: *mut __CLPK_doublereal,
+    __eigcnt: *mut __CLPK_integer,
+    __lcnt: *mut __CLPK_integer,
+    __rcnt: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlarrc_(
+        __jobt,
+        __n,
+        __vl,
+        __vu,
+        __d__,
+        __e,
+        __pivmin,
+        __eigcnt,
+        __lcnt,
+        __rcnt,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarrd_(
+    __range: *mut c_char,
+    __order: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __gers: *mut __CLPK_doublereal,
+    __reltol: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __e2: *mut __CLPK_doublereal,
+    __pivmin: *mut __CLPK_doublereal,
+    __nsplit: *mut __CLPK_integer,
+    __isplit: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __werr: *mut __CLPK_doublereal,
+    __wl: *mut __CLPK_doublereal,
+    __wu: *mut __CLPK_doublereal,
+    __iblock: *mut __CLPK_integer,
+    __indexw: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlarrd_(
+        __range,
+        __order,
+        __n,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __gers,
+        __reltol,
+        __d__,
+        __e,
+        __e2,
+        __pivmin,
+        __nsplit,
+        __isplit,
+        __m,
+        __w,
+        __werr,
+        __wl,
+        __wu,
+        __iblock,
+        __indexw,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarre_(
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __e2: *mut __CLPK_doublereal,
+    __rtol1: *mut __CLPK_doublereal,
+    __rtol2: *mut __CLPK_doublereal,
+    __spltol: *mut __CLPK_doublereal,
+    __nsplit: *mut __CLPK_integer,
+    __isplit: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __werr: *mut __CLPK_doublereal,
+    __wgap: *mut __CLPK_doublereal,
+    __iblock: *mut __CLPK_integer,
+    __indexw: *mut __CLPK_integer,
+    __gers: *mut __CLPK_doublereal,
+    __pivmin: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlarre_(
+        __range,
+        __n,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __d__,
+        __e,
+        __e2,
+        __rtol1,
+        __rtol2,
+        __spltol,
+        __nsplit,
+        __isplit,
+        __m,
+        __w,
+        __werr,
+        __wgap,
+        __iblock,
+        __indexw,
+        __gers,
+        __pivmin,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarrf_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __l: *mut __CLPK_doublereal,
+    __ld: *mut __CLPK_doublereal,
+    __clstrt: *mut __CLPK_integer,
+    __clend: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __wgap: *mut __CLPK_doublereal,
+    __werr: *mut __CLPK_doublereal,
+    __spdiam: *mut __CLPK_doublereal,
+    __clgapl: *mut __CLPK_doublereal,
+    __clgapr: *mut __CLPK_doublereal,
+    __pivmin: *mut __CLPK_doublereal,
+    __sigma: *mut __CLPK_doublereal,
+    __dplus: *mut __CLPK_doublereal,
+    __lplus: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlarrf_(
+        __n,
+        __d__,
+        __l,
+        __ld,
+        __clstrt,
+        __clend,
+        __w,
+        __wgap,
+        __werr,
+        __spdiam,
+        __clgapl,
+        __clgapr,
+        __pivmin,
+        __sigma,
+        __dplus,
+        __lplus,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarrj_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e2: *mut __CLPK_doublereal,
+    __ifirst: *mut __CLPK_integer,
+    __ilast: *mut __CLPK_integer,
+    __rtol: *mut __CLPK_doublereal,
+    __offset: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __werr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __pivmin: *mut __CLPK_doublereal,
+    __spdiam: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlarrj_(
+        __n,
+        __d__,
+        __e2,
+        __ifirst,
+        __ilast,
+        __rtol,
+        __offset,
+        __w,
+        __werr,
+        __work,
+        __iwork,
+        __pivmin,
+        __spdiam,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarrk_(
+    __n: *mut __CLPK_integer,
+    __iw: *mut __CLPK_integer,
+    __gl: *mut __CLPK_doublereal,
+    __gu: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __e2: *mut __CLPK_doublereal,
+    __pivmin: *mut __CLPK_doublereal,
+    __reltol: *mut __CLPK_doublereal,
+    __w: *mut __CLPK_doublereal,
+    __werr: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlarrk_(
+        __n,
+        __iw,
+        __gl,
+        __gu,
+        __d__,
+        __e2,
+        __pivmin,
+        __reltol,
+        __w,
+        __werr,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarrr_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlarrr_(
+        __n,
+        __d__,
+        __e,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarrv_(
+    __n: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __l: *mut __CLPK_doublereal,
+    __pivmin: *mut __CLPK_doublereal,
+    __isplit: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __dol: *mut __CLPK_integer,
+    __dou: *mut __CLPK_integer,
+    __minrgp: *mut __CLPK_doublereal,
+    __rtol1: *mut __CLPK_doublereal,
+    __rtol2: *mut __CLPK_doublereal,
+    __w: *mut __CLPK_doublereal,
+    __werr: *mut __CLPK_doublereal,
+    __wgap: *mut __CLPK_doublereal,
+    __iblock: *mut __CLPK_integer,
+    __indexw: *mut __CLPK_integer,
+    __gers: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlarrv_(
+        __n,
+        __vl,
+        __vu,
+        __d__,
+        __l,
+        __pivmin,
+        __isplit,
+        __m,
+        __dol,
+        __dou,
+        __minrgp,
+        __rtol1,
+        __rtol2,
+        __w,
+        __werr,
+        __wgap,
+        __iblock,
+        __indexw,
+        __gers,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarscl2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer
+) -> c_int
+{
+    dlarscl2_(
+        __m,
+        __n,
+        __d__,
+        __x,
+        __ldx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlartg_(
+    __f: *mut __CLPK_doublereal,
+    __g: *mut __CLPK_doublereal,
+    __cs: *mut __CLPK_doublereal,
+    __sn: *mut __CLPK_doublereal,
+    __r__: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlartg_(
+        __f,
+        __g,
+        __cs,
+        __sn,
+        __r__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlartv_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __incx: *mut __CLPK_integer,
+    __y: *mut __CLPK_doublereal,
+    __incy: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __incc: *mut __CLPK_integer
+) -> c_int
+{
+    dlartv_(
+        __n,
+        __x,
+        __incx,
+        __y,
+        __incy,
+        __c__,
+        __s,
+        __incc
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaruv_(
+    __iseed: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlaruv_(
+        __iseed,
+        __n,
+        __x
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarz_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __incv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlarz_(
+        __side,
+        __m,
+        __n,
+        __l,
+        __v,
+        __incv,
+        __tau,
+        __c__,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarzb_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __ldwork: *mut __CLPK_integer
+) -> c_int
+{
+    dlarzb_(
+        __side,
+        __trans,
+        __direct,
+        __storev,
+        __m,
+        __n,
+        __k,
+        __l,
+        __v,
+        __ldv,
+        __t,
+        __ldt,
+        __c__,
+        __ldc,
+        __work,
+        __ldwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlarzt_(
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer
+) -> c_int
+{
+    dlarzt_(
+        __direct,
+        __storev,
+        __n,
+        __k,
+        __v,
+        __ldv,
+        __tau,
+        __t,
+        __ldt
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlas2_(
+    __f: *mut __CLPK_doublereal,
+    __g: *mut __CLPK_doublereal,
+    __h__: *mut __CLPK_doublereal,
+    __ssmin: *mut __CLPK_doublereal,
+    __ssmax: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlas2_(
+        __f,
+        __g,
+        __h__,
+        __ssmin,
+        __ssmax
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlascl_(
+    __type__: *mut c_char,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __cfrom: *mut __CLPK_doublereal,
+    __cto: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlascl_(
+        __type__,
+        __kl,
+        __ku,
+        __cfrom,
+        __cto,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlascl2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer
+) -> c_int
+{
+    dlascl2_(
+        __m,
+        __n,
+        __d__,
+        __x,
+        __ldx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasd0_(
+    __n: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_doublereal,
+    __ldvt: *mut __CLPK_integer,
+    __smlsiz: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasd0_(
+        __n,
+        __sqre,
+        __d__,
+        __e,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __smlsiz,
+        __iwork,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasd1_(
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __alpha: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_doublereal,
+    __ldvt: *mut __CLPK_integer,
+    __idxq: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasd1_(
+        __nl,
+        __nr,
+        __sqre,
+        __d__,
+        __alpha,
+        __beta,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __idxq,
+        __iwork,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasd2_(
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __alpha: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_doublereal,
+    __ldvt: *mut __CLPK_integer,
+    __dsigma: *mut __CLPK_doublereal,
+    __u2: *mut __CLPK_doublereal,
+    __ldu2: *mut __CLPK_integer,
+    __vt2: *mut __CLPK_doublereal,
+    __ldvt2: *mut __CLPK_integer,
+    __idxp: *mut __CLPK_integer,
+    __idx: *mut __CLPK_integer,
+    __idxc: *mut __CLPK_integer,
+    __idxq: *mut __CLPK_integer,
+    __coltyp: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasd2_(
+        __nl,
+        __nr,
+        __sqre,
+        __k,
+        __d__,
+        __z__,
+        __alpha,
+        __beta,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __dsigma,
+        __u2,
+        __ldu2,
+        __vt2,
+        __ldvt2,
+        __idxp,
+        __idx,
+        __idxc,
+        __idxq,
+        __coltyp,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasd3_(
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __dsigma: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __u2: *mut __CLPK_doublereal,
+    __ldu2: *mut __CLPK_integer,
+    __vt: *mut __CLPK_doublereal,
+    __ldvt: *mut __CLPK_integer,
+    __vt2: *mut __CLPK_doublereal,
+    __ldvt2: *mut __CLPK_integer,
+    __idxc: *mut __CLPK_integer,
+    __ctot: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasd3_(
+        __nl,
+        __nr,
+        __sqre,
+        __k,
+        __d__,
+        __q,
+        __ldq,
+        __dsigma,
+        __u,
+        __ldu,
+        __u2,
+        __ldu2,
+        __vt,
+        __ldvt,
+        __vt2,
+        __ldvt2,
+        __idxc,
+        __ctot,
+        __z__,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasd4_(
+    __n: *mut __CLPK_integer,
+    __i__: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __delta: *mut __CLPK_doublereal,
+    __rho: *mut __CLPK_doublereal,
+    __sigma: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasd4_(
+        __n,
+        __i__,
+        __d__,
+        __z__,
+        __delta,
+        __rho,
+        __sigma,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasd5_(
+    __i__: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __delta: *mut __CLPK_doublereal,
+    __rho: *mut __CLPK_doublereal,
+    __dsigma: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlasd5_(
+        __i__,
+        __d__,
+        __z__,
+        __delta,
+        __rho,
+        __dsigma,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasd6_(
+    __icompq: *mut __CLPK_integer,
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __vf: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __alpha: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __idxq: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_doublereal,
+    __ldgnum: *mut __CLPK_integer,
+    __poles: *mut __CLPK_doublereal,
+    __difl: *mut __CLPK_doublereal,
+    __difr: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __k: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasd6_(
+        __icompq,
+        __nl,
+        __nr,
+        __sqre,
+        __d__,
+        __vf,
+        __vl,
+        __alpha,
+        __beta,
+        __idxq,
+        __perm,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __givnum,
+        __ldgnum,
+        __poles,
+        __difl,
+        __difr,
+        __z__,
+        __k,
+        __c__,
+        __s,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasd7_(
+    __icompq: *mut __CLPK_integer,
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __zw: *mut __CLPK_doublereal,
+    __vf: *mut __CLPK_doublereal,
+    __vfw: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __vlw: *mut __CLPK_doublereal,
+    __alpha: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __dsigma: *mut __CLPK_doublereal,
+    __idx: *mut __CLPK_integer,
+    __idxp: *mut __CLPK_integer,
+    __idxq: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_doublereal,
+    __ldgnum: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasd7_(
+        __icompq,
+        __nl,
+        __nr,
+        __sqre,
+        __k,
+        __d__,
+        __z__,
+        __zw,
+        __vf,
+        __vfw,
+        __vl,
+        __vlw,
+        __alpha,
+        __beta,
+        __dsigma,
+        __idx,
+        __idxp,
+        __idxq,
+        __perm,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __givnum,
+        __ldgnum,
+        __c__,
+        __s,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasd8_(
+    __icompq: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __vf: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __difl: *mut __CLPK_doublereal,
+    __difr: *mut __CLPK_doublereal,
+    __lddifr: *mut __CLPK_integer,
+    __dsigma: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasd8_(
+        __icompq,
+        __k,
+        __d__,
+        __z__,
+        __vf,
+        __vl,
+        __difl,
+        __difr,
+        __lddifr,
+        __dsigma,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasda_(
+    __icompq: *mut __CLPK_integer,
+    __smlsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_doublereal,
+    __k: *mut __CLPK_integer,
+    __difl: *mut __CLPK_doublereal,
+    __difr: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __poles: *mut __CLPK_doublereal,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasda_(
+        __icompq,
+        __smlsiz,
+        __n,
+        __sqre,
+        __d__,
+        __e,
+        __u,
+        __ldu,
+        __vt,
+        __k,
+        __difl,
+        __difr,
+        __z__,
+        __poles,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __perm,
+        __givnum,
+        __c__,
+        __s,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasdq_(
+    __uplo: *mut c_char,
+    __sqre: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ncvt: *mut __CLPK_integer,
+    __nru: *mut __CLPK_integer,
+    __ncc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __vt: *mut __CLPK_doublereal,
+    __ldvt: *mut __CLPK_integer,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasdq_(
+        __uplo,
+        __sqre,
+        __n,
+        __ncvt,
+        __nru,
+        __ncc,
+        __d__,
+        __e,
+        __vt,
+        __ldvt,
+        __u,
+        __ldu,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasdt_(
+    __n: *mut __CLPK_integer,
+    __lvl: *mut __CLPK_integer,
+    __nd: *mut __CLPK_integer,
+    __inode: *mut __CLPK_integer,
+    __ndiml: *mut __CLPK_integer,
+    __ndimr: *mut __CLPK_integer,
+    __msub: *mut __CLPK_integer
+) -> c_int
+{
+    dlasdt_(
+        __n,
+        __lvl,
+        __nd,
+        __inode,
+        __ndiml,
+        __ndimr,
+        __msub
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaset_(
+    __uplo: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer
+) -> c_int
+{
+    dlaset_(
+        __uplo,
+        __m,
+        __n,
+        __alpha,
+        __beta,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasq1_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasq1_(
+        __n,
+        __d__,
+        __e,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasq2_(
+    __n: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasq2_(
+        __n,
+        __z__,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasq3_(
+    __i0: *mut __CLPK_integer,
+    __n0: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __pp: *mut __CLPK_integer,
+    __dmin__: *mut __CLPK_doublereal,
+    __sigma: *mut __CLPK_doublereal,
+    __desig: *mut __CLPK_doublereal,
+    __qmax: *mut __CLPK_doublereal,
+    __nfail: *mut __CLPK_integer,
+    __iter: *mut __CLPK_integer,
+    __ndiv: *mut __CLPK_integer,
+    __ieee: *mut __CLPK_logical,
+    __ttype: *mut __CLPK_integer,
+    __dmin1: *mut __CLPK_doublereal,
+    __dmin2: *mut __CLPK_doublereal,
+    __dn: *mut __CLPK_doublereal,
+    __dn1: *mut __CLPK_doublereal,
+    __dn2: *mut __CLPK_doublereal,
+    __g: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlasq3_(
+        __i0,
+        __n0,
+        __z__,
+        __pp,
+        __dmin__,
+        __sigma,
+        __desig,
+        __qmax,
+        __nfail,
+        __iter,
+        __ndiv,
+        __ieee,
+        __ttype,
+        __dmin1,
+        __dmin2,
+        __dn,
+        __dn1,
+        __dn2,
+        __g,
+        __tau
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasq4_(
+    __i0: *mut __CLPK_integer,
+    __n0: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __pp: *mut __CLPK_integer,
+    __n0in: *mut __CLPK_integer,
+    __dmin__: *mut __CLPK_doublereal,
+    __dmin1: *mut __CLPK_doublereal,
+    __dmin2: *mut __CLPK_doublereal,
+    __dn: *mut __CLPK_doublereal,
+    __dn1: *mut __CLPK_doublereal,
+    __dn2: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublereal,
+    __ttype: *mut __CLPK_integer,
+    __g: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlasq4_(
+        __i0,
+        __n0,
+        __z__,
+        __pp,
+        __n0in,
+        __dmin__,
+        __dmin1,
+        __dmin2,
+        __dn,
+        __dn1,
+        __dn2,
+        __tau,
+        __ttype,
+        __g
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasq5_(
+    __i0: *mut __CLPK_integer,
+    __n0: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __pp: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __dmin__: *mut __CLPK_doublereal,
+    __dmin1: *mut __CLPK_doublereal,
+    __dmin2: *mut __CLPK_doublereal,
+    __dn: *mut __CLPK_doublereal,
+    __dnm1: *mut __CLPK_doublereal,
+    __dnm2: *mut __CLPK_doublereal,
+    __ieee: *mut __CLPK_logical
+) -> c_int
+{
+    dlasq5_(
+        __i0,
+        __n0,
+        __z__,
+        __pp,
+        __tau,
+        __dmin__,
+        __dmin1,
+        __dmin2,
+        __dn,
+        __dnm1,
+        __dnm2,
+        __ieee
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasq6_(
+    __i0: *mut __CLPK_integer,
+    __n0: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __pp: *mut __CLPK_integer,
+    __dmin__: *mut __CLPK_doublereal,
+    __dmin1: *mut __CLPK_doublereal,
+    __dmin2: *mut __CLPK_doublereal,
+    __dn: *mut __CLPK_doublereal,
+    __dnm1: *mut __CLPK_doublereal,
+    __dnm2: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlasq6_(
+        __i0,
+        __n0,
+        __z__,
+        __pp,
+        __dmin__,
+        __dmin1,
+        __dmin2,
+        __dn,
+        __dnm1,
+        __dnm2
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasr_(
+    __side: *mut c_char,
+    __pivot: *mut c_char,
+    __direct: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer
+) -> c_int
+{
+    dlasr_(
+        __side,
+        __pivot,
+        __direct,
+        __m,
+        __n,
+        __c__,
+        __s,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasrt_(
+    __id: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasrt_(
+        __id,
+        __n,
+        __d__,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlassq_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __incx: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __sumsq: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlassq_(
+        __n,
+        __x,
+        __incx,
+        __scale,
+        __sumsq
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasv2_(
+    __f: *mut __CLPK_doublereal,
+    __g: *mut __CLPK_doublereal,
+    __h__: *mut __CLPK_doublereal,
+    __ssmin: *mut __CLPK_doublereal,
+    __ssmax: *mut __CLPK_doublereal,
+    __snr: *mut __CLPK_doublereal,
+    __csr: *mut __CLPK_doublereal,
+    __snl: *mut __CLPK_doublereal,
+    __csl: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlasv2_(
+        __f,
+        __g,
+        __h__,
+        __ssmin,
+        __ssmax,
+        __snr,
+        __csr,
+        __snl,
+        __csl
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlaswp_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __k1: *mut __CLPK_integer,
+    __k2: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __incx: *mut __CLPK_integer
+) -> c_int
+{
+    dlaswp_(
+        __n,
+        __a,
+        __lda,
+        __k1,
+        __k2,
+        __ipiv,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasy2_(
+    __ltranl: *mut __CLPK_logical,
+    __ltranr: *mut __CLPK_logical,
+    __isgn: *mut __CLPK_integer,
+    __n1: *mut __CLPK_integer,
+    __n2: *mut __CLPK_integer,
+    __tl: *mut __CLPK_doublereal,
+    __ldtl: *mut __CLPK_integer,
+    __tr: *mut __CLPK_doublereal,
+    __ldtr: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __xnorm: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasy2_(
+        __ltranl,
+        __ltranr,
+        __isgn,
+        __n1,
+        __n2,
+        __tl,
+        __ldtl,
+        __tr,
+        __ldtr,
+        __b,
+        __ldb,
+        __scale,
+        __x,
+        __ldx,
+        __xnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlasyf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __ldw: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlasyf_(
+        __uplo,
+        __n,
+        __nb,
+        __kb,
+        __a,
+        __lda,
+        __ipiv,
+        __w,
+        __ldw,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlat2s_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __sa: *mut __CLPK_real,
+    __ldsa: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlat2s_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __sa,
+        __ldsa,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlatbs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __normin: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __scale: *mut __CLPK_doublereal,
+    __cnorm: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlatbs_(
+        __uplo,
+        __trans,
+        __diag,
+        __normin,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __x,
+        __scale,
+        __cnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlatdf_(
+    __ijob: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __rhs: *mut __CLPK_doublereal,
+    __rdsum: *mut __CLPK_doublereal,
+    __rdscal: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __jpiv: *mut __CLPK_integer
+) -> c_int
+{
+    dlatdf_(
+        __ijob,
+        __n,
+        __z__,
+        __ldz,
+        __rhs,
+        __rdsum,
+        __rdscal,
+        __ipiv,
+        __jpiv
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlatps_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __normin: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublereal,
+    __scale: *mut __CLPK_doublereal,
+    __cnorm: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlatps_(
+        __uplo,
+        __trans,
+        __diag,
+        __normin,
+        __n,
+        __ap,
+        __x,
+        __scale,
+        __cnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlatrd_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __e: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublereal,
+    __w: *mut __CLPK_doublereal,
+    __ldw: *mut __CLPK_integer
+) -> c_int
+{
+    dlatrd_(
+        __uplo,
+        __n,
+        __nb,
+        __a,
+        __lda,
+        __e,
+        __tau,
+        __w,
+        __ldw
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlatrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __normin: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __scale: *mut __CLPK_doublereal,
+    __cnorm: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlatrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __normin,
+        __n,
+        __a,
+        __lda,
+        __x,
+        __scale,
+        __cnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlatrz_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlatrz_(
+        __m,
+        __n,
+        __l,
+        __a,
+        __lda,
+        __tau,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlatzm_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __incv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c1: *mut __CLPK_doublereal,
+    __c2: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlatzm_(
+        __side,
+        __m,
+        __n,
+        __v,
+        __incv,
+        __tau,
+        __c1,
+        __c2,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlauu2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlauu2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlauum_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dlauum_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dopgtr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dopgtr_(
+        __uplo,
+        __n,
+        __ap,
+        __tau,
+        __q,
+        __ldq,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dopmtr_(
+    __side: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dopmtr_(
+        __side,
+        __uplo,
+        __trans,
+        __m,
+        __n,
+        __ap,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorg2l_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorg2l_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorg2r_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorg2r_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorgbr_(
+    __vect: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorgbr_(
+        __vect,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorghr_(
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorghr_(
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorgl2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorgl2_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorglq_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorglq_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorgql_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorgql_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorgqr_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorgqr_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorgr2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorgr2_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorgrq_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorgrq_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorgtr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorgtr_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorm2l_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorm2l_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorm2r_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorm2r_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dormbr_(
+    __vect: *mut c_char,
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dormbr_(
+        __vect,
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dormhr_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dormhr_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dorml2_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dorml2_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dormlq_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dormlq_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dormql_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dormql_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dormqr_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dormqr_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dormr2_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dormr2_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dormr3_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dormr3_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dormrq_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dormrq_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dormrz_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dormrz_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dormtr_(
+    __side: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dormtr_(
+        __side,
+        __uplo,
+        __trans,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpbcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpbcon_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpbequ_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpbequ_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpbrfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_doublereal,
+    __ldafb: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpbrfs_(
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpbstf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpbstf_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpbsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpbsv_(
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpbsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_doublereal,
+    __ldafb: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __s: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpbsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __equed,
+        __s,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpbtf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpbtf2_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpbtrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpbtrf_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpbtrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpbtrs_(
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpftrf_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpftrf_(
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpftri_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpftri_(
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpftrs_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpftrs_(
+        __transr,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpocon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpocon_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpoequ_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpoequ_(
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpoequb_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpoequb_(
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dporfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublereal,
+    __ldaf: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dporfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dposv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dposv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dposvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublereal,
+    __ldaf: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __s: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dposvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __equed,
+        __s,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpotf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpotf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpotrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpotrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpotri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpotri_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpotrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpotrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dppcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dppcon_(
+        __uplo,
+        __n,
+        __ap,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dppequ_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dppequ_(
+        __uplo,
+        __n,
+        __ap,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpprfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __afp: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpprfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dppsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dppsv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dppsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __afp: *mut __CLPK_doublereal,
+    __equed: *mut c_char,
+    __s: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dppsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __equed,
+        __s,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpptrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpptrf_(
+        __uplo,
+        __n,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpptri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpptri_(
+        __uplo,
+        __n,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpptrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpptrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpstf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __piv: *mut __CLPK_integer,
+    __rank: *mut __CLPK_integer,
+    __tol: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpstf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __piv,
+        __rank,
+        __tol,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpstrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __piv: *mut __CLPK_integer,
+    __rank: *mut __CLPK_integer,
+    __tol: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpstrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __piv,
+        __rank,
+        __tol,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dptcon_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dptcon_(
+        __n,
+        __d__,
+        __e,
+        __anorm,
+        __rcond,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpteqr_(
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpteqr_(
+        __compz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dptrfs_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __df: *mut __CLPK_doublereal,
+    __ef: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dptrfs_(
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __df,
+        __ef,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dptsv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dptsv_(
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dptsvx_(
+    __fact: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __df: *mut __CLPK_doublereal,
+    __ef: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dptsvx_(
+        __fact,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __df,
+        __ef,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpttrf_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpttrf_(
+        __n,
+        __d__,
+        __e,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dpttrs_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dpttrs_(
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dptts2_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    dptts2_(
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_drscl_(
+    __n: *mut __CLPK_integer,
+    __sa: *mut __CLPK_doublereal,
+    __sx: *mut __CLPK_doublereal,
+    __incx: *mut __CLPK_integer
+) -> c_int
+{
+    drscl_(
+        __n,
+        __sa,
+        __sx,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsbev_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsbev_(
+        __jobz,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsbevd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsbevd_(
+        __jobz,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsbevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsbevx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __q,
+        __ldq,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsbgst_(
+    __vect: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_doublereal,
+    __ldbb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsbgst_(
+        __vect,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __x,
+        __ldx,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsbgv_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_doublereal,
+    __ldbb: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsbgv_(
+        __jobz,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsbgvd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_doublereal,
+    __ldbb: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsbgvd_(
+        __jobz,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsbgvx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_doublereal,
+    __ldbb: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsbgvx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __q,
+        __ldq,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsbtrd_(
+    __vect: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsbtrd_(
+        __vect,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __d__,
+        __e,
+        __q,
+        __ldq,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsfrk_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublereal,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __beta: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal
+) -> c_int
+{
+    dsfrk_(
+        __transr,
+        __uplo,
+        __trans,
+        __n,
+        __k,
+        __alpha,
+        __a,
+        __lda,
+        __beta,
+        __c__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsgesv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __swork: *mut __CLPK_real,
+    __iter: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsgesv_(
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __work,
+        __swork,
+        __iter,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dspcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dspcon_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dspev_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dspev_(
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dspevd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dspevd_(
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dspevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dspevx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __ap,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dspgst_(
+    __itype: *mut __CLPK_integer,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __bp: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dspgst_(
+        __itype,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dspgv_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __bp: *mut __CLPK_doublereal,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dspgv_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dspgvd_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __bp: *mut __CLPK_doublereal,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dspgvd_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dspgvx_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __bp: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dspgvx_(
+        __itype,
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsposv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __swork: *mut __CLPK_real,
+    __iter: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsposv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __work,
+        __swork,
+        __iter,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsprfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __afp: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsprfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dspsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dspsv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dspsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __afp: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dspsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsptrd_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsptrd_(
+        __uplo,
+        __n,
+        __ap,
+        __d__,
+        __e,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsptrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsptrf_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsptri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsptri_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsptrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsptrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dstebz_(
+    __range: *mut c_char,
+    __order: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __nsplit: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __iblock: *mut __CLPK_integer,
+    __isplit: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dstebz_(
+        __range,
+        __order,
+        __n,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __d__,
+        __e,
+        __m,
+        __nsplit,
+        __w,
+        __iblock,
+        __isplit,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dstedc_(
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dstedc_(
+        __compz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dstegr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dstegr_(
+        __jobz,
+        __range,
+        __n,
+        __d__,
+        __e,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dstein_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __iblock: *mut __CLPK_integer,
+    __isplit: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dstein_(
+        __n,
+        __d__,
+        __e,
+        __m,
+        __w,
+        __iblock,
+        __isplit,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dstemr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __nzc: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __tryrac: *mut __CLPK_logical,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dstemr_(
+        __jobz,
+        __range,
+        __n,
+        __d__,
+        __e,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __nzc,
+        __isuppz,
+        __tryrac,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsteqr_(
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsteqr_(
+        __compz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsterf_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsterf_(
+        __n,
+        __d__,
+        __e,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dstev_(
+    __jobz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dstev_(
+        __jobz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dstevd_(
+    __jobz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dstevd_(
+        __jobz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dstevr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dstevr_(
+        __jobz,
+        __range,
+        __n,
+        __d__,
+        __e,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dstevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dstevx_(
+        __jobz,
+        __range,
+        __n,
+        __d__,
+        __e,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsycon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsycon_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsyequb_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsyequb_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsyev_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsyev_(
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __w,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsyevd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsyevd_(
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __w,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsyevr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsyevr_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsyevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsyevx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsygs2_(
+    __itype: *mut __CLPK_integer,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsygs2_(
+        __itype,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsygst_(
+    __itype: *mut __CLPK_integer,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsygst_(
+        __itype,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsygv_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsygv_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __w,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsygvd_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsygvd_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __w,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsygvx_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsygvx_(
+        __itype,
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsyrfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublereal,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsyrfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsysv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsysv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsysvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublereal,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsysvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsytd2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsytd2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsytf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsytf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsytrd_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsytrd_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsytrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsytrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsytri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsytri_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dsytrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dsytrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtbcon_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtbcon_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtbrfs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtbrfs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtbtrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublereal,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtbtrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtfsm_(
+    __transr: *mut c_char,
+    __side: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublereal,
+    __a: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    dtfsm_(
+        __transr,
+        __side,
+        __uplo,
+        __trans,
+        __diag,
+        __m,
+        __n,
+        __alpha,
+        __a,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtftri_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtftri_(
+        __transr,
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtfttp_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __arf: *mut __CLPK_doublereal,
+    __ap: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtfttp_(
+        __transr,
+        __uplo,
+        __n,
+        __arf,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtfttr_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __arf: *mut __CLPK_doublereal,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtfttr_(
+        __transr,
+        __uplo,
+        __n,
+        __arf,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtgevc_(
+    __side: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __lds: *mut __CLPK_integer,
+    __p: *mut __CLPK_doublereal,
+    __ldp: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublereal,
+    __ldvr: *mut __CLPK_integer,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtgevc_(
+        __side,
+        __howmny,
+        __select,
+        __n,
+        __s,
+        __lds,
+        __p,
+        __ldp,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __mm,
+        __m,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtgex2_(
+    __wantq: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __j1: *mut __CLPK_integer,
+    __n1: *mut __CLPK_integer,
+    __n2: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtgex2_(
+        __wantq,
+        __wantz,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __j1,
+        __n1,
+        __n2,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtgexc_(
+    __wantq: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __ifst: *mut __CLPK_integer,
+    __ilst: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtgexc_(
+        __wantq,
+        __wantz,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __ifst,
+        __ilst,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtgsen_(
+    __ijob: *mut __CLPK_integer,
+    __wantq: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_doublereal,
+    __alphai: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __ldz: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __pl: *mut __CLPK_doublereal,
+    __pr: *mut __CLPK_doublereal,
+    __dif: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtgsen_(
+        __ijob,
+        __wantq,
+        __wantz,
+        __select,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alphar,
+        __alphai,
+        __beta,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __m,
+        __pl,
+        __pr,
+        __dif,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtgsja_(
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobq: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __tola: *mut __CLPK_doublereal,
+    __tolb: *mut __CLPK_doublereal,
+    __alpha: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublereal,
+    __ldv: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __ncycle: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtgsja_(
+        __jobu,
+        __jobv,
+        __jobq,
+        __m,
+        __p,
+        __n,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __tola,
+        __tolb,
+        __alpha,
+        __beta,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __q,
+        __ldq,
+        __work,
+        __ncycle,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtgsna_(
+    __job: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublereal,
+    __ldvr: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __dif: *mut __CLPK_doublereal,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtgsna_(
+        __job,
+        __howmny,
+        __select,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __s,
+        __dif,
+        __mm,
+        __m,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtgsy2_(
+    __trans: *mut c_char,
+    __ijob: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __ldd: *mut __CLPK_integer,
+    __e: *mut __CLPK_doublereal,
+    __lde: *mut __CLPK_integer,
+    __f: *mut __CLPK_doublereal,
+    __ldf: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __rdsum: *mut __CLPK_doublereal,
+    __rdscal: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __pq: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtgsy2_(
+        __trans,
+        __ijob,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __d__,
+        __ldd,
+        __e,
+        __lde,
+        __f,
+        __ldf,
+        __scale,
+        __rdsum,
+        __rdscal,
+        __iwork,
+        __pq,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtgsyl_(
+    __trans: *mut c_char,
+    __ijob: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __ldd: *mut __CLPK_integer,
+    __e: *mut __CLPK_doublereal,
+    __lde: *mut __CLPK_integer,
+    __f: *mut __CLPK_doublereal,
+    __ldf: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __dif: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtgsyl_(
+        __trans,
+        __ijob,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __d__,
+        __ldd,
+        __e,
+        __lde,
+        __f,
+        __ldf,
+        __scale,
+        __dif,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtpcon_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtpcon_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __ap,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtprfs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtprfs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtptri_(
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtptri_(
+        __uplo,
+        __diag,
+        __n,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtptrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtptrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtpttf_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __arf: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtpttf_(
+        __transr,
+        __uplo,
+        __n,
+        __ap,
+        __arf,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtpttr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtpttr_(
+        __uplo,
+        __n,
+        __ap,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtrcon_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtrcon_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __lda,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtrevc_(
+    __side: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublereal,
+    __ldvr: *mut __CLPK_integer,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtrevc_(
+        __side,
+        __howmny,
+        __select,
+        __n,
+        __t,
+        __ldt,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __mm,
+        __m,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtrexc_(
+    __compq: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __ifst: *mut __CLPK_integer,
+    __ilst: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtrexc_(
+        __compq,
+        __n,
+        __t,
+        __ldt,
+        __q,
+        __ldq,
+        __ifst,
+        __ilst,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtrrfs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublereal,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtrrfs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtrsen_(
+    __job: *mut c_char,
+    __compq: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublereal,
+    __ldq: *mut __CLPK_integer,
+    __wr: *mut __CLPK_doublereal,
+    __wi: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __sep: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtrsen_(
+        __job,
+        __compq,
+        __select,
+        __n,
+        __t,
+        __ldt,
+        __q,
+        __ldq,
+        __wr,
+        __wi,
+        __m,
+        __s,
+        __sep,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtrsna_(
+    __job: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublereal,
+    __ldt: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublereal,
+    __ldvr: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __sep: *mut __CLPK_doublereal,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __ldwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtrsna_(
+        __job,
+        __howmny,
+        __select,
+        __n,
+        __t,
+        __ldt,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __s,
+        __sep,
+        __mm,
+        __m,
+        __work,
+        __ldwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtrsyl_(
+    __trana: *mut c_char,
+    __tranb: *mut c_char,
+    __isgn: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __ldc: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtrsyl_(
+        __trana,
+        __tranb,
+        __isgn,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __scale,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtrti2_(
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtrti2_(
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtrtri_(
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtrtri_(
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtrtrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtrtrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtrttf_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __arf: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtrttf_(
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __arf,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtrttp_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtrttp_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtzrqf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtzrqf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dtzrzf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    dtzrzf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dzsum1_(
+    __n: *mut __CLPK_integer,
+    __cx: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer
+) -> __CLPK_doublereal
+{
+    dzsum1_(
+        __n,
+        __cx,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_icmax1_(
+    __n: *mut __CLPK_integer,
+    __cx: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    icmax1_(
+        __n,
+        __cx,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ieeeck_(
+    __ispec: *mut __CLPK_integer,
+    __zero: *mut __CLPK_real,
+    __one: *mut __CLPK_real
+) -> __CLPK_integer
+{
+    ieeeck_(
+        __ispec,
+        __zero,
+        __one
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ilaclc_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    ilaclc_(
+        __m,
+        __n,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ilaclr_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_complex,
+    __lda: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    ilaclr_(
+        __m,
+        __n,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_iladiag_(
+    __diag: *mut c_char
+) -> __CLPK_integer
+{
+    iladiag_(
+        __diag
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_iladlc_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    iladlc_(
+        __m,
+        __n,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_iladlr_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    iladlr_(
+        __m,
+        __n,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ilaenv_(
+    __ispec: *mut __CLPK_integer,
+    __name__: *mut c_char,
+    __opts: *mut c_char,
+    __n1: *mut __CLPK_integer,
+    __n2: *mut __CLPK_integer,
+    __n3: *mut __CLPK_integer,
+    __n4: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    ilaenv_(
+        __ispec,
+        __name__,
+        __opts,
+        __n1,
+        __n2,
+        __n3,
+        __n4
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ilaprec_(
+    __prec: *mut c_char
+) -> __CLPK_integer
+{
+    ilaprec_(
+        __prec
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ilaslc_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    ilaslc_(
+        __m,
+        __n,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ilaslr_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    ilaslr_(
+        __m,
+        __n,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ilatrans_(
+    __trans: *mut c_char
+) -> __CLPK_integer
+{
+    ilatrans_(
+        __trans
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ilauplo_(
+    __uplo: *mut c_char
+) -> __CLPK_integer
+{
+    ilauplo_(
+        __uplo
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ilaver_(
+    __vers_major__: *mut __CLPK_integer,
+    __vers_minor__: *mut __CLPK_integer,
+    __vers_patch__: *mut __CLPK_integer
+) -> c_int
+{
+    ilaver_(
+        __vers_major__,
+        __vers_minor__,
+        __vers_patch__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ilazlc_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    ilazlc_(
+        __m,
+        __n,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ilazlr_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    ilazlr_(
+        __m,
+        __n,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_iparmq_(
+    __ispec: *mut __CLPK_integer,
+    __name__: *mut c_char,
+    __opts: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __lwork: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    iparmq_(
+        __ispec,
+        __name__,
+        __opts,
+        __n,
+        __ilo,
+        __ihi,
+        __lwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_izmax1_(
+    __n: *mut __CLPK_integer,
+    __cx: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    izmax1_(
+        __n,
+        __cx,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_lsamen_(
+    __n: *mut __CLPK_integer,
+    __ca: *mut c_char,
+    __cb: *mut c_char
+) -> __CLPK_logical
+{
+    lsamen_(
+        __n,
+        __ca,
+        __cb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_smaxloc_(
+    __a: *mut __CLPK_real,
+    __dimm: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    smaxloc_(
+        __a,
+        __dimm
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sbdsdc_(
+    __uplo: *mut c_char,
+    __compq: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_real,
+    __ldvt: *mut __CLPK_integer,
+    __q: *mut __CLPK_real,
+    __iq: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sbdsdc_(
+        __uplo,
+        __compq,
+        __n,
+        __d__,
+        __e,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __q,
+        __iq,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sbdsqr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ncvt: *mut __CLPK_integer,
+    __nru: *mut __CLPK_integer,
+    __ncc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __vt: *mut __CLPK_real,
+    __ldvt: *mut __CLPK_integer,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sbdsqr_(
+        __uplo,
+        __n,
+        __ncvt,
+        __nru,
+        __ncc,
+        __d__,
+        __e,
+        __vt,
+        __ldvt,
+        __u,
+        __ldu,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_scsum1_(
+    __n: *mut __CLPK_integer,
+    __cx: *mut __CLPK_complex,
+    __incx: *mut __CLPK_integer
+) -> __CLPK_doublereal
+{
+    scsum1_(
+        __n,
+        __cx,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sdisna_(
+    __job: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __sep: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sdisna_(
+        __job,
+        __m,
+        __n,
+        __d__,
+        __sep,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgbbrd_(
+    __vect: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ncc: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __pt: *mut __CLPK_real,
+    __ldpt: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgbbrd_(
+        __vect,
+        __m,
+        __n,
+        __ncc,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __d__,
+        __e,
+        __q,
+        __ldq,
+        __pt,
+        __ldpt,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgbcon_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgbcon_(
+        __norm,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgbequ_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rowcnd: *mut __CLPK_real,
+    __colcnd: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgbequ_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgbequb_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rowcnd: *mut __CLPK_real,
+    __colcnd: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgbequb_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgbrfs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_real,
+    __ldafb: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgbrfs_(
+        __trans,
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgbsv_(
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgbsv_(
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgbsvx_(
+    __fact: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_real,
+    __ldafb: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgbsvx_(
+        __fact,
+        __trans,
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __ipiv,
+        __equed,
+        __r__,
+        __c__,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgbtf2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgbtf2_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgbtrf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgbtrf_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgbtrs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgbtrs_(
+        __trans,
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgebak_(
+    __job: *mut c_char,
+    __side: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgebak_(
+        __job,
+        __side,
+        __n,
+        __ilo,
+        __ihi,
+        __scale,
+        __m,
+        __v,
+        __ldv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgebal_(
+    __job: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgebal_(
+        __job,
+        __n,
+        __a,
+        __lda,
+        __ilo,
+        __ihi,
+        __scale,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgebd2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __tauq: *mut __CLPK_real,
+    __taup: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgebd2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tauq,
+        __taup,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgebrd_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __tauq: *mut __CLPK_real,
+    __taup: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgebrd_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tauq,
+        __taup,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgecon_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgecon_(
+        __norm,
+        __n,
+        __a,
+        __lda,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgeequ_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rowcnd: *mut __CLPK_real,
+    __colcnd: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgeequ_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgeequb_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rowcnd: *mut __CLPK_real,
+    __colcnd: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgeequb_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgees_(
+    __jobvs: *mut c_char,
+    __sort: *mut c_char,
+    __select: __CLPK_L_fp,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __wr: *mut __CLPK_real,
+    __wi: *mut __CLPK_real,
+    __vs: *mut __CLPK_real,
+    __ldvs: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgees_(
+        __jobvs,
+        __sort,
+        __select,
+        __n,
+        __a,
+        __lda,
+        __sdim,
+        __wr,
+        __wi,
+        __vs,
+        __ldvs,
+        __work,
+        __lwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgeesx_(
+    __jobvs: *mut c_char,
+    __sort: *mut c_char,
+    __select: __CLPK_L_fp,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __wr: *mut __CLPK_real,
+    __wi: *mut __CLPK_real,
+    __vs: *mut __CLPK_real,
+    __ldvs: *mut __CLPK_integer,
+    __rconde: *mut __CLPK_real,
+    __rcondv: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgeesx_(
+        __jobvs,
+        __sort,
+        __select,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __sdim,
+        __wr,
+        __wi,
+        __vs,
+        __ldvs,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgeev_(
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __wr: *mut __CLPK_real,
+    __wi: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_real,
+    __ldvr: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgeev_(
+        __jobvl,
+        __jobvr,
+        __n,
+        __a,
+        __lda,
+        __wr,
+        __wi,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgeevx_(
+    __balanc: *mut c_char,
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __wr: *mut __CLPK_real,
+    __wi: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_real,
+    __ldvr: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __abnrm: *mut __CLPK_real,
+    __rconde: *mut __CLPK_real,
+    __rcondv: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgeevx_(
+        __balanc,
+        __jobvl,
+        __jobvr,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __wr,
+        __wi,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __ilo,
+        __ihi,
+        __scale,
+        __abnrm,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgegs_(
+    __jobvsl: *mut c_char,
+    __jobvsr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_real,
+    __alphai: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __vsl: *mut __CLPK_real,
+    __ldvsl: *mut __CLPK_integer,
+    __vsr: *mut __CLPK_real,
+    __ldvsr: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgegs_(
+        __jobvsl,
+        __jobvsr,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alphar,
+        __alphai,
+        __beta,
+        __vsl,
+        __ldvsl,
+        __vsr,
+        __ldvsr,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgegv_(
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_real,
+    __alphai: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_real,
+    __ldvr: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgegv_(
+        __jobvl,
+        __jobvr,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alphar,
+        __alphai,
+        __beta,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgehd2_(
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgehd2_(
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgehrd_(
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgehrd_(
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgejsv_(
+    __joba: *mut c_char,
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobr: *mut c_char,
+    __jobt: *mut c_char,
+    __jobp: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __sva: *mut __CLPK_real,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgejsv_(
+        __joba,
+        __jobu,
+        __jobv,
+        __jobr,
+        __jobt,
+        __jobp,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __sva,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgelq2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgelq2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgelqf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgelqf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgels_(
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgels_(
+        __trans,
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgelsd_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgelsd_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __s,
+        __rcond,
+        __rank,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgelss_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgelss_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __s,
+        __rcond,
+        __rank,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgelsx_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgelsx_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __jpvt,
+        __rcond,
+        __rank,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgelsy_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgelsy_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __jpvt,
+        __rcond,
+        __rank,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgeql2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgeql2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgeqlf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgeqlf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgeqp3_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgeqp3_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgeqpf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgeqpf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgeqr2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgeqr2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgeqrf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgeqrf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgerfs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_real,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgerfs_(
+        __trans,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgerq2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgerq2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgerqf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgerqf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgesc2_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __rhs: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __jpiv: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real
+) -> c_int
+{
+    sgesc2_(
+        __n,
+        __a,
+        __lda,
+        __rhs,
+        __ipiv,
+        __jpiv,
+        __scale
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgesdd_(
+    __jobz: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_real,
+    __ldvt: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgesdd_(
+        __jobz,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgesv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgesv_(
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgesvd_(
+    __jobu: *mut c_char,
+    __jobvt: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_real,
+    __ldvt: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgesvd_(
+        __jobu,
+        __jobvt,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgesvj_(
+    __joba: *mut c_char,
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __sva: *mut __CLPK_real,
+    __mv: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgesvj_(
+        __joba,
+        __jobu,
+        __jobv,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __sva,
+        __mv,
+        __v,
+        __ldv,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgesvx_(
+    __fact: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_real,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgesvx_(
+        __fact,
+        __trans,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __equed,
+        __r__,
+        __c__,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgetc2_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __jpiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgetc2_(
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __jpiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgetf2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgetf2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgetrf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgetrf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgetri_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgetri_(
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgetrs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgetrs_(
+        __trans,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sggbak_(
+    __job: *mut c_char,
+    __side: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __lscale: *mut __CLPK_real,
+    __rscale: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sggbak_(
+        __job,
+        __side,
+        __n,
+        __ilo,
+        __ihi,
+        __lscale,
+        __rscale,
+        __m,
+        __v,
+        __ldv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sggbal_(
+    __job: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __lscale: *mut __CLPK_real,
+    __rscale: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sggbal_(
+        __job,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __ilo,
+        __ihi,
+        __lscale,
+        __rscale,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgges_(
+    __jobvsl: *mut c_char,
+    __jobvsr: *mut c_char,
+    __sort: *mut c_char,
+    __selctg: __CLPK_L_fp,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_real,
+    __alphai: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __vsl: *mut __CLPK_real,
+    __ldvsl: *mut __CLPK_integer,
+    __vsr: *mut __CLPK_real,
+    __ldvsr: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgges_(
+        __jobvsl,
+        __jobvsr,
+        __sort,
+        __selctg,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __sdim,
+        __alphar,
+        __alphai,
+        __beta,
+        __vsl,
+        __ldvsl,
+        __vsr,
+        __ldvsr,
+        __work,
+        __lwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sggesx_(
+    __jobvsl: *mut c_char,
+    __jobvsr: *mut c_char,
+    __sort: *mut c_char,
+    __selctg: __CLPK_L_fp,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_real,
+    __alphai: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __vsl: *mut __CLPK_real,
+    __ldvsl: *mut __CLPK_integer,
+    __vsr: *mut __CLPK_real,
+    __ldvsr: *mut __CLPK_integer,
+    __rconde: *mut __CLPK_real,
+    __rcondv: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sggesx_(
+        __jobvsl,
+        __jobvsr,
+        __sort,
+        __selctg,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __sdim,
+        __alphar,
+        __alphai,
+        __beta,
+        __vsl,
+        __ldvsl,
+        __vsr,
+        __ldvsr,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sggev_(
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_real,
+    __alphai: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_real,
+    __ldvr: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sggev_(
+        __jobvl,
+        __jobvr,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alphar,
+        __alphai,
+        __beta,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sggevx_(
+    __balanc: *mut c_char,
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_real,
+    __alphai: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_real,
+    __ldvr: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __lscale: *mut __CLPK_real,
+    __rscale: *mut __CLPK_real,
+    __abnrm: *mut __CLPK_real,
+    __bbnrm: *mut __CLPK_real,
+    __rconde: *mut __CLPK_real,
+    __rcondv: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sggevx_(
+        __balanc,
+        __jobvl,
+        __jobvr,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alphar,
+        __alphai,
+        __beta,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __ilo,
+        __ihi,
+        __lscale,
+        __rscale,
+        __abnrm,
+        __bbnrm,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __iwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sggglm_(
+    __n: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __y: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sggglm_(
+        __n,
+        __m,
+        __p,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __d__,
+        __x,
+        __y,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgghrd_(
+    __compq: *mut c_char,
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgghrd_(
+        __compq,
+        __compz,
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgglse_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgglse_(
+        __m,
+        __n,
+        __p,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __d__,
+        __x,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sggqrf_(
+    __n: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __taua: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __taub: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sggqrf_(
+        __n,
+        __m,
+        __p,
+        __a,
+        __lda,
+        __taua,
+        __b,
+        __ldb,
+        __taub,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sggrqf_(
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __taua: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __taub: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sggrqf_(
+        __m,
+        __p,
+        __n,
+        __a,
+        __lda,
+        __taua,
+        __b,
+        __ldb,
+        __taub,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sggsvd_(
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobq: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sggsvd_(
+        __jobu,
+        __jobv,
+        __jobq,
+        __m,
+        __n,
+        __p,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __q,
+        __ldq,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sggsvp_(
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobq: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __tola: *mut __CLPK_real,
+    __tolb: *mut __CLPK_real,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sggsvp_(
+        __jobu,
+        __jobv,
+        __jobq,
+        __m,
+        __p,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __tola,
+        __tolb,
+        __k,
+        __l,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __q,
+        __ldq,
+        __iwork,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgsvj0_(
+    __jobv: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __sva: *mut __CLPK_real,
+    __mv: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __eps: *mut __CLPK_real,
+    __sfmin: *mut __CLPK_real,
+    __tol: *mut __CLPK_real,
+    __nsweep: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgsvj0_(
+        __jobv,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __sva,
+        __mv,
+        __v,
+        __ldv,
+        __eps,
+        __sfmin,
+        __tol,
+        __nsweep,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgsvj1_(
+    __jobv: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __n1: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __sva: *mut __CLPK_real,
+    __mv: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __eps: *mut __CLPK_real,
+    __sfmin: *mut __CLPK_real,
+    __tol: *mut __CLPK_real,
+    __nsweep: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgsvj1_(
+        __jobv,
+        __m,
+        __n,
+        __n1,
+        __a,
+        __lda,
+        __d__,
+        __sva,
+        __mv,
+        __v,
+        __ldv,
+        __eps,
+        __sfmin,
+        __tol,
+        __nsweep,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgtcon_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __dl: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __du: *mut __CLPK_real,
+    __du2: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgtcon_(
+        __norm,
+        __n,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgtrfs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __du: *mut __CLPK_real,
+    __dlf: *mut __CLPK_real,
+    __df: *mut __CLPK_real,
+    __duf: *mut __CLPK_real,
+    __du2: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgtrfs_(
+        __trans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __dlf,
+        __df,
+        __duf,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgtsv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __du: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgtsv_(
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgtsvx_(
+    __fact: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __du: *mut __CLPK_real,
+    __dlf: *mut __CLPK_real,
+    __df: *mut __CLPK_real,
+    __duf: *mut __CLPK_real,
+    __du2: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgtsvx_(
+        __fact,
+        __trans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __dlf,
+        __df,
+        __duf,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgttrf_(
+    __n: *mut __CLPK_integer,
+    __dl: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __du: *mut __CLPK_real,
+    __du2: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgttrf_(
+        __n,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgttrs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __du: *mut __CLPK_real,
+    __du2: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sgttrs_(
+        __trans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sgtts2_(
+    __itrans: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __du: *mut __CLPK_real,
+    __du2: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    sgtts2_(
+        __itrans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_shgeqz_(
+    __job: *mut c_char,
+    __compq: *mut c_char,
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_real,
+    __ldh: *mut __CLPK_integer,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_real,
+    __alphai: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    shgeqz_(
+        __job,
+        __compq,
+        __compz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __t,
+        __ldt,
+        __alphar,
+        __alphai,
+        __beta,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_shsein_(
+    __side: *mut c_char,
+    __eigsrc: *mut c_char,
+    __initv: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __h__: *mut __CLPK_real,
+    __ldh: *mut __CLPK_integer,
+    __wr: *mut __CLPK_real,
+    __wi: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_real,
+    __ldvr: *mut __CLPK_integer,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __ifaill: *mut __CLPK_integer,
+    __ifailr: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    shsein_(
+        __side,
+        __eigsrc,
+        __initv,
+        __select,
+        __n,
+        __h__,
+        __ldh,
+        __wr,
+        __wi,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __mm,
+        __m,
+        __work,
+        __ifaill,
+        __ifailr,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_shseqr_(
+    __job: *mut c_char,
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_real,
+    __ldh: *mut __CLPK_integer,
+    __wr: *mut __CLPK_real,
+    __wi: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    shseqr_(
+        __job,
+        __compz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __wr,
+        __wi,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sisnan_(
+    __sin__: *mut __CLPK_real
+) -> __CLPK_logical
+{
+    sisnan_(
+        __sin__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slabad_(
+    __small: *mut __CLPK_real,
+    __large: *mut __CLPK_real
+) -> c_int
+{
+    slabad_(
+        __small,
+        __large
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slabrd_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __tauq: *mut __CLPK_real,
+    __taup: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __y: *mut __CLPK_real,
+    __ldy: *mut __CLPK_integer
+) -> c_int
+{
+    slabrd_(
+        __m,
+        __n,
+        __nb,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tauq,
+        __taup,
+        __x,
+        __ldx,
+        __y,
+        __ldy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slacn2_(
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __isgn: *mut __CLPK_integer,
+    __est: *mut __CLPK_real,
+    __kase: *mut __CLPK_integer,
+    __isave: *mut __CLPK_integer
+) -> c_int
+{
+    slacn2_(
+        __n,
+        __v,
+        __x,
+        __isgn,
+        __est,
+        __kase,
+        __isave
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slacon_(
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __isgn: *mut __CLPK_integer,
+    __est: *mut __CLPK_real,
+    __kase: *mut __CLPK_integer
+) -> c_int
+{
+    slacon_(
+        __n,
+        __v,
+        __x,
+        __isgn,
+        __est,
+        __kase
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slacpy_(
+    __uplo: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    slacpy_(
+        __uplo,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sladiv_(
+    __a: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __p: *mut __CLPK_real,
+    __q: *mut __CLPK_real
+) -> c_int
+{
+    sladiv_(
+        __a,
+        __b,
+        __c__,
+        __d__,
+        __p,
+        __q
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slae2_(
+    __a: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rt1: *mut __CLPK_real,
+    __rt2: *mut __CLPK_real
+) -> c_int
+{
+    slae2_(
+        __a,
+        __b,
+        __c__,
+        __rt1,
+        __rt2
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaebz_(
+    __ijob: *mut __CLPK_integer,
+    __nitmax: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __mmax: *mut __CLPK_integer,
+    __minp: *mut __CLPK_integer,
+    __nbmin: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __reltol: *mut __CLPK_real,
+    __pivmin: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __e2: *mut __CLPK_real,
+    __nval: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __mout: *mut __CLPK_integer,
+    __nab: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaebz_(
+        __ijob,
+        __nitmax,
+        __n,
+        __mmax,
+        __minp,
+        __nbmin,
+        __abstol,
+        __reltol,
+        __pivmin,
+        __d__,
+        __e,
+        __e2,
+        __nval,
+        __ab,
+        __c__,
+        __mout,
+        __nab,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaed0_(
+    __icompq: *mut __CLPK_integer,
+    __qsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __qstore: *mut __CLPK_real,
+    __ldqs: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaed0_(
+        __icompq,
+        __qsiz,
+        __n,
+        __d__,
+        __e,
+        __q,
+        __ldq,
+        __qstore,
+        __ldqs,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaed1_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __indxq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_real,
+    __cutpnt: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaed1_(
+        __n,
+        __d__,
+        __q,
+        __ldq,
+        __indxq,
+        __rho,
+        __cutpnt,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaed2_(
+    __k: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __n1: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __indxq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __dlamda: *mut __CLPK_real,
+    __w: *mut __CLPK_real,
+    __q2: *mut __CLPK_real,
+    __indx: *mut __CLPK_integer,
+    __indxc: *mut __CLPK_integer,
+    __indxp: *mut __CLPK_integer,
+    __coltyp: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaed2_(
+        __k,
+        __n,
+        __n1,
+        __d__,
+        __q,
+        __ldq,
+        __indxq,
+        __rho,
+        __z__,
+        __dlamda,
+        __w,
+        __q2,
+        __indx,
+        __indxc,
+        __indxp,
+        __coltyp,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaed3_(
+    __k: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __n1: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_real,
+    __dlamda: *mut __CLPK_real,
+    __q2: *mut __CLPK_real,
+    __indx: *mut __CLPK_integer,
+    __ctot: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaed3_(
+        __k,
+        __n,
+        __n1,
+        __d__,
+        __q,
+        __ldq,
+        __rho,
+        __dlamda,
+        __q2,
+        __indx,
+        __ctot,
+        __w,
+        __s,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaed4_(
+    __n: *mut __CLPK_integer,
+    __i__: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __delta: *mut __CLPK_real,
+    __rho: *mut __CLPK_real,
+    __dlam: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaed4_(
+        __n,
+        __i__,
+        __d__,
+        __z__,
+        __delta,
+        __rho,
+        __dlam,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaed5_(
+    __i__: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __delta: *mut __CLPK_real,
+    __rho: *mut __CLPK_real,
+    __dlam: *mut __CLPK_real
+) -> c_int
+{
+    slaed5_(
+        __i__,
+        __d__,
+        __z__,
+        __delta,
+        __rho,
+        __dlam
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaed6_(
+    __kniter: *mut __CLPK_integer,
+    __orgati: *mut __CLPK_logical,
+    __rho: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __finit: *mut __CLPK_real,
+    __tau: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaed6_(
+        __kniter,
+        __orgati,
+        __rho,
+        __d__,
+        __z__,
+        __finit,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaed7_(
+    __icompq: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __qsiz: *mut __CLPK_integer,
+    __tlvls: *mut __CLPK_integer,
+    __curlvl: *mut __CLPK_integer,
+    __curpbm: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __indxq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_real,
+    __cutpnt: *mut __CLPK_integer,
+    __qstore: *mut __CLPK_real,
+    __qptr: *mut __CLPK_integer,
+    __prmptr: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaed7_(
+        __icompq,
+        __n,
+        __qsiz,
+        __tlvls,
+        __curlvl,
+        __curpbm,
+        __d__,
+        __q,
+        __ldq,
+        __indxq,
+        __rho,
+        __cutpnt,
+        __qstore,
+        __qptr,
+        __prmptr,
+        __perm,
+        __givptr,
+        __givcol,
+        __givnum,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaed8_(
+    __icompq: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __qsiz: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __indxq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_real,
+    __cutpnt: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __dlamda: *mut __CLPK_real,
+    __q2: *mut __CLPK_real,
+    __ldq2: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_real,
+    __indxp: *mut __CLPK_integer,
+    __indx: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaed8_(
+        __icompq,
+        __k,
+        __n,
+        __qsiz,
+        __d__,
+        __q,
+        __ldq,
+        __indxq,
+        __rho,
+        __cutpnt,
+        __z__,
+        __dlamda,
+        __q2,
+        __ldq2,
+        __w,
+        __perm,
+        __givptr,
+        __givcol,
+        __givnum,
+        __indxp,
+        __indx,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaed9_(
+    __k: *mut __CLPK_integer,
+    __kstart: *mut __CLPK_integer,
+    __kstop: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_real,
+    __dlamda: *mut __CLPK_real,
+    __w: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __lds: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaed9_(
+        __k,
+        __kstart,
+        __kstop,
+        __n,
+        __d__,
+        __q,
+        __ldq,
+        __rho,
+        __dlamda,
+        __w,
+        __s,
+        __lds,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaeda_(
+    __n: *mut __CLPK_integer,
+    __tlvls: *mut __CLPK_integer,
+    __curlvl: *mut __CLPK_integer,
+    __curpbm: *mut __CLPK_integer,
+    __prmptr: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __qptr: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ztemp: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaeda_(
+        __n,
+        __tlvls,
+        __curlvl,
+        __curpbm,
+        __prmptr,
+        __perm,
+        __givptr,
+        __givcol,
+        __givnum,
+        __q,
+        __qptr,
+        __z__,
+        __ztemp,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaein_(
+    __rightv: *mut __CLPK_logical,
+    __noinit: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __h__: *mut __CLPK_real,
+    __ldh: *mut __CLPK_integer,
+    __wr: *mut __CLPK_real,
+    __wi: *mut __CLPK_real,
+    __vr: *mut __CLPK_real,
+    __vi: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __eps3: *mut __CLPK_real,
+    __smlnum: *mut __CLPK_real,
+    __bignum: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaein_(
+        __rightv,
+        __noinit,
+        __n,
+        __h__,
+        __ldh,
+        __wr,
+        __wi,
+        __vr,
+        __vi,
+        __b,
+        __ldb,
+        __work,
+        __eps3,
+        __smlnum,
+        __bignum,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaev2_(
+    __a: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rt1: *mut __CLPK_real,
+    __rt2: *mut __CLPK_real,
+    __cs1: *mut __CLPK_real,
+    __sn1: *mut __CLPK_real
+) -> c_int
+{
+    slaev2_(
+        __a,
+        __b,
+        __c__,
+        __rt1,
+        __rt2,
+        __cs1,
+        __sn1
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaexc_(
+    __wantq: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __j1: *mut __CLPK_integer,
+    __n1: *mut __CLPK_integer,
+    __n2: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaexc_(
+        __wantq,
+        __n,
+        __t,
+        __ldt,
+        __q,
+        __ldq,
+        __j1,
+        __n1,
+        __n2,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slag2_(
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __safmin: *mut __CLPK_real,
+    __scale1: *mut __CLPK_real,
+    __scale2: *mut __CLPK_real,
+    __wr1: *mut __CLPK_real,
+    __wr2: *mut __CLPK_real,
+    __wi: *mut __CLPK_real
+) -> c_int
+{
+    slag2_(
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __safmin,
+        __scale1,
+        __scale2,
+        __wr1,
+        __wr2,
+        __wi
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slag2d_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __sa: *mut __CLPK_real,
+    __ldsa: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slag2d_(
+        __m,
+        __n,
+        __sa,
+        __ldsa,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slags2_(
+    __upper: *mut __CLPK_logical,
+    __a1: *mut __CLPK_real,
+    __a2: *mut __CLPK_real,
+    __a3: *mut __CLPK_real,
+    __b1: *mut __CLPK_real,
+    __b2: *mut __CLPK_real,
+    __b3: *mut __CLPK_real,
+    __csu: *mut __CLPK_real,
+    __snu: *mut __CLPK_real,
+    __csv: *mut __CLPK_real,
+    __snv: *mut __CLPK_real,
+    __csq: *mut __CLPK_real,
+    __snq: *mut __CLPK_real
+) -> c_int
+{
+    slags2_(
+        __upper,
+        __a1,
+        __a2,
+        __a3,
+        __b1,
+        __b2,
+        __b3,
+        __csu,
+        __snu,
+        __csv,
+        __snv,
+        __csq,
+        __snq
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slagtf_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lambda: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __tol: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __in: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slagtf_(
+        __n,
+        __a,
+        __lambda,
+        __b,
+        __c__,
+        __tol,
+        __d__,
+        __in,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slagtm_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_real,
+    __dl: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __du: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __beta: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    slagtm_(
+        __trans,
+        __n,
+        __nrhs,
+        __alpha,
+        __dl,
+        __d__,
+        __du,
+        __x,
+        __ldx,
+        __beta,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slagts_(
+    __job: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __in: *mut __CLPK_integer,
+    __y: *mut __CLPK_real,
+    __tol: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slagts_(
+        __job,
+        __n,
+        __a,
+        __b,
+        __c__,
+        __d__,
+        __in,
+        __y,
+        __tol,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slagv2_(
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_real,
+    __alphai: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __csl: *mut __CLPK_real,
+    __snl: *mut __CLPK_real,
+    __csr: *mut __CLPK_real,
+    __snr: *mut __CLPK_real
+) -> c_int
+{
+    slagv2_(
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alphar,
+        __alphai,
+        __beta,
+        __csl,
+        __snl,
+        __csr,
+        __snr
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slahqr_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_real,
+    __ldh: *mut __CLPK_integer,
+    __wr: *mut __CLPK_real,
+    __wi: *mut __CLPK_real,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slahqr_(
+        __wantt,
+        __wantz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __wr,
+        __wi,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slahr2_(
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer,
+    __y: *mut __CLPK_real,
+    __ldy: *mut __CLPK_integer
+) -> c_int
+{
+    slahr2_(
+        __n,
+        __k,
+        __nb,
+        __a,
+        __lda,
+        __tau,
+        __t,
+        __ldt,
+        __y,
+        __ldy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slahrd_(
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer,
+    __y: *mut __CLPK_real,
+    __ldy: *mut __CLPK_integer
+) -> c_int
+{
+    slahrd_(
+        __n,
+        __k,
+        __nb,
+        __a,
+        __lda,
+        __tau,
+        __t,
+        __ldt,
+        __y,
+        __ldy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaic1_(
+    __job: *mut __CLPK_integer,
+    __j: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __sest: *mut __CLPK_real,
+    __w: *mut __CLPK_real,
+    __gamma: *mut __CLPK_real,
+    __sestpr: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __c__: *mut __CLPK_real
+) -> c_int
+{
+    slaic1_(
+        __job,
+        __j,
+        __x,
+        __sest,
+        __w,
+        __gamma,
+        __sestpr,
+        __s,
+        __c__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaisnan_(
+    __sin1: *mut __CLPK_real,
+    __sin2: *mut __CLPK_real
+) -> __CLPK_logical
+{
+    slaisnan_(
+        __sin1,
+        __sin2
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaln2_(
+    __ltrans: *mut __CLPK_logical,
+    __na: *mut __CLPK_integer,
+    __nw: *mut __CLPK_integer,
+    __smin: *mut __CLPK_real,
+    __ca: *mut __CLPK_real,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __d1: *mut __CLPK_real,
+    __d2: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __wr: *mut __CLPK_real,
+    __wi: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __xnorm: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaln2_(
+        __ltrans,
+        __na,
+        __nw,
+        __smin,
+        __ca,
+        __a,
+        __lda,
+        __d1,
+        __d2,
+        __b,
+        __ldb,
+        __wr,
+        __wi,
+        __x,
+        __ldx,
+        __scale,
+        __xnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slals0_(
+    __icompq: *mut __CLPK_integer,
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __bx: *mut __CLPK_real,
+    __ldbx: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_real,
+    __ldgnum: *mut __CLPK_integer,
+    __poles: *mut __CLPK_real,
+    __difl: *mut __CLPK_real,
+    __difr: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __k: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slals0_(
+        __icompq,
+        __nl,
+        __nr,
+        __sqre,
+        __nrhs,
+        __b,
+        __ldb,
+        __bx,
+        __ldbx,
+        __perm,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __givnum,
+        __ldgnum,
+        __poles,
+        __difl,
+        __difr,
+        __z__,
+        __k,
+        __c__,
+        __s,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slalsa_(
+    __icompq: *mut __CLPK_integer,
+    __smlsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __bx: *mut __CLPK_real,
+    __ldbx: *mut __CLPK_integer,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_real,
+    __k: *mut __CLPK_integer,
+    __difl: *mut __CLPK_real,
+    __difr: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __poles: *mut __CLPK_real,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slalsa_(
+        __icompq,
+        __smlsiz,
+        __n,
+        __nrhs,
+        __b,
+        __ldb,
+        __bx,
+        __ldbx,
+        __u,
+        __ldu,
+        __vt,
+        __k,
+        __difl,
+        __difr,
+        __z__,
+        __poles,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __perm,
+        __givnum,
+        __c__,
+        __s,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slalsd_(
+    __uplo: *mut c_char,
+    __smlsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slalsd_(
+        __uplo,
+        __smlsiz,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb,
+        __rcond,
+        __rank,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slamrg_(
+    __n1: *mut __CLPK_integer,
+    __n2: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __strd1: *mut __CLPK_integer,
+    __strd2: *mut __CLPK_integer,
+    __index: *mut __CLPK_integer
+) -> c_int
+{
+    slamrg_(
+        __n1,
+        __n2,
+        __a,
+        __strd1,
+        __strd2,
+        __index
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaneg_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __lld: *mut __CLPK_real,
+    __sigma: *mut __CLPK_real,
+    __pivmin: *mut __CLPK_real,
+    __r__: *mut __CLPK_integer
+) -> __CLPK_integer
+{
+    slaneg_(
+        __n,
+        __d__,
+        __lld,
+        __sigma,
+        __pivmin,
+        __r__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slangb_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slangb_(
+        __norm,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slange_(
+    __norm: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slange_(
+        __norm,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slangt_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __dl: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __du: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slangt_(
+        __norm,
+        __n,
+        __dl,
+        __d__,
+        __du
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slanhs_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slanhs_(
+        __norm,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slansb_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slansb_(
+        __norm,
+        __uplo,
+        __n,
+        __k,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slansf_(
+    __norm: *mut c_char,
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slansf_(
+        __norm,
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slansp_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slansp_(
+        __norm,
+        __uplo,
+        __n,
+        __ap,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slanst_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slanst_(
+        __norm,
+        __n,
+        __d__,
+        __e
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slansy_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slansy_(
+        __norm,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slantb_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slantb_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __k,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slantp_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slantp_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __ap,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slantr_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slantr_(
+        __norm,
+        __uplo,
+        __diag,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slanv2_(
+    __a: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __rt1r: *mut __CLPK_real,
+    __rt1i: *mut __CLPK_real,
+    __rt2r: *mut __CLPK_real,
+    __rt2i: *mut __CLPK_real,
+    __cs: *mut __CLPK_real,
+    __sn: *mut __CLPK_real
+) -> c_int
+{
+    slanv2_(
+        __a,
+        __b,
+        __c__,
+        __d__,
+        __rt1r,
+        __rt1i,
+        __rt2r,
+        __rt2i,
+        __cs,
+        __sn
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slapll_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __incx: *mut __CLPK_integer,
+    __y: *mut __CLPK_real,
+    __incy: *mut __CLPK_integer,
+    __ssmin: *mut __CLPK_real
+) -> c_int
+{
+    slapll_(
+        __n,
+        __x,
+        __incx,
+        __y,
+        __incy,
+        __ssmin
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slapmt_(
+    __forwrd: *mut __CLPK_logical,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer
+) -> c_int
+{
+    slapmt_(
+        __forwrd,
+        __m,
+        __n,
+        __x,
+        __ldx,
+        __k
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slapy2_(
+    __x: *mut __CLPK_real,
+    __y: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slapy2_(
+        __x,
+        __y
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slapy3_(
+    __x: *mut __CLPK_real,
+    __y: *mut __CLPK_real,
+    __z__: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slapy3_(
+        __x,
+        __y,
+        __z__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqgb_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rowcnd: *mut __CLPK_real,
+    __colcnd: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __equed: *mut c_char
+) -> c_int
+{
+    slaqgb_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqge_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __r__: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __rowcnd: *mut __CLPK_real,
+    __colcnd: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __equed: *mut c_char
+) -> c_int
+{
+    slaqge_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqp2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __offset: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __vn1: *mut __CLPK_real,
+    __vn2: *mut __CLPK_real,
+    __work: *mut __CLPK_real
+) -> c_int
+{
+    slaqp2_(
+        __m,
+        __n,
+        __offset,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __vn1,
+        __vn2,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqps_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __offset: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __vn1: *mut __CLPK_real,
+    __vn2: *mut __CLPK_real,
+    __auxv: *mut __CLPK_real,
+    __f: *mut __CLPK_real,
+    __ldf: *mut __CLPK_integer
+) -> c_int
+{
+    slaqps_(
+        __m,
+        __n,
+        __offset,
+        __nb,
+        __kb,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __vn1,
+        __vn2,
+        __auxv,
+        __f,
+        __ldf
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqr0_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_real,
+    __ldh: *mut __CLPK_integer,
+    __wr: *mut __CLPK_real,
+    __wi: *mut __CLPK_real,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaqr0_(
+        __wantt,
+        __wantz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __wr,
+        __wi,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqr1_(
+    __n: *mut __CLPK_integer,
+    __h__: *mut __CLPK_real,
+    __ldh: *mut __CLPK_integer,
+    __sr1: *mut __CLPK_real,
+    __si1: *mut __CLPK_real,
+    __sr2: *mut __CLPK_real,
+    __si2: *mut __CLPK_real,
+    __v: *mut __CLPK_real
+) -> c_int
+{
+    slaqr1_(
+        __n,
+        __h__,
+        __ldh,
+        __sr1,
+        __si1,
+        __sr2,
+        __si2,
+        __v
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqr2_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ktop: *mut __CLPK_integer,
+    __kbot: *mut __CLPK_integer,
+    __nw: *mut __CLPK_integer,
+    __h__: *mut __CLPK_real,
+    __ldh: *mut __CLPK_integer,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __ns: *mut __CLPK_integer,
+    __nd: *mut __CLPK_integer,
+    __sr: *mut __CLPK_real,
+    __si: *mut __CLPK_real,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __nh: *mut __CLPK_integer,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer,
+    __nv: *mut __CLPK_integer,
+    __wv: *mut __CLPK_real,
+    __ldwv: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer
+) -> c_int
+{
+    slaqr2_(
+        __wantt,
+        __wantz,
+        __n,
+        __ktop,
+        __kbot,
+        __nw,
+        __h__,
+        __ldh,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __ns,
+        __nd,
+        __sr,
+        __si,
+        __v,
+        __ldv,
+        __nh,
+        __t,
+        __ldt,
+        __nv,
+        __wv,
+        __ldwv,
+        __work,
+        __lwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqr3_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ktop: *mut __CLPK_integer,
+    __kbot: *mut __CLPK_integer,
+    __nw: *mut __CLPK_integer,
+    __h__: *mut __CLPK_real,
+    __ldh: *mut __CLPK_integer,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __ns: *mut __CLPK_integer,
+    __nd: *mut __CLPK_integer,
+    __sr: *mut __CLPK_real,
+    __si: *mut __CLPK_real,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __nh: *mut __CLPK_integer,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer,
+    __nv: *mut __CLPK_integer,
+    __wv: *mut __CLPK_real,
+    __ldwv: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer
+) -> c_int
+{
+    slaqr3_(
+        __wantt,
+        __wantz,
+        __n,
+        __ktop,
+        __kbot,
+        __nw,
+        __h__,
+        __ldh,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __ns,
+        __nd,
+        __sr,
+        __si,
+        __v,
+        __ldv,
+        __nh,
+        __t,
+        __ldt,
+        __nv,
+        __wv,
+        __ldwv,
+        __work,
+        __lwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqr4_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_real,
+    __ldh: *mut __CLPK_integer,
+    __wr: *mut __CLPK_real,
+    __wi: *mut __CLPK_real,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaqr4_(
+        __wantt,
+        __wantz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __wr,
+        __wi,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqr5_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __kacc22: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ktop: *mut __CLPK_integer,
+    __kbot: *mut __CLPK_integer,
+    __nshfts: *mut __CLPK_integer,
+    __sr: *mut __CLPK_real,
+    __si: *mut __CLPK_real,
+    __h__: *mut __CLPK_real,
+    __ldh: *mut __CLPK_integer,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __nv: *mut __CLPK_integer,
+    __wv: *mut __CLPK_real,
+    __ldwv: *mut __CLPK_integer,
+    __nh: *mut __CLPK_integer,
+    __wh: *mut __CLPK_real,
+    __ldwh: *mut __CLPK_integer
+) -> c_int
+{
+    slaqr5_(
+        __wantt,
+        __wantz,
+        __kacc22,
+        __n,
+        __ktop,
+        __kbot,
+        __nshfts,
+        __sr,
+        __si,
+        __h__,
+        __ldh,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __v,
+        __ldv,
+        __u,
+        __ldu,
+        __nv,
+        __wv,
+        __ldwv,
+        __nh,
+        __wh,
+        __ldwh
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqsb_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __equed: *mut c_char
+) -> c_int
+{
+    slaqsb_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqsp_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __equed: *mut c_char
+) -> c_int
+{
+    slaqsp_(
+        __uplo,
+        __n,
+        __ap,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqsy_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __equed: *mut c_char
+) -> c_int
+{
+    slaqsy_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaqtr_(
+    __ltran: *mut __CLPK_logical,
+    __l__CLPK_real: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __w: *mut __CLPK_real,
+    __scale: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slaqtr_(
+        __ltran,
+        __l__CLPK_real,
+        __n,
+        __t,
+        __ldt,
+        __b,
+        __w,
+        __scale,
+        __x,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slar1v_(
+    __n: *mut __CLPK_integer,
+    __b1: *mut __CLPK_integer,
+    __bn: *mut __CLPK_integer,
+    __lambda: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __l: *mut __CLPK_real,
+    __ld: *mut __CLPK_real,
+    __lld: *mut __CLPK_real,
+    __pivmin: *mut __CLPK_real,
+    __gaptol: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __wantnc: *mut __CLPK_logical,
+    __negcnt: *mut __CLPK_integer,
+    __ztz: *mut __CLPK_real,
+    __mingma: *mut __CLPK_real,
+    __r__: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __nrminv: *mut __CLPK_real,
+    __resid: *mut __CLPK_real,
+    __rqcorr: *mut __CLPK_real,
+    __work: *mut __CLPK_real
+) -> c_int
+{
+    slar1v_(
+        __n,
+        __b1,
+        __bn,
+        __lambda,
+        __d__,
+        __l,
+        __ld,
+        __lld,
+        __pivmin,
+        __gaptol,
+        __z__,
+        __wantnc,
+        __negcnt,
+        __ztz,
+        __mingma,
+        __r__,
+        __isuppz,
+        __nrminv,
+        __resid,
+        __rqcorr,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slar2v_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __y: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __incx: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __incc: *mut __CLPK_integer
+) -> c_int
+{
+    slar2v_(
+        __n,
+        __x,
+        __y,
+        __z__,
+        __incx,
+        __c__,
+        __s,
+        __incc
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarf_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __incv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> c_int
+{
+    slarf_(
+        __side,
+        __m,
+        __n,
+        __v,
+        __incv,
+        __tau,
+        __c__,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarfb_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __ldwork: *mut __CLPK_integer
+) -> c_int
+{
+    slarfb_(
+        __side,
+        __trans,
+        __direct,
+        __storev,
+        __m,
+        __n,
+        __k,
+        __v,
+        __ldv,
+        __t,
+        __ldt,
+        __c__,
+        __ldc,
+        __work,
+        __ldwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarfg_(
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __incx: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real
+) -> c_int
+{
+    slarfg_(
+        __n,
+        __alpha,
+        __x,
+        __incx,
+        __tau
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarfp_(
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __incx: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real
+) -> c_int
+{
+    slarfp_(
+        __n,
+        __alpha,
+        __x,
+        __incx,
+        __tau
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarft_(
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer
+) -> c_int
+{
+    slarft_(
+        __direct,
+        __storev,
+        __n,
+        __k,
+        __v,
+        __ldv,
+        __tau,
+        __t,
+        __ldt
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarfx_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> c_int
+{
+    slarfx_(
+        __side,
+        __m,
+        __n,
+        __v,
+        __tau,
+        __c__,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slargv_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __incx: *mut __CLPK_integer,
+    __y: *mut __CLPK_real,
+    __incy: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __incc: *mut __CLPK_integer
+) -> c_int
+{
+    slargv_(
+        __n,
+        __x,
+        __incx,
+        __y,
+        __incy,
+        __c__,
+        __incc
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarnv_(
+    __idist: *mut __CLPK_integer,
+    __iseed: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_real
+) -> c_int
+{
+    slarnv_(
+        __idist,
+        __iseed,
+        __n,
+        __x
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarra_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __e2: *mut __CLPK_real,
+    __spltol: *mut __CLPK_real,
+    __tnrm: *mut __CLPK_real,
+    __nsplit: *mut __CLPK_integer,
+    __isplit: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slarra_(
+        __n,
+        __d__,
+        __e,
+        __e2,
+        __spltol,
+        __tnrm,
+        __nsplit,
+        __isplit,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarrb_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __lld: *mut __CLPK_real,
+    __ifirst: *mut __CLPK_integer,
+    __ilast: *mut __CLPK_integer,
+    __rtol1: *mut __CLPK_real,
+    __rtol2: *mut __CLPK_real,
+    __offset: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __wgap: *mut __CLPK_real,
+    __werr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __pivmin: *mut __CLPK_real,
+    __spdiam: *mut __CLPK_real,
+    __twist: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slarrb_(
+        __n,
+        __d__,
+        __lld,
+        __ifirst,
+        __ilast,
+        __rtol1,
+        __rtol2,
+        __offset,
+        __w,
+        __wgap,
+        __werr,
+        __work,
+        __iwork,
+        __pivmin,
+        __spdiam,
+        __twist,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarrc_(
+    __jobt: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __pivmin: *mut __CLPK_real,
+    __eigcnt: *mut __CLPK_integer,
+    __lcnt: *mut __CLPK_integer,
+    __rcnt: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slarrc_(
+        __jobt,
+        __n,
+        __vl,
+        __vu,
+        __d__,
+        __e,
+        __pivmin,
+        __eigcnt,
+        __lcnt,
+        __rcnt,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarrd_(
+    __range: *mut c_char,
+    __order: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __gers: *mut __CLPK_real,
+    __reltol: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __e2: *mut __CLPK_real,
+    __pivmin: *mut __CLPK_real,
+    __nsplit: *mut __CLPK_integer,
+    __isplit: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __werr: *mut __CLPK_real,
+    __wl: *mut __CLPK_real,
+    __wu: *mut __CLPK_real,
+    __iblock: *mut __CLPK_integer,
+    __indexw: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slarrd_(
+        __range,
+        __order,
+        __n,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __gers,
+        __reltol,
+        __d__,
+        __e,
+        __e2,
+        __pivmin,
+        __nsplit,
+        __isplit,
+        __m,
+        __w,
+        __werr,
+        __wl,
+        __wu,
+        __iblock,
+        __indexw,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarre_(
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __e2: *mut __CLPK_real,
+    __rtol1: *mut __CLPK_real,
+    __rtol2: *mut __CLPK_real,
+    __spltol: *mut __CLPK_real,
+    __nsplit: *mut __CLPK_integer,
+    __isplit: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __werr: *mut __CLPK_real,
+    __wgap: *mut __CLPK_real,
+    __iblock: *mut __CLPK_integer,
+    __indexw: *mut __CLPK_integer,
+    __gers: *mut __CLPK_real,
+    __pivmin: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slarre_(
+        __range,
+        __n,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __d__,
+        __e,
+        __e2,
+        __rtol1,
+        __rtol2,
+        __spltol,
+        __nsplit,
+        __isplit,
+        __m,
+        __w,
+        __werr,
+        __wgap,
+        __iblock,
+        __indexw,
+        __gers,
+        __pivmin,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarrf_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __l: *mut __CLPK_real,
+    __ld: *mut __CLPK_real,
+    __clstrt: *mut __CLPK_integer,
+    __clend: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __wgap: *mut __CLPK_real,
+    __werr: *mut __CLPK_real,
+    __spdiam: *mut __CLPK_real,
+    __clgapl: *mut __CLPK_real,
+    __clgapr: *mut __CLPK_real,
+    __pivmin: *mut __CLPK_real,
+    __sigma: *mut __CLPK_real,
+    __dplus: *mut __CLPK_real,
+    __lplus: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slarrf_(
+        __n,
+        __d__,
+        __l,
+        __ld,
+        __clstrt,
+        __clend,
+        __w,
+        __wgap,
+        __werr,
+        __spdiam,
+        __clgapl,
+        __clgapr,
+        __pivmin,
+        __sigma,
+        __dplus,
+        __lplus,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarrj_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e2: *mut __CLPK_real,
+    __ifirst: *mut __CLPK_integer,
+    __ilast: *mut __CLPK_integer,
+    __rtol: *mut __CLPK_real,
+    __offset: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __werr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __pivmin: *mut __CLPK_real,
+    __spdiam: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slarrj_(
+        __n,
+        __d__,
+        __e2,
+        __ifirst,
+        __ilast,
+        __rtol,
+        __offset,
+        __w,
+        __werr,
+        __work,
+        __iwork,
+        __pivmin,
+        __spdiam,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarrk_(
+    __n: *mut __CLPK_integer,
+    __iw: *mut __CLPK_integer,
+    __gl: *mut __CLPK_real,
+    __gu: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __e2: *mut __CLPK_real,
+    __pivmin: *mut __CLPK_real,
+    __reltol: *mut __CLPK_real,
+    __w: *mut __CLPK_real,
+    __werr: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slarrk_(
+        __n,
+        __iw,
+        __gl,
+        __gu,
+        __d__,
+        __e2,
+        __pivmin,
+        __reltol,
+        __w,
+        __werr,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarrr_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slarrr_(
+        __n,
+        __d__,
+        __e,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarrv_(
+    __n: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __l: *mut __CLPK_real,
+    __pivmin: *mut __CLPK_real,
+    __isplit: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __dol: *mut __CLPK_integer,
+    __dou: *mut __CLPK_integer,
+    __minrgp: *mut __CLPK_real,
+    __rtol1: *mut __CLPK_real,
+    __rtol2: *mut __CLPK_real,
+    __w: *mut __CLPK_real,
+    __werr: *mut __CLPK_real,
+    __wgap: *mut __CLPK_real,
+    __iblock: *mut __CLPK_integer,
+    __indexw: *mut __CLPK_integer,
+    __gers: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slarrv_(
+        __n,
+        __vl,
+        __vu,
+        __d__,
+        __l,
+        __pivmin,
+        __isplit,
+        __m,
+        __dol,
+        __dou,
+        __minrgp,
+        __rtol1,
+        __rtol2,
+        __w,
+        __werr,
+        __wgap,
+        __iblock,
+        __indexw,
+        __gers,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarscl2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer
+) -> c_int
+{
+    slarscl2_(
+        __m,
+        __n,
+        __d__,
+        __x,
+        __ldx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slartg_(
+    __f: *mut __CLPK_real,
+    __g: *mut __CLPK_real,
+    __cs: *mut __CLPK_real,
+    __sn: *mut __CLPK_real,
+    __r__: *mut __CLPK_real
+) -> c_int
+{
+    slartg_(
+        __f,
+        __g,
+        __cs,
+        __sn,
+        __r__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slartv_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __incx: *mut __CLPK_integer,
+    __y: *mut __CLPK_real,
+    __incy: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __incc: *mut __CLPK_integer
+) -> c_int
+{
+    slartv_(
+        __n,
+        __x,
+        __incx,
+        __y,
+        __incy,
+        __c__,
+        __s,
+        __incc
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaruv_(
+    __iseed: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_real
+) -> c_int
+{
+    slaruv_(
+        __iseed,
+        __n,
+        __x
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarz_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __incv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> c_int
+{
+    slarz_(
+        __side,
+        __m,
+        __n,
+        __l,
+        __v,
+        __incv,
+        __tau,
+        __c__,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarzb_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __ldwork: *mut __CLPK_integer
+) -> c_int
+{
+    slarzb_(
+        __side,
+        __trans,
+        __direct,
+        __storev,
+        __m,
+        __n,
+        __k,
+        __l,
+        __v,
+        __ldv,
+        __t,
+        __ldt,
+        __c__,
+        __ldc,
+        __work,
+        __ldwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slarzt_(
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer
+) -> c_int
+{
+    slarzt_(
+        __direct,
+        __storev,
+        __n,
+        __k,
+        __v,
+        __ldv,
+        __tau,
+        __t,
+        __ldt
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slas2_(
+    __f: *mut __CLPK_real,
+    __g: *mut __CLPK_real,
+    __h__: *mut __CLPK_real,
+    __ssmin: *mut __CLPK_real,
+    __ssmax: *mut __CLPK_real
+) -> c_int
+{
+    slas2_(
+        __f,
+        __g,
+        __h__,
+        __ssmin,
+        __ssmax
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slascl_(
+    __type__: *mut c_char,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __cfrom: *mut __CLPK_real,
+    __cto: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slascl_(
+        __type__,
+        __kl,
+        __ku,
+        __cfrom,
+        __cto,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slascl2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer
+) -> c_int
+{
+    slascl2_(
+        __m,
+        __n,
+        __d__,
+        __x,
+        __ldx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasd0_(
+    __n: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_real,
+    __ldvt: *mut __CLPK_integer,
+    __smlsiz: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasd0_(
+        __n,
+        __sqre,
+        __d__,
+        __e,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __smlsiz,
+        __iwork,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasd1_(
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __alpha: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_real,
+    __ldvt: *mut __CLPK_integer,
+    __idxq: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasd1_(
+        __nl,
+        __nr,
+        __sqre,
+        __d__,
+        __alpha,
+        __beta,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __idxq,
+        __iwork,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasd2_(
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __alpha: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_real,
+    __ldvt: *mut __CLPK_integer,
+    __dsigma: *mut __CLPK_real,
+    __u2: *mut __CLPK_real,
+    __ldu2: *mut __CLPK_integer,
+    __vt2: *mut __CLPK_real,
+    __ldvt2: *mut __CLPK_integer,
+    __idxp: *mut __CLPK_integer,
+    __idx: *mut __CLPK_integer,
+    __idxc: *mut __CLPK_integer,
+    __idxq: *mut __CLPK_integer,
+    __coltyp: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasd2_(
+        __nl,
+        __nr,
+        __sqre,
+        __k,
+        __d__,
+        __z__,
+        __alpha,
+        __beta,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __dsigma,
+        __u2,
+        __ldu2,
+        __vt2,
+        __ldvt2,
+        __idxp,
+        __idx,
+        __idxc,
+        __idxq,
+        __coltyp,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasd3_(
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __dsigma: *mut __CLPK_real,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __u2: *mut __CLPK_real,
+    __ldu2: *mut __CLPK_integer,
+    __vt: *mut __CLPK_real,
+    __ldvt: *mut __CLPK_integer,
+    __vt2: *mut __CLPK_real,
+    __ldvt2: *mut __CLPK_integer,
+    __idxc: *mut __CLPK_integer,
+    __ctot: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasd3_(
+        __nl,
+        __nr,
+        __sqre,
+        __k,
+        __d__,
+        __q,
+        __ldq,
+        __dsigma,
+        __u,
+        __ldu,
+        __u2,
+        __ldu2,
+        __vt,
+        __ldvt,
+        __vt2,
+        __ldvt2,
+        __idxc,
+        __ctot,
+        __z__,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasd4_(
+    __n: *mut __CLPK_integer,
+    __i__: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __delta: *mut __CLPK_real,
+    __rho: *mut __CLPK_real,
+    __sigma: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasd4_(
+        __n,
+        __i__,
+        __d__,
+        __z__,
+        __delta,
+        __rho,
+        __sigma,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasd5_(
+    __i__: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __delta: *mut __CLPK_real,
+    __rho: *mut __CLPK_real,
+    __dsigma: *mut __CLPK_real,
+    __work: *mut __CLPK_real
+) -> c_int
+{
+    slasd5_(
+        __i__,
+        __d__,
+        __z__,
+        __delta,
+        __rho,
+        __dsigma,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasd6_(
+    __icompq: *mut __CLPK_integer,
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __vf: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __alpha: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __idxq: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_real,
+    __ldgnum: *mut __CLPK_integer,
+    __poles: *mut __CLPK_real,
+    __difl: *mut __CLPK_real,
+    __difr: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __k: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasd6_(
+        __icompq,
+        __nl,
+        __nr,
+        __sqre,
+        __d__,
+        __vf,
+        __vl,
+        __alpha,
+        __beta,
+        __idxq,
+        __perm,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __givnum,
+        __ldgnum,
+        __poles,
+        __difl,
+        __difr,
+        __z__,
+        __k,
+        __c__,
+        __s,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasd7_(
+    __icompq: *mut __CLPK_integer,
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __zw: *mut __CLPK_real,
+    __vf: *mut __CLPK_real,
+    __vfw: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __vlw: *mut __CLPK_real,
+    __alpha: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __dsigma: *mut __CLPK_real,
+    __idx: *mut __CLPK_integer,
+    __idxp: *mut __CLPK_integer,
+    __idxq: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_real,
+    __ldgnum: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasd7_(
+        __icompq,
+        __nl,
+        __nr,
+        __sqre,
+        __k,
+        __d__,
+        __z__,
+        __zw,
+        __vf,
+        __vfw,
+        __vl,
+        __vlw,
+        __alpha,
+        __beta,
+        __dsigma,
+        __idx,
+        __idxp,
+        __idxq,
+        __perm,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __givnum,
+        __ldgnum,
+        __c__,
+        __s,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasd8_(
+    __icompq: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __vf: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __difl: *mut __CLPK_real,
+    __difr: *mut __CLPK_real,
+    __lddifr: *mut __CLPK_integer,
+    __dsigma: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasd8_(
+        __icompq,
+        __k,
+        __d__,
+        __z__,
+        __vf,
+        __vl,
+        __difl,
+        __difr,
+        __lddifr,
+        __dsigma,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasda_(
+    __icompq: *mut __CLPK_integer,
+    __smlsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_real,
+    __k: *mut __CLPK_integer,
+    __difl: *mut __CLPK_real,
+    __difr: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __poles: *mut __CLPK_real,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasda_(
+        __icompq,
+        __smlsiz,
+        __n,
+        __sqre,
+        __d__,
+        __e,
+        __u,
+        __ldu,
+        __vt,
+        __k,
+        __difl,
+        __difr,
+        __z__,
+        __poles,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __perm,
+        __givnum,
+        __c__,
+        __s,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasdq_(
+    __uplo: *mut c_char,
+    __sqre: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ncvt: *mut __CLPK_integer,
+    __nru: *mut __CLPK_integer,
+    __ncc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __vt: *mut __CLPK_real,
+    __ldvt: *mut __CLPK_integer,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasdq_(
+        __uplo,
+        __sqre,
+        __n,
+        __ncvt,
+        __nru,
+        __ncc,
+        __d__,
+        __e,
+        __vt,
+        __ldvt,
+        __u,
+        __ldu,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasdt_(
+    __n: *mut __CLPK_integer,
+    __lvl: *mut __CLPK_integer,
+    __nd: *mut __CLPK_integer,
+    __inode: *mut __CLPK_integer,
+    __ndiml: *mut __CLPK_integer,
+    __ndimr: *mut __CLPK_integer,
+    __msub: *mut __CLPK_integer
+) -> c_int
+{
+    slasdt_(
+        __n,
+        __lvl,
+        __nd,
+        __inode,
+        __ndiml,
+        __ndimr,
+        __msub
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaset_(
+    __uplo: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer
+) -> c_int
+{
+    slaset_(
+        __uplo,
+        __m,
+        __n,
+        __alpha,
+        __beta,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasq1_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasq1_(
+        __n,
+        __d__,
+        __e,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasq2_(
+    __n: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasq2_(
+        __n,
+        __z__,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasq3_(
+    __i0: *mut __CLPK_integer,
+    __n0: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __pp: *mut __CLPK_integer,
+    __dmin__: *mut __CLPK_real,
+    __sigma: *mut __CLPK_real,
+    __desig: *mut __CLPK_real,
+    __qmax: *mut __CLPK_real,
+    __nfail: *mut __CLPK_integer,
+    __iter: *mut __CLPK_integer,
+    __ndiv: *mut __CLPK_integer,
+    __ieee: *mut __CLPK_logical,
+    __ttype: *mut __CLPK_integer,
+    __dmin1: *mut __CLPK_real,
+    __dmin2: *mut __CLPK_real,
+    __dn: *mut __CLPK_real,
+    __dn1: *mut __CLPK_real,
+    __dn2: *mut __CLPK_real,
+    __g: *mut __CLPK_real,
+    __tau: *mut __CLPK_real
+) -> c_int
+{
+    slasq3_(
+        __i0,
+        __n0,
+        __z__,
+        __pp,
+        __dmin__,
+        __sigma,
+        __desig,
+        __qmax,
+        __nfail,
+        __iter,
+        __ndiv,
+        __ieee,
+        __ttype,
+        __dmin1,
+        __dmin2,
+        __dn,
+        __dn1,
+        __dn2,
+        __g,
+        __tau
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasq4_(
+    __i0: *mut __CLPK_integer,
+    __n0: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __pp: *mut __CLPK_integer,
+    __n0in: *mut __CLPK_integer,
+    __dmin__: *mut __CLPK_real,
+    __dmin1: *mut __CLPK_real,
+    __dmin2: *mut __CLPK_real,
+    __dn: *mut __CLPK_real,
+    __dn1: *mut __CLPK_real,
+    __dn2: *mut __CLPK_real,
+    __tau: *mut __CLPK_real,
+    __ttype: *mut __CLPK_integer,
+    __g: *mut __CLPK_real
+) -> c_int
+{
+    slasq4_(
+        __i0,
+        __n0,
+        __z__,
+        __pp,
+        __n0in,
+        __dmin__,
+        __dmin1,
+        __dmin2,
+        __dn,
+        __dn1,
+        __dn2,
+        __tau,
+        __ttype,
+        __g
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasq5_(
+    __i0: *mut __CLPK_integer,
+    __n0: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __pp: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __dmin__: *mut __CLPK_real,
+    __dmin1: *mut __CLPK_real,
+    __dmin2: *mut __CLPK_real,
+    __dn: *mut __CLPK_real,
+    __dnm1: *mut __CLPK_real,
+    __dnm2: *mut __CLPK_real,
+    __ieee: *mut __CLPK_logical
+) -> c_int
+{
+    slasq5_(
+        __i0,
+        __n0,
+        __z__,
+        __pp,
+        __tau,
+        __dmin__,
+        __dmin1,
+        __dmin2,
+        __dn,
+        __dnm1,
+        __dnm2,
+        __ieee
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasq6_(
+    __i0: *mut __CLPK_integer,
+    __n0: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __pp: *mut __CLPK_integer,
+    __dmin__: *mut __CLPK_real,
+    __dmin1: *mut __CLPK_real,
+    __dmin2: *mut __CLPK_real,
+    __dn: *mut __CLPK_real,
+    __dnm1: *mut __CLPK_real,
+    __dnm2: *mut __CLPK_real
+) -> c_int
+{
+    slasq6_(
+        __i0,
+        __n0,
+        __z__,
+        __pp,
+        __dmin__,
+        __dmin1,
+        __dmin2,
+        __dn,
+        __dnm1,
+        __dnm2
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasr_(
+    __side: *mut c_char,
+    __pivot: *mut c_char,
+    __direct: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer
+) -> c_int
+{
+    slasr_(
+        __side,
+        __pivot,
+        __direct,
+        __m,
+        __n,
+        __c__,
+        __s,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasrt_(
+    __id: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasrt_(
+        __id,
+        __n,
+        __d__,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slassq_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __incx: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __sumsq: *mut __CLPK_real
+) -> c_int
+{
+    slassq_(
+        __n,
+        __x,
+        __incx,
+        __scale,
+        __sumsq
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasv2_(
+    __f: *mut __CLPK_real,
+    __g: *mut __CLPK_real,
+    __h__: *mut __CLPK_real,
+    __ssmin: *mut __CLPK_real,
+    __ssmax: *mut __CLPK_real,
+    __snr: *mut __CLPK_real,
+    __csr: *mut __CLPK_real,
+    __snl: *mut __CLPK_real,
+    __csl: *mut __CLPK_real
+) -> c_int
+{
+    slasv2_(
+        __f,
+        __g,
+        __h__,
+        __ssmin,
+        __ssmax,
+        __snr,
+        __csr,
+        __snl,
+        __csl
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slaswp_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __k1: *mut __CLPK_integer,
+    __k2: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __incx: *mut __CLPK_integer
+) -> c_int
+{
+    slaswp_(
+        __n,
+        __a,
+        __lda,
+        __k1,
+        __k2,
+        __ipiv,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasy2_(
+    __ltranl: *mut __CLPK_logical,
+    __ltranr: *mut __CLPK_logical,
+    __isgn: *mut __CLPK_integer,
+    __n1: *mut __CLPK_integer,
+    __n2: *mut __CLPK_integer,
+    __tl: *mut __CLPK_real,
+    __ldtl: *mut __CLPK_integer,
+    __tr: *mut __CLPK_real,
+    __ldtr: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __xnorm: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasy2_(
+        __ltranl,
+        __ltranr,
+        __isgn,
+        __n1,
+        __n2,
+        __tl,
+        __ldtl,
+        __tr,
+        __ldtr,
+        __b,
+        __ldb,
+        __scale,
+        __x,
+        __ldx,
+        __xnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slasyf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __ldw: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slasyf_(
+        __uplo,
+        __n,
+        __nb,
+        __kb,
+        __a,
+        __lda,
+        __ipiv,
+        __w,
+        __ldw,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slatbs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __normin: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __scale: *mut __CLPK_real,
+    __cnorm: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slatbs_(
+        __uplo,
+        __trans,
+        __diag,
+        __normin,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __x,
+        __scale,
+        __cnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slatdf_(
+    __ijob: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __rhs: *mut __CLPK_real,
+    __rdsum: *mut __CLPK_real,
+    __rdscal: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __jpiv: *mut __CLPK_integer
+) -> c_int
+{
+    slatdf_(
+        __ijob,
+        __n,
+        __z__,
+        __ldz,
+        __rhs,
+        __rdsum,
+        __rdscal,
+        __ipiv,
+        __jpiv
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slatps_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __normin: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __x: *mut __CLPK_real,
+    __scale: *mut __CLPK_real,
+    __cnorm: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slatps_(
+        __uplo,
+        __trans,
+        __diag,
+        __normin,
+        __n,
+        __ap,
+        __x,
+        __scale,
+        __cnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slatrd_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __e: *mut __CLPK_real,
+    __tau: *mut __CLPK_real,
+    __w: *mut __CLPK_real,
+    __ldw: *mut __CLPK_integer
+) -> c_int
+{
+    slatrd_(
+        __uplo,
+        __n,
+        __nb,
+        __a,
+        __lda,
+        __e,
+        __tau,
+        __w,
+        __ldw
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slatrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __normin: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __scale: *mut __CLPK_real,
+    __cnorm: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slatrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __normin,
+        __n,
+        __a,
+        __lda,
+        __x,
+        __scale,
+        __cnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slatrz_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real
+) -> c_int
+{
+    slatrz_(
+        __m,
+        __n,
+        __l,
+        __a,
+        __lda,
+        __tau,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slatzm_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __incv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c1: *mut __CLPK_real,
+    __c2: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real
+) -> c_int
+{
+    slatzm_(
+        __side,
+        __m,
+        __n,
+        __v,
+        __incv,
+        __tau,
+        __c1,
+        __c2,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slauu2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slauu2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slauum_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    slauum_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sopgtr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __tau: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sopgtr_(
+        __uplo,
+        __n,
+        __ap,
+        __tau,
+        __q,
+        __ldq,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sopmtr_(
+    __side: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sopmtr_(
+        __side,
+        __uplo,
+        __trans,
+        __m,
+        __n,
+        __ap,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorg2l_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorg2l_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorg2r_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorg2r_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorgbr_(
+    __vect: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorgbr_(
+        __vect,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorghr_(
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorghr_(
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorgl2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorgl2_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorglq_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorglq_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorgql_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorgql_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorgqr_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorgqr_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorgr2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorgr2_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorgrq_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorgrq_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorgtr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorgtr_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorm2l_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorm2l_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorm2r_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorm2r_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sormbr_(
+    __vect: *mut c_char,
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sormbr_(
+        __vect,
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sormhr_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sormhr_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sorml2_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sorml2_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sormlq_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sormlq_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sormql_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sormql_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sormqr_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sormqr_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sormr2_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sormr2_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sormr3_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sormr3_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sormrq_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sormrq_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sormrz_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sormrz_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sormtr_(
+    __side: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sormtr_(
+        __side,
+        __uplo,
+        __trans,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spbcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spbcon_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spbequ_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spbequ_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spbrfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_real,
+    __ldafb: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spbrfs_(
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spbstf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spbstf_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spbsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spbsv_(
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spbsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_real,
+    __ldafb: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __s: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spbsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __equed,
+        __s,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spbtf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spbtf2_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spbtrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spbtrf_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spbtrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spbtrs_(
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spftrf_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spftrf_(
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spftri_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spftri_(
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spftrs_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spftrs_(
+        __transr,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spocon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spocon_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spoequ_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spoequ_(
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spoequb_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spoequb_(
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sporfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_real,
+    __ldaf: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sporfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sposv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sposv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sposvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_real,
+    __ldaf: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __s: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sposvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __equed,
+        __s,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spotf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spotf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spotrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spotrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spotri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spotri_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spotrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spotrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sppcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sppcon_(
+        __uplo,
+        __n,
+        __ap,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sppequ_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sppequ_(
+        __uplo,
+        __n,
+        __ap,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spprfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __afp: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spprfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sppsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sppsv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sppsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __afp: *mut __CLPK_real,
+    __equed: *mut c_char,
+    __s: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sppsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __equed,
+        __s,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spptrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spptrf_(
+        __uplo,
+        __n,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spptri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spptri_(
+        __uplo,
+        __n,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spptrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spptrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spstf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __piv: *mut __CLPK_integer,
+    __rank: *mut __CLPK_integer,
+    __tol: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spstf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __piv,
+        __rank,
+        __tol,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spstrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __piv: *mut __CLPK_integer,
+    __rank: *mut __CLPK_integer,
+    __tol: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spstrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __piv,
+        __rank,
+        __tol,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sptcon_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sptcon_(
+        __n,
+        __d__,
+        __e,
+        __anorm,
+        __rcond,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spteqr_(
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spteqr_(
+        __compz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sptrfs_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __df: *mut __CLPK_real,
+    __ef: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sptrfs_(
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __df,
+        __ef,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sptsv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sptsv_(
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sptsvx_(
+    __fact: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __df: *mut __CLPK_real,
+    __ef: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sptsvx_(
+        __fact,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __df,
+        __ef,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spttrf_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spttrf_(
+        __n,
+        __d__,
+        __e,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_spttrs_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    spttrs_(
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sptts2_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    sptts2_(
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_srscl_(
+    __n: *mut __CLPK_integer,
+    __sa: *mut __CLPK_real,
+    __sx: *mut __CLPK_real,
+    __incx: *mut __CLPK_integer
+) -> c_int
+{
+    srscl_(
+        __n,
+        __sa,
+        __sx,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssbev_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssbev_(
+        __jobz,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssbevd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssbevd_(
+        __jobz,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssbevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssbevx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __q,
+        __ldq,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssbgst_(
+    __vect: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_real,
+    __ldbb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssbgst_(
+        __vect,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __x,
+        __ldx,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssbgv_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_real,
+    __ldbb: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssbgv_(
+        __jobz,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssbgvd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_real,
+    __ldbb: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssbgvd_(
+        __jobz,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssbgvx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_real,
+    __ldbb: *mut __CLPK_integer,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssbgvx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __q,
+        __ldq,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssbtrd_(
+    __vect: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssbtrd_(
+        __vect,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __d__,
+        __e,
+        __q,
+        __ldq,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssfrk_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_real,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __beta: *mut __CLPK_real,
+    __c__: *mut __CLPK_real
+) -> c_int
+{
+    ssfrk_(
+        __transr,
+        __uplo,
+        __trans,
+        __n,
+        __k,
+        __alpha,
+        __a,
+        __lda,
+        __beta,
+        __c__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sspcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sspcon_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sspev_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sspev_(
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sspevd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sspevd_(
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sspevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sspevx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __ap,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sspgst_(
+    __itype: *mut __CLPK_integer,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __bp: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sspgst_(
+        __itype,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sspgv_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __bp: *mut __CLPK_real,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sspgv_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sspgvd_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __bp: *mut __CLPK_real,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sspgvd_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sspgvx_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __bp: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sspgvx_(
+        __itype,
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssprfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __afp: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssprfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sspsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sspsv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sspsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __afp: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sspsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssptrd_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __tau: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssptrd_(
+        __uplo,
+        __n,
+        __ap,
+        __d__,
+        __e,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssptrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssptrf_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssptri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssptri_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssptrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssptrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sstebz_(
+    __range: *mut c_char,
+    __order: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __nsplit: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __iblock: *mut __CLPK_integer,
+    __isplit: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sstebz_(
+        __range,
+        __order,
+        __n,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __d__,
+        __e,
+        __m,
+        __nsplit,
+        __w,
+        __iblock,
+        __isplit,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sstedc_(
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sstedc_(
+        __compz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sstegr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sstegr_(
+        __jobz,
+        __range,
+        __n,
+        __d__,
+        __e,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sstein_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __iblock: *mut __CLPK_integer,
+    __isplit: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sstein_(
+        __n,
+        __d__,
+        __e,
+        __m,
+        __w,
+        __iblock,
+        __isplit,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sstemr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __nzc: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __tryrac: *mut __CLPK_logical,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sstemr_(
+        __jobz,
+        __range,
+        __n,
+        __d__,
+        __e,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __nzc,
+        __isuppz,
+        __tryrac,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssteqr_(
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssteqr_(
+        __compz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssterf_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssterf_(
+        __n,
+        __d__,
+        __e,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sstev_(
+    __jobz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sstev_(
+        __jobz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sstevd_(
+    __jobz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sstevd_(
+        __jobz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sstevr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sstevr_(
+        __jobz,
+        __range,
+        __n,
+        __d__,
+        __e,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_sstevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    sstevx_(
+        __jobz,
+        __range,
+        __n,
+        __d__,
+        __e,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssycon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssycon_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssyequb_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __scond: *mut __CLPK_real,
+    __amax: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssyequb_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssyev_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssyev_(
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __w,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssyevd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssyevd_(
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __w,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssyevr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssyevr_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssyevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssyevx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssygs2_(
+    __itype: *mut __CLPK_integer,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssygs2_(
+        __itype,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssygst_(
+    __itype: *mut __CLPK_integer,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssygst_(
+        __itype,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssygv_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssygv_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __w,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssygvd_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssygvd_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __w,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssygvx_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __vu: *mut __CLPK_real,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_real,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssygvx_(
+        __itype,
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssyrfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_real,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssyrfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssysv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssysv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssysvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_real,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssysvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssytd2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __tau: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssytd2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssytf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssytf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssytrd_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __e: *mut __CLPK_real,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssytrd_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssytrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssytrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssytri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssytri_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ssytrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ssytrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stbcon_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stbcon_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stbrfs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stbrfs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stbtrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_real,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stbtrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stfsm_(
+    __transr: *mut c_char,
+    __side: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_real,
+    __a: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    stfsm_(
+        __transr,
+        __side,
+        __uplo,
+        __trans,
+        __diag,
+        __m,
+        __n,
+        __alpha,
+        __a,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stftri_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stftri_(
+        __transr,
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stfttp_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __arf: *mut __CLPK_real,
+    __ap: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stfttp_(
+        __transr,
+        __uplo,
+        __n,
+        __arf,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stfttr_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __arf: *mut __CLPK_real,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stfttr_(
+        __transr,
+        __uplo,
+        __n,
+        __arf,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stgevc_(
+    __side: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __lds: *mut __CLPK_integer,
+    __p: *mut __CLPK_real,
+    __ldp: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_real,
+    __ldvr: *mut __CLPK_integer,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stgevc_(
+        __side,
+        __howmny,
+        __select,
+        __n,
+        __s,
+        __lds,
+        __p,
+        __ldp,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __mm,
+        __m,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stgex2_(
+    __wantq: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __j1: *mut __CLPK_integer,
+    __n1: *mut __CLPK_integer,
+    __n2: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stgex2_(
+        __wantq,
+        __wantz,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __j1,
+        __n1,
+        __n2,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stgexc_(
+    __wantq: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __ifst: *mut __CLPK_integer,
+    __ilst: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stgexc_(
+        __wantq,
+        __wantz,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __ifst,
+        __ilst,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stgsen_(
+    __ijob: *mut __CLPK_integer,
+    __wantq: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __alphar: *mut __CLPK_real,
+    __alphai: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_real,
+    __ldz: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __pl: *mut __CLPK_real,
+    __pr: *mut __CLPK_real,
+    __dif: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stgsen_(
+        __ijob,
+        __wantq,
+        __wantz,
+        __select,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alphar,
+        __alphai,
+        __beta,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __m,
+        __pl,
+        __pr,
+        __dif,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stgsja_(
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobq: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __tola: *mut __CLPK_real,
+    __tolb: *mut __CLPK_real,
+    __alpha: *mut __CLPK_real,
+    __beta: *mut __CLPK_real,
+    __u: *mut __CLPK_real,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_real,
+    __ldv: *mut __CLPK_integer,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __ncycle: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stgsja_(
+        __jobu,
+        __jobv,
+        __jobq,
+        __m,
+        __p,
+        __n,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __tola,
+        __tolb,
+        __alpha,
+        __beta,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __q,
+        __ldq,
+        __work,
+        __ncycle,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stgsna_(
+    __job: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_real,
+    __ldvr: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __dif: *mut __CLPK_real,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stgsna_(
+        __job,
+        __howmny,
+        __select,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __s,
+        __dif,
+        __mm,
+        __m,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stgsy2_(
+    __trans: *mut c_char,
+    __ijob: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __ldd: *mut __CLPK_integer,
+    __e: *mut __CLPK_real,
+    __lde: *mut __CLPK_integer,
+    __f: *mut __CLPK_real,
+    __ldf: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __rdsum: *mut __CLPK_real,
+    __rdscal: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __pq: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stgsy2_(
+        __trans,
+        __ijob,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __d__,
+        __ldd,
+        __e,
+        __lde,
+        __f,
+        __ldf,
+        __scale,
+        __rdsum,
+        __rdscal,
+        __iwork,
+        __pq,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stgsyl_(
+    __trans: *mut c_char,
+    __ijob: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_real,
+    __ldd: *mut __CLPK_integer,
+    __e: *mut __CLPK_real,
+    __lde: *mut __CLPK_integer,
+    __f: *mut __CLPK_real,
+    __ldf: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __dif: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stgsyl_(
+        __trans,
+        __ijob,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __d__,
+        __ldd,
+        __e,
+        __lde,
+        __f,
+        __ldf,
+        __scale,
+        __dif,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stpcon_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stpcon_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __ap,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stprfs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stprfs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stptri_(
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stptri_(
+        __uplo,
+        __diag,
+        __n,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stptrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stptrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stpttf_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __arf: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stpttf_(
+        __transr,
+        __uplo,
+        __n,
+        __ap,
+        __arf,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stpttr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stpttr_(
+        __uplo,
+        __n,
+        __ap,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_strcon_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    strcon_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __lda,
+        __rcond,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_strevc_(
+    __side: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_real,
+    __ldvr: *mut __CLPK_integer,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    strevc_(
+        __side,
+        __howmny,
+        __select,
+        __n,
+        __t,
+        __ldt,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __mm,
+        __m,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_strexc_(
+    __compq: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __ifst: *mut __CLPK_integer,
+    __ilst: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    strexc_(
+        __compq,
+        __n,
+        __t,
+        __ldt,
+        __q,
+        __ldq,
+        __ifst,
+        __ilst,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_strrfs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_real,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_real,
+    __berr: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    strrfs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_strsen_(
+    __job: *mut c_char,
+    __compq: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer,
+    __q: *mut __CLPK_real,
+    __ldq: *mut __CLPK_integer,
+    __wr: *mut __CLPK_real,
+    __wi: *mut __CLPK_real,
+    __m: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __sep: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    strsen_(
+        __job,
+        __compq,
+        __select,
+        __n,
+        __t,
+        __ldt,
+        __q,
+        __ldq,
+        __wr,
+        __wi,
+        __m,
+        __s,
+        __sep,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_strsna_(
+    __job: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_real,
+    __ldt: *mut __CLPK_integer,
+    __vl: *mut __CLPK_real,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_real,
+    __ldvr: *mut __CLPK_integer,
+    __s: *mut __CLPK_real,
+    __sep: *mut __CLPK_real,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_real,
+    __ldwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    strsna_(
+        __job,
+        __howmny,
+        __select,
+        __n,
+        __t,
+        __ldt,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __s,
+        __sep,
+        __mm,
+        __m,
+        __work,
+        __ldwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_strsyl_(
+    __trana: *mut c_char,
+    __tranb: *mut c_char,
+    __isgn: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_real,
+    __ldc: *mut __CLPK_integer,
+    __scale: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    strsyl_(
+        __trana,
+        __tranb,
+        __isgn,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __scale,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_strti2_(
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    strti2_(
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_strtri_(
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    strtri_(
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_strtrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_real,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    strtrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_strttf_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __arf: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    strttf_(
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __arf,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_strttp_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __ap: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    strttp_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stzrqf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stzrqf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_stzrzf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_real,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_real,
+    __work: *mut __CLPK_real,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    stzrzf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zbdsqr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ncvt: *mut __CLPK_integer,
+    __nru: *mut __CLPK_integer,
+    __ncc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __vt: *mut __CLPK_doublecomplex,
+    __ldvt: *mut __CLPK_integer,
+    __u: *mut __CLPK_doublecomplex,
+    __ldu: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zbdsqr_(
+        __uplo,
+        __n,
+        __ncvt,
+        __nru,
+        __ncc,
+        __d__,
+        __e,
+        __vt,
+        __ldvt,
+        __u,
+        __ldu,
+        __c__,
+        __ldc,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zcgesv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __swork: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_doublereal,
+    __iter: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zcgesv_(
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __work,
+        __swork,
+        __rwork,
+        __iter,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zcposv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __swork: *mut __CLPK_complex,
+    __rwork: *mut __CLPK_doublereal,
+    __iter: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zcposv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __work,
+        __swork,
+        __rwork,
+        __iter,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zdrscl_(
+    __n: *mut __CLPK_integer,
+    __sa: *mut __CLPK_doublereal,
+    __sx: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer
+) -> c_int
+{
+    zdrscl_(
+        __n,
+        __sa,
+        __sx,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgbbrd_(
+    __vect: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ncc: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __pt: *mut __CLPK_doublecomplex,
+    __ldpt: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgbbrd_(
+        __vect,
+        __m,
+        __n,
+        __ncc,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __d__,
+        __e,
+        __q,
+        __ldq,
+        __pt,
+        __ldpt,
+        __c__,
+        __ldc,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgbcon_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgbcon_(
+        __norm,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgbequ_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rowcnd: *mut __CLPK_doublereal,
+    __colcnd: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgbequ_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgbequb_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rowcnd: *mut __CLPK_doublereal,
+    __colcnd: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgbequb_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgbrfs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_doublecomplex,
+    __ldafb: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgbrfs_(
+        __trans,
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgbsv_(
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgbsv_(
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgbsvx_(
+    __fact: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_doublecomplex,
+    __ldafb: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgbsvx_(
+        __fact,
+        __trans,
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __ipiv,
+        __equed,
+        __r__,
+        __c__,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgbtf2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgbtf2_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgbtrf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgbtrf_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgbtrs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgbtrs_(
+        __trans,
+        __n,
+        __kl,
+        __ku,
+        __nrhs,
+        __ab,
+        __ldab,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgebak_(
+    __job: *mut c_char,
+    __side: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __ldv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgebak_(
+        __job,
+        __side,
+        __n,
+        __ilo,
+        __ihi,
+        __scale,
+        __m,
+        __v,
+        __ldv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgebal_(
+    __job: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgebal_(
+        __job,
+        __n,
+        __a,
+        __lda,
+        __ilo,
+        __ihi,
+        __scale,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgebd2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __tauq: *mut __CLPK_doublecomplex,
+    __taup: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgebd2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tauq,
+        __taup,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgebrd_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __tauq: *mut __CLPK_doublecomplex,
+    __taup: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgebrd_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tauq,
+        __taup,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgecon_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgecon_(
+        __norm,
+        __n,
+        __a,
+        __lda,
+        __anorm,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgeequ_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rowcnd: *mut __CLPK_doublereal,
+    __colcnd: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgeequ_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgeequb_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rowcnd: *mut __CLPK_doublereal,
+    __colcnd: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgeequb_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgees_(
+    __jobvs: *mut c_char,
+    __sort: *mut c_char,
+    __select: __CLPK_L_fp,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublecomplex,
+    __vs: *mut __CLPK_doublecomplex,
+    __ldvs: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgees_(
+        __jobvs,
+        __sort,
+        __select,
+        __n,
+        __a,
+        __lda,
+        __sdim,
+        __w,
+        __vs,
+        __ldvs,
+        __work,
+        __lwork,
+        __rwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgeesx_(
+    __jobvs: *mut c_char,
+    __sort: *mut c_char,
+    __select: __CLPK_L_fp,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublecomplex,
+    __vs: *mut __CLPK_doublecomplex,
+    __ldvs: *mut __CLPK_integer,
+    __rconde: *mut __CLPK_doublereal,
+    __rcondv: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgeesx_(
+        __jobvs,
+        __sort,
+        __select,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __sdim,
+        __w,
+        __vs,
+        __ldvs,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __rwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgeev_(
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublecomplex,
+    __vl: *mut __CLPK_doublecomplex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublecomplex,
+    __ldvr: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgeev_(
+        __jobvl,
+        __jobvr,
+        __n,
+        __a,
+        __lda,
+        __w,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgeevx_(
+    __balanc: *mut c_char,
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublecomplex,
+    __vl: *mut __CLPK_doublecomplex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublecomplex,
+    __ldvr: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __abnrm: *mut __CLPK_doublereal,
+    __rconde: *mut __CLPK_doublereal,
+    __rcondv: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgeevx_(
+        __balanc,
+        __jobvl,
+        __jobvr,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __w,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __ilo,
+        __ihi,
+        __scale,
+        __abnrm,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgegs_(
+    __jobvsl: *mut c_char,
+    __jobvsr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __beta: *mut __CLPK_doublecomplex,
+    __vsl: *mut __CLPK_doublecomplex,
+    __ldvsl: *mut __CLPK_integer,
+    __vsr: *mut __CLPK_doublecomplex,
+    __ldvsr: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgegs_(
+        __jobvsl,
+        __jobvsr,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __vsl,
+        __ldvsl,
+        __vsr,
+        __ldvsr,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgegv_(
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __beta: *mut __CLPK_doublecomplex,
+    __vl: *mut __CLPK_doublecomplex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublecomplex,
+    __ldvr: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgegv_(
+        __jobvl,
+        __jobvr,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgehd2_(
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgehd2_(
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgehrd_(
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgehrd_(
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgelq2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgelq2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgelqf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgelqf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgels_(
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgels_(
+        __trans,
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgelsd_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgelsd_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __s,
+        __rcond,
+        __rank,
+        __work,
+        __lwork,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgelss_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgelss_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __s,
+        __rcond,
+        __rank,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgelsx_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgelsx_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __jpvt,
+        __rcond,
+        __rank,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgelsy_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgelsy_(
+        __m,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __jpvt,
+        __rcond,
+        __rank,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgeql2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgeql2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgeqlf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgeqlf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgeqp3_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgeqp3_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgeqpf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgeqpf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgeqr2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgeqr2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgeqrf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgeqrf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgerfs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublecomplex,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgerfs_(
+        __trans,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgerq2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgerq2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgerqf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgerqf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgesc2_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __rhs: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __jpiv: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal
+) -> c_int
+{
+    zgesc2_(
+        __n,
+        __a,
+        __lda,
+        __rhs,
+        __ipiv,
+        __jpiv,
+        __scale
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgesdd_(
+    __jobz: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublecomplex,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_doublecomplex,
+    __ldvt: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgesdd_(
+        __jobz,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __work,
+        __lwork,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgesv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgesv_(
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgesvd_(
+    __jobu: *mut c_char,
+    __jobvt: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublecomplex,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_doublecomplex,
+    __ldvt: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgesvd_(
+        __jobu,
+        __jobvt,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __u,
+        __ldu,
+        __vt,
+        __ldvt,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgesvx_(
+    __fact: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublecomplex,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgesvx_(
+        __fact,
+        __trans,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __equed,
+        __r__,
+        __c__,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgetc2_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __jpiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgetc2_(
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __jpiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgetf2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgetf2_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgetrf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgetrf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgetri_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgetri_(
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgetrs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgetrs_(
+        __trans,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zggbak_(
+    __job: *mut c_char,
+    __side: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __lscale: *mut __CLPK_doublereal,
+    __rscale: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __ldv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zggbak_(
+        __job,
+        __side,
+        __n,
+        __ilo,
+        __ihi,
+        __lscale,
+        __rscale,
+        __m,
+        __v,
+        __ldv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zggbal_(
+    __job: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __lscale: *mut __CLPK_doublereal,
+    __rscale: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zggbal_(
+        __job,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __ilo,
+        __ihi,
+        __lscale,
+        __rscale,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgges_(
+    __jobvsl: *mut c_char,
+    __jobvsr: *mut c_char,
+    __sort: *mut c_char,
+    __selctg: __CLPK_L_fp,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __beta: *mut __CLPK_doublecomplex,
+    __vsl: *mut __CLPK_doublecomplex,
+    __ldvsl: *mut __CLPK_integer,
+    __vsr: *mut __CLPK_doublecomplex,
+    __ldvsr: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgges_(
+        __jobvsl,
+        __jobvsr,
+        __sort,
+        __selctg,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __sdim,
+        __alpha,
+        __beta,
+        __vsl,
+        __ldvsl,
+        __vsr,
+        __ldvsr,
+        __work,
+        __lwork,
+        __rwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zggesx_(
+    __jobvsl: *mut c_char,
+    __jobvsr: *mut c_char,
+    __sort: *mut c_char,
+    __selctg: __CLPK_L_fp,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __sdim: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __beta: *mut __CLPK_doublecomplex,
+    __vsl: *mut __CLPK_doublecomplex,
+    __ldvsl: *mut __CLPK_integer,
+    __vsr: *mut __CLPK_doublecomplex,
+    __ldvsr: *mut __CLPK_integer,
+    __rconde: *mut __CLPK_doublereal,
+    __rcondv: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zggesx_(
+        __jobvsl,
+        __jobvsr,
+        __sort,
+        __selctg,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __sdim,
+        __alpha,
+        __beta,
+        __vsl,
+        __ldvsl,
+        __vsr,
+        __ldvsr,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __rwork,
+        __iwork,
+        __liwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zggev_(
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __beta: *mut __CLPK_doublecomplex,
+    __vl: *mut __CLPK_doublecomplex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublecomplex,
+    __ldvr: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zggev_(
+        __jobvl,
+        __jobvr,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zggevx_(
+    __balanc: *mut c_char,
+    __jobvl: *mut c_char,
+    __jobvr: *mut c_char,
+    __sense: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __beta: *mut __CLPK_doublecomplex,
+    __vl: *mut __CLPK_doublecomplex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublecomplex,
+    __ldvr: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __lscale: *mut __CLPK_doublereal,
+    __rscale: *mut __CLPK_doublereal,
+    __abnrm: *mut __CLPK_doublereal,
+    __bbnrm: *mut __CLPK_doublereal,
+    __rconde: *mut __CLPK_doublereal,
+    __rcondv: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __bwork: *mut __CLPK_logical,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zggevx_(
+        __balanc,
+        __jobvl,
+        __jobvr,
+        __sense,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __ilo,
+        __ihi,
+        __lscale,
+        __rscale,
+        __abnrm,
+        __bbnrm,
+        __rconde,
+        __rcondv,
+        __work,
+        __lwork,
+        __rwork,
+        __iwork,
+        __bwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zggglm_(
+    __n: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublecomplex,
+    __x: *mut __CLPK_doublecomplex,
+    __y: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zggglm_(
+        __n,
+        __m,
+        __p,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __d__,
+        __x,
+        __y,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgghrd_(
+    __compq: *mut c_char,
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgghrd_(
+        __compq,
+        __compz,
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgglse_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublecomplex,
+    __d__: *mut __CLPK_doublecomplex,
+    __x: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgglse_(
+        __m,
+        __n,
+        __p,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __d__,
+        __x,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zggqrf_(
+    __n: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __taua: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __taub: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zggqrf_(
+        __n,
+        __m,
+        __p,
+        __a,
+        __lda,
+        __taua,
+        __b,
+        __ldb,
+        __taub,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zggrqf_(
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __taua: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __taub: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zggrqf_(
+        __m,
+        __p,
+        __n,
+        __a,
+        __lda,
+        __taua,
+        __b,
+        __ldb,
+        __taub,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zggsvd_(
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobq: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublecomplex,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __ldv: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zggsvd_(
+        __jobu,
+        __jobv,
+        __jobq,
+        __m,
+        __n,
+        __p,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __q,
+        __ldq,
+        __work,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zggsvp_(
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobq: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __tola: *mut __CLPK_doublereal,
+    __tolb: *mut __CLPK_doublereal,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __u: *mut __CLPK_doublecomplex,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __ldv: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zggsvp_(
+        __jobu,
+        __jobv,
+        __jobq,
+        __m,
+        __p,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __tola,
+        __tolb,
+        __k,
+        __l,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __q,
+        __ldq,
+        __iwork,
+        __rwork,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgtcon_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublecomplex,
+    __d__: *mut __CLPK_doublecomplex,
+    __du: *mut __CLPK_doublecomplex,
+    __du2: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgtcon_(
+        __norm,
+        __n,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgtrfs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublecomplex,
+    __d__: *mut __CLPK_doublecomplex,
+    __du: *mut __CLPK_doublecomplex,
+    __dlf: *mut __CLPK_doublecomplex,
+    __df: *mut __CLPK_doublecomplex,
+    __duf: *mut __CLPK_doublecomplex,
+    __du2: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgtrfs_(
+        __trans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __dlf,
+        __df,
+        __duf,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgtsv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublecomplex,
+    __d__: *mut __CLPK_doublecomplex,
+    __du: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgtsv_(
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgtsvx_(
+    __fact: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublecomplex,
+    __d__: *mut __CLPK_doublecomplex,
+    __du: *mut __CLPK_doublecomplex,
+    __dlf: *mut __CLPK_doublecomplex,
+    __df: *mut __CLPK_doublecomplex,
+    __duf: *mut __CLPK_doublecomplex,
+    __du2: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgtsvx_(
+        __fact,
+        __trans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __dlf,
+        __df,
+        __duf,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgttrf_(
+    __n: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublecomplex,
+    __d__: *mut __CLPK_doublecomplex,
+    __du: *mut __CLPK_doublecomplex,
+    __du2: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgttrf_(
+        __n,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgttrs_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublecomplex,
+    __d__: *mut __CLPK_doublecomplex,
+    __du: *mut __CLPK_doublecomplex,
+    __du2: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zgttrs_(
+        __trans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zgtts2_(
+    __itrans: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublecomplex,
+    __d__: *mut __CLPK_doublecomplex,
+    __du: *mut __CLPK_doublecomplex,
+    __du2: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    zgtts2_(
+        __itrans,
+        __n,
+        __nrhs,
+        __dl,
+        __d__,
+        __du,
+        __du2,
+        __ipiv,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhbev_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhbev_(
+        __jobz,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhbevd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhbevd_(
+        __jobz,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhbevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhbevx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __q,
+        __ldq,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhbgst_(
+    __vect: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_doublecomplex,
+    __ldbb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhbgst_(
+        __vect,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __x,
+        __ldx,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhbgv_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_doublecomplex,
+    __ldbb: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhbgv_(
+        __jobz,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhbgvd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_doublecomplex,
+    __ldbb: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhbgvd_(
+        __jobz,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhbgvx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ka: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __bb: *mut __CLPK_doublecomplex,
+    __ldbb: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhbgvx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __ka,
+        __kb,
+        __ab,
+        __ldab,
+        __bb,
+        __ldbb,
+        __q,
+        __ldq,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhbtrd_(
+    __vect: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhbtrd_(
+        __vect,
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __d__,
+        __e,
+        __q,
+        __ldq,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhecon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhecon_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zheequb_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zheequb_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zheev_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zheev_(
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __w,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zheevd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zheevd_(
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __w,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zheevr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zheevr_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zheevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zheevx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhegs2_(
+    __itype: *mut __CLPK_integer,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhegs2_(
+        __itype,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhegst_(
+    __itype: *mut __CLPK_integer,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhegst_(
+        __itype,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhegv_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhegv_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __w,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhegvd_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhegvd_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __w,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhegvx_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhegvx_(
+        __itype,
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zherfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublecomplex,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zherfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhesv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhesv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhesvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublecomplex,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhesvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhetd2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhetd2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhetf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhetf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhetrd_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhetrd_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhetrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhetrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhetri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhetri_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhetrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhetrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhfrk_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublereal,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __beta: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zhfrk_(
+        __transr,
+        __uplo,
+        __trans,
+        __n,
+        __k,
+        __alpha,
+        __a,
+        __lda,
+        __beta,
+        __c__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhgeqz_(
+    __job: *mut c_char,
+    __compq: *mut c_char,
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublecomplex,
+    __ldh: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublecomplex,
+    __ldt: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __beta: *mut __CLPK_doublecomplex,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhgeqz_(
+        __job,
+        __compq,
+        __compz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __t,
+        __ldt,
+        __alpha,
+        __beta,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhpcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhpcon_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhpev_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhpev_(
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhpevd_(
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhpevd_(
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhpevx_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhpevx_(
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __ap,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhpgst_(
+    __itype: *mut __CLPK_integer,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __bp: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhpgst_(
+        __itype,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhpgv_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __bp: *mut __CLPK_doublecomplex,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhpgv_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhpgvd_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __bp: *mut __CLPK_doublecomplex,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhpgvd_(
+        __itype,
+        __jobz,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhpgvx_(
+    __itype: *mut __CLPK_integer,
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __bp: *mut __CLPK_doublecomplex,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhpgvx_(
+        __itype,
+        __jobz,
+        __range,
+        __uplo,
+        __n,
+        __ap,
+        __bp,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __rwork,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhprfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __afp: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhprfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhpsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhpsv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhpsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __afp: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhpsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhptrd_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhptrd_(
+        __uplo,
+        __n,
+        __ap,
+        __d__,
+        __e,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhptrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhptrf_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhptri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhptri_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhptrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhptrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhsein_(
+    __side: *mut c_char,
+    __eigsrc: *mut c_char,
+    __initv: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublecomplex,
+    __ldh: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublecomplex,
+    __vl: *mut __CLPK_doublecomplex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublecomplex,
+    __ldvr: *mut __CLPK_integer,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __ifaill: *mut __CLPK_integer,
+    __ifailr: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhsein_(
+        __side,
+        __eigsrc,
+        __initv,
+        __select,
+        __n,
+        __h__,
+        __ldh,
+        __w,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __mm,
+        __m,
+        __work,
+        __rwork,
+        __ifaill,
+        __ifailr,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zhseqr_(
+    __job: *mut c_char,
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublecomplex,
+    __ldh: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublecomplex,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zhseqr_(
+        __job,
+        __compz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __w,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlabrd_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __tauq: *mut __CLPK_doublecomplex,
+    __taup: *mut __CLPK_doublecomplex,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __y: *mut __CLPK_doublecomplex,
+    __ldy: *mut __CLPK_integer
+) -> c_int
+{
+    zlabrd_(
+        __m,
+        __n,
+        __nb,
+        __a,
+        __lda,
+        __d__,
+        __e,
+        __tauq,
+        __taup,
+        __x,
+        __ldx,
+        __y,
+        __ldy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlacgv_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer
+) -> c_int
+{
+    zlacgv_(
+        __n,
+        __x,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlacn2_(
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __x: *mut __CLPK_doublecomplex,
+    __est: *mut __CLPK_doublereal,
+    __kase: *mut __CLPK_integer,
+    __isave: *mut __CLPK_integer
+) -> c_int
+{
+    zlacn2_(
+        __n,
+        __v,
+        __x,
+        __est,
+        __kase,
+        __isave
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlacon_(
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __x: *mut __CLPK_doublecomplex,
+    __est: *mut __CLPK_doublereal,
+    __kase: *mut __CLPK_integer
+) -> c_int
+{
+    zlacon_(
+        __n,
+        __v,
+        __x,
+        __est,
+        __kase
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlacp2_(
+    __uplo: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    zlacp2_(
+        __uplo,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlacpy_(
+    __uplo: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    zlacpy_(
+        __uplo,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlacrm_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublereal,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal
+) -> c_int
+{
+    zlacrm_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __rwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlacrt_(
+    __n: *mut __CLPK_integer,
+    __cx: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer,
+    __cy: *mut __CLPK_doublecomplex,
+    __incy: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublecomplex,
+    __s: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlacrt_(
+        __n,
+        __cx,
+        __incx,
+        __cy,
+        __incy,
+        __c__,
+        __s
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zladiv_(
+    __ret_val: *mut __CLPK_doublecomplex,
+    __x: *mut __CLPK_doublecomplex,
+    __y: *mut __CLPK_doublecomplex
+)
+{
+    zladiv_(
+        __ret_val,
+        __x,
+        __y
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaed0_(
+    __qsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __qstore: *mut __CLPK_doublecomplex,
+    __ldqs: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlaed0_(
+        __qsiz,
+        __n,
+        __d__,
+        __e,
+        __q,
+        __ldq,
+        __qstore,
+        __ldqs,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaed7_(
+    __n: *mut __CLPK_integer,
+    __cutpnt: *mut __CLPK_integer,
+    __qsiz: *mut __CLPK_integer,
+    __tlvls: *mut __CLPK_integer,
+    __curlvl: *mut __CLPK_integer,
+    __curpbm: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __rho: *mut __CLPK_doublereal,
+    __indxq: *mut __CLPK_integer,
+    __qstore: *mut __CLPK_doublereal,
+    __qptr: *mut __CLPK_integer,
+    __prmptr: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlaed7_(
+        __n,
+        __cutpnt,
+        __qsiz,
+        __tlvls,
+        __curlvl,
+        __curpbm,
+        __d__,
+        __q,
+        __ldq,
+        __rho,
+        __indxq,
+        __qstore,
+        __qptr,
+        __prmptr,
+        __perm,
+        __givptr,
+        __givcol,
+        __givnum,
+        __work,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaed8_(
+    __k: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __qsiz: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __rho: *mut __CLPK_doublereal,
+    __cutpnt: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublereal,
+    __dlamda: *mut __CLPK_doublereal,
+    __q2: *mut __CLPK_doublecomplex,
+    __ldq2: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __indxp: *mut __CLPK_integer,
+    __indx: *mut __CLPK_integer,
+    __indxq: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlaed8_(
+        __k,
+        __n,
+        __qsiz,
+        __q,
+        __ldq,
+        __d__,
+        __rho,
+        __cutpnt,
+        __z__,
+        __dlamda,
+        __q2,
+        __ldq2,
+        __w,
+        __indxp,
+        __indx,
+        __indxq,
+        __perm,
+        __givptr,
+        __givcol,
+        __givnum,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaein_(
+    __rightv: *mut __CLPK_logical,
+    __noinit: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublecomplex,
+    __ldh: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublecomplex,
+    __v: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __eps3: *mut __CLPK_doublereal,
+    __smlnum: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlaein_(
+        __rightv,
+        __noinit,
+        __n,
+        __h__,
+        __ldh,
+        __w,
+        __v,
+        __b,
+        __ldb,
+        __rwork,
+        __eps3,
+        __smlnum,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaesy_(
+    __a: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __rt1: *mut __CLPK_doublecomplex,
+    __rt2: *mut __CLPK_doublecomplex,
+    __evscal: *mut __CLPK_doublecomplex,
+    __cs1: *mut __CLPK_doublecomplex,
+    __sn1: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlaesy_(
+        __a,
+        __b,
+        __c__,
+        __rt1,
+        __rt2,
+        __evscal,
+        __cs1,
+        __sn1
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaev2_(
+    __a: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __rt1: *mut __CLPK_doublereal,
+    __rt2: *mut __CLPK_doublereal,
+    __cs1: *mut __CLPK_doublereal,
+    __sn1: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlaev2_(
+        __a,
+        __b,
+        __c__,
+        __rt1,
+        __rt2,
+        __cs1,
+        __sn1
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlag2c_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __sa: *mut __CLPK_complex,
+    __ldsa: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlag2c_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __sa,
+        __ldsa,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlags2_(
+    __upper: *mut __CLPK_logical,
+    __a1: *mut __CLPK_doublereal,
+    __a2: *mut __CLPK_doublecomplex,
+    __a3: *mut __CLPK_doublereal,
+    __b1: *mut __CLPK_doublereal,
+    __b2: *mut __CLPK_doublecomplex,
+    __b3: *mut __CLPK_doublereal,
+    __csu: *mut __CLPK_doublereal,
+    __snu: *mut __CLPK_doublecomplex,
+    __csv: *mut __CLPK_doublereal,
+    __snv: *mut __CLPK_doublecomplex,
+    __csq: *mut __CLPK_doublereal,
+    __snq: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlags2_(
+        __upper,
+        __a1,
+        __a2,
+        __a3,
+        __b1,
+        __b2,
+        __b3,
+        __csu,
+        __snu,
+        __csv,
+        __snv,
+        __csq,
+        __snq
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlagtm_(
+    __trans: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublereal,
+    __dl: *mut __CLPK_doublecomplex,
+    __d__: *mut __CLPK_doublecomplex,
+    __du: *mut __CLPK_doublecomplex,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __beta: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    zlagtm_(
+        __trans,
+        __n,
+        __nrhs,
+        __alpha,
+        __dl,
+        __d__,
+        __du,
+        __x,
+        __ldx,
+        __beta,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlahef_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublecomplex,
+    __ldw: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlahef_(
+        __uplo,
+        __n,
+        __nb,
+        __kb,
+        __a,
+        __lda,
+        __ipiv,
+        __w,
+        __ldw,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlahqr_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublecomplex,
+    __ldh: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublecomplex,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlahqr_(
+        __wantt,
+        __wantz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __w,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlahr2_(
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __t: *mut __CLPK_doublecomplex,
+    __ldt: *mut __CLPK_integer,
+    __y: *mut __CLPK_doublecomplex,
+    __ldy: *mut __CLPK_integer
+) -> c_int
+{
+    zlahr2_(
+        __n,
+        __k,
+        __nb,
+        __a,
+        __lda,
+        __tau,
+        __t,
+        __ldt,
+        __y,
+        __ldy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlahrd_(
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __t: *mut __CLPK_doublecomplex,
+    __ldt: *mut __CLPK_integer,
+    __y: *mut __CLPK_doublecomplex,
+    __ldy: *mut __CLPK_integer
+) -> c_int
+{
+    zlahrd_(
+        __n,
+        __k,
+        __nb,
+        __a,
+        __lda,
+        __tau,
+        __t,
+        __ldt,
+        __y,
+        __ldy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaic1_(
+    __job: *mut __CLPK_integer,
+    __j: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __sest: *mut __CLPK_doublereal,
+    __w: *mut __CLPK_doublecomplex,
+    __gamma: *mut __CLPK_doublecomplex,
+    __sestpr: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlaic1_(
+        __job,
+        __j,
+        __x,
+        __sest,
+        __w,
+        __gamma,
+        __sestpr,
+        __s,
+        __c__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlals0_(
+    __icompq: *mut __CLPK_integer,
+    __nl: *mut __CLPK_integer,
+    __nr: *mut __CLPK_integer,
+    __sqre: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __bx: *mut __CLPK_doublecomplex,
+    __ldbx: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_doublereal,
+    __ldgnum: *mut __CLPK_integer,
+    __poles: *mut __CLPK_doublereal,
+    __difl: *mut __CLPK_doublereal,
+    __difr: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __k: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlals0_(
+        __icompq,
+        __nl,
+        __nr,
+        __sqre,
+        __nrhs,
+        __b,
+        __ldb,
+        __bx,
+        __ldbx,
+        __perm,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __givnum,
+        __ldgnum,
+        __poles,
+        __difl,
+        __difr,
+        __z__,
+        __k,
+        __c__,
+        __s,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlalsa_(
+    __icompq: *mut __CLPK_integer,
+    __smlsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __bx: *mut __CLPK_doublecomplex,
+    __ldbx: *mut __CLPK_integer,
+    __u: *mut __CLPK_doublereal,
+    __ldu: *mut __CLPK_integer,
+    __vt: *mut __CLPK_doublereal,
+    __k: *mut __CLPK_integer,
+    __difl: *mut __CLPK_doublereal,
+    __difr: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublereal,
+    __poles: *mut __CLPK_doublereal,
+    __givptr: *mut __CLPK_integer,
+    __givcol: *mut __CLPK_integer,
+    __ldgcol: *mut __CLPK_integer,
+    __perm: *mut __CLPK_integer,
+    __givnum: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlalsa_(
+        __icompq,
+        __smlsiz,
+        __n,
+        __nrhs,
+        __b,
+        __ldb,
+        __bx,
+        __ldbx,
+        __u,
+        __ldu,
+        __vt,
+        __k,
+        __difl,
+        __difr,
+        __z__,
+        __poles,
+        __givptr,
+        __givcol,
+        __ldgcol,
+        __perm,
+        __givnum,
+        __c__,
+        __s,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlalsd_(
+    __uplo: *mut c_char,
+    __smlsiz: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __rank: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlalsd_(
+        __uplo,
+        __smlsiz,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb,
+        __rcond,
+        __rank,
+        __work,
+        __rwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlangb_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    zlangb_(
+        __norm,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlange_(
+    __norm: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    zlange_(
+        __norm,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlangt_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __dl: *mut __CLPK_doublecomplex,
+    __d__: *mut __CLPK_doublecomplex,
+    __du: *mut __CLPK_doublecomplex
+) -> __CLPK_doublereal
+{
+    zlangt_(
+        __norm,
+        __n,
+        __dl,
+        __d__,
+        __du
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlanhb_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    zlanhb_(
+        __norm,
+        __uplo,
+        __n,
+        __k,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlanhe_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    zlanhe_(
+        __norm,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlanhf_(
+    __norm: *mut c_char,
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    zlanhf_(
+        __norm,
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlanhp_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    zlanhp_(
+        __norm,
+        __uplo,
+        __n,
+        __ap,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlanhs_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    zlanhs_(
+        __norm,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlanht_(
+    __norm: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublecomplex
+) -> __CLPK_doublereal
+{
+    zlanht_(
+        __norm,
+        __n,
+        __d__,
+        __e
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlansb_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    zlansb_(
+        __norm,
+        __uplo,
+        __n,
+        __k,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlansp_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    zlansp_(
+        __norm,
+        __uplo,
+        __n,
+        __ap,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlansy_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    zlansy_(
+        __norm,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlantb_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    zlantb_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __k,
+        __ab,
+        __ldab,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlantp_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    zlantp_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __ap,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlantr_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    zlantr_(
+        __norm,
+        __uplo,
+        __diag,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlapll_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer,
+    __y: *mut __CLPK_doublecomplex,
+    __incy: *mut __CLPK_integer,
+    __ssmin: *mut __CLPK_doublereal
+) -> c_int
+{
+    zlapll_(
+        __n,
+        __x,
+        __incx,
+        __y,
+        __incy,
+        __ssmin
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlapmt_(
+    __forwrd: *mut __CLPK_logical,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer
+) -> c_int
+{
+    zlapmt_(
+        __forwrd,
+        __m,
+        __n,
+        __x,
+        __ldx,
+        __k
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqgb_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rowcnd: *mut __CLPK_doublereal,
+    __colcnd: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __equed: *mut c_char
+) -> c_int
+{
+    zlaqgb_(
+        __m,
+        __n,
+        __kl,
+        __ku,
+        __ab,
+        __ldab,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqge_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __r__: *mut __CLPK_doublereal,
+    __c__: *mut __CLPK_doublereal,
+    __rowcnd: *mut __CLPK_doublereal,
+    __colcnd: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __equed: *mut c_char
+) -> c_int
+{
+    zlaqge_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __r__,
+        __c__,
+        __rowcnd,
+        __colcnd,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqhb_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __equed: *mut c_char
+) -> c_int
+{
+    zlaqhb_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqhe_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __equed: *mut c_char
+) -> c_int
+{
+    zlaqhe_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqhp_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __equed: *mut c_char
+) -> c_int
+{
+    zlaqhp_(
+        __uplo,
+        __n,
+        __ap,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqp2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __offset: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __vn1: *mut __CLPK_doublereal,
+    __vn2: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlaqp2_(
+        __m,
+        __n,
+        __offset,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __vn1,
+        __vn2,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqps_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __offset: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __jpvt: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __vn1: *mut __CLPK_doublereal,
+    __vn2: *mut __CLPK_doublereal,
+    __auxv: *mut __CLPK_doublecomplex,
+    __f: *mut __CLPK_doublecomplex,
+    __ldf: *mut __CLPK_integer
+) -> c_int
+{
+    zlaqps_(
+        __m,
+        __n,
+        __offset,
+        __nb,
+        __kb,
+        __a,
+        __lda,
+        __jpvt,
+        __tau,
+        __vn1,
+        __vn2,
+        __auxv,
+        __f,
+        __ldf
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqr0_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublecomplex,
+    __ldh: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublecomplex,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlaqr0_(
+        __wantt,
+        __wantz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __w,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqr1_(
+    __n: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublecomplex,
+    __ldh: *mut __CLPK_integer,
+    __s1: *mut __CLPK_doublecomplex,
+    __s2: *mut __CLPK_doublecomplex,
+    __v: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlaqr1_(
+        __n,
+        __h__,
+        __ldh,
+        __s1,
+        __s2,
+        __v
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqr2_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ktop: *mut __CLPK_integer,
+    __kbot: *mut __CLPK_integer,
+    __nw: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublecomplex,
+    __ldh: *mut __CLPK_integer,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __ns: *mut __CLPK_integer,
+    __nd: *mut __CLPK_integer,
+    __sh: *mut __CLPK_doublecomplex,
+    __v: *mut __CLPK_doublecomplex,
+    __ldv: *mut __CLPK_integer,
+    __nh: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublecomplex,
+    __ldt: *mut __CLPK_integer,
+    __nv: *mut __CLPK_integer,
+    __wv: *mut __CLPK_doublecomplex,
+    __ldwv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer
+) -> c_int
+{
+    zlaqr2_(
+        __wantt,
+        __wantz,
+        __n,
+        __ktop,
+        __kbot,
+        __nw,
+        __h__,
+        __ldh,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __ns,
+        __nd,
+        __sh,
+        __v,
+        __ldv,
+        __nh,
+        __t,
+        __ldt,
+        __nv,
+        __wv,
+        __ldwv,
+        __work,
+        __lwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqr3_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ktop: *mut __CLPK_integer,
+    __kbot: *mut __CLPK_integer,
+    __nw: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublecomplex,
+    __ldh: *mut __CLPK_integer,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __ns: *mut __CLPK_integer,
+    __nd: *mut __CLPK_integer,
+    __sh: *mut __CLPK_doublecomplex,
+    __v: *mut __CLPK_doublecomplex,
+    __ldv: *mut __CLPK_integer,
+    __nh: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublecomplex,
+    __ldt: *mut __CLPK_integer,
+    __nv: *mut __CLPK_integer,
+    __wv: *mut __CLPK_doublecomplex,
+    __ldwv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer
+) -> c_int
+{
+    zlaqr3_(
+        __wantt,
+        __wantz,
+        __n,
+        __ktop,
+        __kbot,
+        __nw,
+        __h__,
+        __ldh,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __ns,
+        __nd,
+        __sh,
+        __v,
+        __ldv,
+        __nh,
+        __t,
+        __ldt,
+        __nv,
+        __wv,
+        __ldwv,
+        __work,
+        __lwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqr4_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __h__: *mut __CLPK_doublecomplex,
+    __ldh: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublecomplex,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlaqr4_(
+        __wantt,
+        __wantz,
+        __n,
+        __ilo,
+        __ihi,
+        __h__,
+        __ldh,
+        __w,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqr5_(
+    __wantt: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __kacc22: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ktop: *mut __CLPK_integer,
+    __kbot: *mut __CLPK_integer,
+    __nshfts: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublecomplex,
+    __h__: *mut __CLPK_doublecomplex,
+    __ldh: *mut __CLPK_integer,
+    __iloz: *mut __CLPK_integer,
+    __ihiz: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __ldv: *mut __CLPK_integer,
+    __u: *mut __CLPK_doublecomplex,
+    __ldu: *mut __CLPK_integer,
+    __nv: *mut __CLPK_integer,
+    __wv: *mut __CLPK_doublecomplex,
+    __ldwv: *mut __CLPK_integer,
+    __nh: *mut __CLPK_integer,
+    __wh: *mut __CLPK_doublecomplex,
+    __ldwh: *mut __CLPK_integer
+) -> c_int
+{
+    zlaqr5_(
+        __wantt,
+        __wantz,
+        __kacc22,
+        __n,
+        __ktop,
+        __kbot,
+        __nshfts,
+        __s,
+        __h__,
+        __ldh,
+        __iloz,
+        __ihiz,
+        __z__,
+        __ldz,
+        __v,
+        __ldv,
+        __u,
+        __ldu,
+        __nv,
+        __wv,
+        __ldwv,
+        __nh,
+        __wh,
+        __ldwh
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqsb_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __equed: *mut c_char
+) -> c_int
+{
+    zlaqsb_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqsp_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __equed: *mut c_char
+) -> c_int
+{
+    zlaqsp_(
+        __uplo,
+        __n,
+        __ap,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaqsy_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __equed: *mut c_char
+) -> c_int
+{
+    zlaqsy_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __equed
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlar1v_(
+    __n: *mut __CLPK_integer,
+    __b1: *mut __CLPK_integer,
+    __bn: *mut __CLPK_integer,
+    __lambda: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __l: *mut __CLPK_doublereal,
+    __ld: *mut __CLPK_doublereal,
+    __lld: *mut __CLPK_doublereal,
+    __pivmin: *mut __CLPK_doublereal,
+    __gaptol: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __wantnc: *mut __CLPK_logical,
+    __negcnt: *mut __CLPK_integer,
+    __ztz: *mut __CLPK_doublereal,
+    __mingma: *mut __CLPK_doublereal,
+    __r__: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __nrminv: *mut __CLPK_doublereal,
+    __resid: *mut __CLPK_doublereal,
+    __rqcorr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal
+) -> c_int
+{
+    zlar1v_(
+        __n,
+        __b1,
+        __bn,
+        __lambda,
+        __d__,
+        __l,
+        __ld,
+        __lld,
+        __pivmin,
+        __gaptol,
+        __z__,
+        __wantnc,
+        __negcnt,
+        __ztz,
+        __mingma,
+        __r__,
+        __isuppz,
+        __nrminv,
+        __resid,
+        __rqcorr,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlar2v_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __y: *mut __CLPK_doublecomplex,
+    __z__: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublecomplex,
+    __incc: *mut __CLPK_integer
+) -> c_int
+{
+    zlar2v_(
+        __n,
+        __x,
+        __y,
+        __z__,
+        __incx,
+        __c__,
+        __s,
+        __incc
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlarcm_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublereal,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal
+) -> c_int
+{
+    zlarcm_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __rwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlarf_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __incv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlarf_(
+        __side,
+        __m,
+        __n,
+        __v,
+        __incv,
+        __tau,
+        __c__,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlarfb_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __ldv: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublecomplex,
+    __ldt: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __ldwork: *mut __CLPK_integer
+) -> c_int
+{
+    zlarfb_(
+        __side,
+        __trans,
+        __direct,
+        __storev,
+        __m,
+        __n,
+        __k,
+        __v,
+        __ldv,
+        __t,
+        __ldt,
+        __c__,
+        __ldc,
+        __work,
+        __ldwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlarfg_(
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __x: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlarfg_(
+        __n,
+        __alpha,
+        __x,
+        __incx,
+        __tau
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlarfp_(
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __x: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlarfp_(
+        __n,
+        __alpha,
+        __x,
+        __incx,
+        __tau
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlarft_(
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __ldv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __t: *mut __CLPK_doublecomplex,
+    __ldt: *mut __CLPK_integer
+) -> c_int
+{
+    zlarft_(
+        __direct,
+        __storev,
+        __n,
+        __k,
+        __v,
+        __ldv,
+        __tau,
+        __t,
+        __ldt
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlarfx_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlarfx_(
+        __side,
+        __m,
+        __n,
+        __v,
+        __tau,
+        __c__,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlargv_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer,
+    __y: *mut __CLPK_doublecomplex,
+    __incy: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __incc: *mut __CLPK_integer
+) -> c_int
+{
+    zlargv_(
+        __n,
+        __x,
+        __incx,
+        __y,
+        __incy,
+        __c__,
+        __incc
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlarnv_(
+    __idist: *mut __CLPK_integer,
+    __iseed: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlarnv_(
+        __idist,
+        __iseed,
+        __n,
+        __x
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlarrv_(
+    __n: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __d__: *mut __CLPK_doublereal,
+    __l: *mut __CLPK_doublereal,
+    __pivmin: *mut __CLPK_doublereal,
+    __isplit: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __dol: *mut __CLPK_integer,
+    __dou: *mut __CLPK_integer,
+    __minrgp: *mut __CLPK_doublereal,
+    __rtol1: *mut __CLPK_doublereal,
+    __rtol2: *mut __CLPK_doublereal,
+    __w: *mut __CLPK_doublereal,
+    __werr: *mut __CLPK_doublereal,
+    __wgap: *mut __CLPK_doublereal,
+    __iblock: *mut __CLPK_integer,
+    __indexw: *mut __CLPK_integer,
+    __gers: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlarrv_(
+        __n,
+        __vl,
+        __vu,
+        __d__,
+        __l,
+        __pivmin,
+        __isplit,
+        __m,
+        __dol,
+        __dou,
+        __minrgp,
+        __rtol1,
+        __rtol2,
+        __w,
+        __werr,
+        __wgap,
+        __iblock,
+        __indexw,
+        __gers,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlarscl2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer
+) -> c_int
+{
+    zlarscl2_(
+        __m,
+        __n,
+        __d__,
+        __x,
+        __ldx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlartg_(
+    __f: *mut __CLPK_doublecomplex,
+    __g: *mut __CLPK_doublecomplex,
+    __cs: *mut __CLPK_doublereal,
+    __sn: *mut __CLPK_doublecomplex,
+    __r__: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlartg_(
+        __f,
+        __g,
+        __cs,
+        __sn,
+        __r__
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlartv_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer,
+    __y: *mut __CLPK_doublecomplex,
+    __incy: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublecomplex,
+    __incc: *mut __CLPK_integer
+) -> c_int
+{
+    zlartv_(
+        __n,
+        __x,
+        __incx,
+        __y,
+        __incy,
+        __c__,
+        __s,
+        __incc
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlarz_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __incv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlarz_(
+        __side,
+        __m,
+        __n,
+        __l,
+        __v,
+        __incv,
+        __tau,
+        __c__,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlarzb_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __ldv: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublecomplex,
+    __ldt: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __ldwork: *mut __CLPK_integer
+) -> c_int
+{
+    zlarzb_(
+        __side,
+        __trans,
+        __direct,
+        __storev,
+        __m,
+        __n,
+        __k,
+        __l,
+        __v,
+        __ldv,
+        __t,
+        __ldt,
+        __c__,
+        __ldc,
+        __work,
+        __ldwork
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlarzt_(
+    __direct: *mut c_char,
+    __storev: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __ldv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __t: *mut __CLPK_doublecomplex,
+    __ldt: *mut __CLPK_integer
+) -> c_int
+{
+    zlarzt_(
+        __direct,
+        __storev,
+        __n,
+        __k,
+        __v,
+        __ldv,
+        __tau,
+        __t,
+        __ldt
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlascl_(
+    __type__: *mut c_char,
+    __kl: *mut __CLPK_integer,
+    __ku: *mut __CLPK_integer,
+    __cfrom: *mut __CLPK_doublereal,
+    __cto: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlascl_(
+        __type__,
+        __kl,
+        __ku,
+        __cfrom,
+        __cto,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlascl2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer
+) -> c_int
+{
+    zlascl2_(
+        __m,
+        __n,
+        __d__,
+        __x,
+        __ldx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaset_(
+    __uplo: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __beta: *mut __CLPK_doublecomplex,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer
+) -> c_int
+{
+    zlaset_(
+        __uplo,
+        __m,
+        __n,
+        __alpha,
+        __beta,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlasr_(
+    __side: *mut c_char,
+    __pivot: *mut c_char,
+    __direct: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublereal,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer
+) -> c_int
+{
+    zlasr_(
+        __side,
+        __pivot,
+        __direct,
+        __m,
+        __n,
+        __c__,
+        __s,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlassq_(
+    __n: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __sumsq: *mut __CLPK_doublereal
+) -> c_int
+{
+    zlassq_(
+        __n,
+        __x,
+        __incx,
+        __scale,
+        __sumsq
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlaswp_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __k1: *mut __CLPK_integer,
+    __k2: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __incx: *mut __CLPK_integer
+) -> c_int
+{
+    zlaswp_(
+        __n,
+        __a,
+        __lda,
+        __k1,
+        __k2,
+        __ipiv,
+        __incx
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlasyf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __kb: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublecomplex,
+    __ldw: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlasyf_(
+        __uplo,
+        __n,
+        __nb,
+        __kb,
+        __a,
+        __lda,
+        __ipiv,
+        __w,
+        __ldw,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlat2c_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __sa: *mut __CLPK_complex,
+    __ldsa: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlat2c_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __sa,
+        __ldsa,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlatbs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __normin: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __scale: *mut __CLPK_doublereal,
+    __cnorm: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlatbs_(
+        __uplo,
+        __trans,
+        __diag,
+        __normin,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __x,
+        __scale,
+        __cnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlatdf_(
+    __ijob: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __rhs: *mut __CLPK_doublecomplex,
+    __rdsum: *mut __CLPK_doublereal,
+    __rdscal: *mut __CLPK_doublereal,
+    __ipiv: *mut __CLPK_integer,
+    __jpiv: *mut __CLPK_integer
+) -> c_int
+{
+    zlatdf_(
+        __ijob,
+        __n,
+        __z__,
+        __ldz,
+        __rhs,
+        __rdsum,
+        __rdscal,
+        __ipiv,
+        __jpiv
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlatps_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __normin: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __x: *mut __CLPK_doublecomplex,
+    __scale: *mut __CLPK_doublereal,
+    __cnorm: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlatps_(
+        __uplo,
+        __trans,
+        __diag,
+        __normin,
+        __n,
+        __ap,
+        __x,
+        __scale,
+        __cnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlatrd_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nb: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __e: *mut __CLPK_doublereal,
+    __tau: *mut __CLPK_doublecomplex,
+    __w: *mut __CLPK_doublecomplex,
+    __ldw: *mut __CLPK_integer
+) -> c_int
+{
+    zlatrd_(
+        __uplo,
+        __n,
+        __nb,
+        __a,
+        __lda,
+        __e,
+        __tau,
+        __w,
+        __ldw
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlatrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __normin: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __scale: *mut __CLPK_doublereal,
+    __cnorm: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlatrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __normin,
+        __n,
+        __a,
+        __lda,
+        __x,
+        __scale,
+        __cnorm,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlatrz_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlatrz_(
+        __m,
+        __n,
+        __l,
+        __a,
+        __lda,
+        __tau,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlatzm_(
+    __side: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __incv: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c1: *mut __CLPK_doublecomplex,
+    __c2: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zlatzm_(
+        __side,
+        __m,
+        __n,
+        __v,
+        __incv,
+        __tau,
+        __c1,
+        __c2,
+        __ldc,
+        __work
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlauu2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlauu2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zlauum_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zlauum_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpbcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpbcon_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __anorm,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpbequ_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpbequ_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpbrfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_doublecomplex,
+    __ldafb: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpbrfs_(
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpbstf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpbstf_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpbsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpbsv_(
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpbsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __afb: *mut __CLPK_doublecomplex,
+    __ldafb: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __s: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpbsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __afb,
+        __ldafb,
+        __equed,
+        __s,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpbtf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpbtf2_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpbtrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpbtrf_(
+        __uplo,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpbtrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpbtrs_(
+        __uplo,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpftrf_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpftrf_(
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpftri_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpftri_(
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpftrs_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpftrs_(
+        __transr,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpocon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpocon_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __anorm,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpoequ_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpoequ_(
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpoequb_(
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpoequb_(
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zporfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublecomplex,
+    __ldaf: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zporfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zposv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zposv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zposvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublecomplex,
+    __ldaf: *mut __CLPK_integer,
+    __equed: *mut c_char,
+    __s: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zposvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __equed,
+        __s,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpotf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpotf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpotrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpotrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpotri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpotri_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpotrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpotrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zppcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zppcon_(
+        __uplo,
+        __n,
+        __ap,
+        __anorm,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zppequ_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zppequ_(
+        __uplo,
+        __n,
+        __ap,
+        __s,
+        __scond,
+        __amax,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpprfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __afp: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpprfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zppsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zppsv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zppsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __afp: *mut __CLPK_doublecomplex,
+    __equed: *mut c_char,
+    __s: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zppsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __equed,
+        __s,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpptrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpptrf_(
+        __uplo,
+        __n,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpptri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpptri_(
+        __uplo,
+        __n,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpptrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpptrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpstf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __piv: *mut __CLPK_integer,
+    __rank: *mut __CLPK_integer,
+    __tol: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpstf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __piv,
+        __rank,
+        __tol,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpstrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __piv: *mut __CLPK_integer,
+    __rank: *mut __CLPK_integer,
+    __tol: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpstrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __piv,
+        __rank,
+        __tol,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zptcon_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublecomplex,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zptcon_(
+        __n,
+        __d__,
+        __e,
+        __anorm,
+        __rcond,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpteqr_(
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpteqr_(
+        __compz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zptrfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublecomplex,
+    __df: *mut __CLPK_doublereal,
+    __ef: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zptrfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __df,
+        __ef,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zptsv_(
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zptsv_(
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zptsvx_(
+    __fact: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublecomplex,
+    __df: *mut __CLPK_doublereal,
+    __ef: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zptsvx_(
+        __fact,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __df,
+        __ef,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpttrf_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpttrf_(
+        __n,
+        __d__,
+        __e,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zpttrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zpttrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zptts2_(
+    __iuplo: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    zptts2_(
+        __iuplo,
+        __n,
+        __nrhs,
+        __d__,
+        __e,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zrot_(
+    __n: *mut __CLPK_integer,
+    __cx: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer,
+    __cy: *mut __CLPK_doublecomplex,
+    __incy: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublereal,
+    __s: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zrot_(
+        __n,
+        __cx,
+        __incx,
+        __cy,
+        __incy,
+        __c__,
+        __s
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zspcon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zspcon_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zspmv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __ap: *mut __CLPK_doublecomplex,
+    __x: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer,
+    __beta: *mut __CLPK_doublecomplex,
+    __y: *mut __CLPK_doublecomplex,
+    __incy: *mut __CLPK_integer
+) -> c_int
+{
+    zspmv_(
+        __uplo,
+        __n,
+        __alpha,
+        __ap,
+        __x,
+        __incx,
+        __beta,
+        __y,
+        __incy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zspr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __x: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex
+) -> c_int
+{
+    zspr_(
+        __uplo,
+        __n,
+        __alpha,
+        __x,
+        __incx,
+        __ap
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsprfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __afp: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsprfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zspsv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zspsv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zspsvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __afp: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zspsvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __afp,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsptrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsptrf_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsptri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsptri_(
+        __uplo,
+        __n,
+        __ap,
+        __ipiv,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsptrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsptrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __ap,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zstedc_(
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __lrwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zstedc_(
+        __compz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __lwork,
+        __rwork,
+        __lrwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zstegr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __abstol: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zstegr_(
+        __jobz,
+        __range,
+        __n,
+        __d__,
+        __e,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __abstol,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __isuppz,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zstein_(
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __iblock: *mut __CLPK_integer,
+    __isplit: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __iwork: *mut __CLPK_integer,
+    __ifail: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zstein_(
+        __n,
+        __d__,
+        __e,
+        __m,
+        __w,
+        __iblock,
+        __isplit,
+        __z__,
+        __ldz,
+        __work,
+        __iwork,
+        __ifail,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zstemr_(
+    __jobz: *mut c_char,
+    __range: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __vl: *mut __CLPK_doublereal,
+    __vu: *mut __CLPK_doublereal,
+    __il: *mut __CLPK_integer,
+    __iu: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __nzc: *mut __CLPK_integer,
+    __isuppz: *mut __CLPK_integer,
+    __tryrac: *mut __CLPK_logical,
+    __work: *mut __CLPK_doublereal,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zstemr_(
+        __jobz,
+        __range,
+        __n,
+        __d__,
+        __e,
+        __vl,
+        __vu,
+        __il,
+        __iu,
+        __m,
+        __w,
+        __z__,
+        __ldz,
+        __nzc,
+        __isuppz,
+        __tryrac,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsteqr_(
+    __compz: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublereal,
+    __e: *mut __CLPK_doublereal,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsteqr_(
+        __compz,
+        __n,
+        __d__,
+        __e,
+        __z__,
+        __ldz,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsycon_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __anorm: *mut __CLPK_doublereal,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsycon_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __anorm,
+        __rcond,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsyequb_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __scond: *mut __CLPK_doublereal,
+    __amax: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsyequb_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __s,
+        __scond,
+        __amax,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsymv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer,
+    __beta: *mut __CLPK_doublecomplex,
+    __y: *mut __CLPK_doublecomplex,
+    __incy: *mut __CLPK_integer
+) -> c_int
+{
+    zsymv_(
+        __uplo,
+        __n,
+        __alpha,
+        __a,
+        __lda,
+        __x,
+        __incx,
+        __beta,
+        __y,
+        __incy
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsyr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __x: *mut __CLPK_doublecomplex,
+    __incx: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer
+) -> c_int
+{
+    zsyr_(
+        __uplo,
+        __n,
+        __alpha,
+        __x,
+        __incx,
+        __a,
+        __lda
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsyrfs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublecomplex,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsyrfs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsysv_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsysv_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsysvx_(
+    __fact: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __af: *mut __CLPK_doublecomplex,
+    __ldaf: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsysvx_(
+        __fact,
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __af,
+        __ldaf,
+        __ipiv,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __rcond,
+        __ferr,
+        __berr,
+        __work,
+        __lwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsytf2_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsytf2_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsytrf_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsytrf_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsytri_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsytri_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ipiv,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zsytrs_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ipiv: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zsytrs_(
+        __uplo,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __ipiv,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztbcon_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztbcon_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __kd,
+        __ab,
+        __ldab,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztbrfs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztbrfs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztbtrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __kd: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ab: *mut __CLPK_doublecomplex,
+    __ldab: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztbtrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __kd,
+        __nrhs,
+        __ab,
+        __ldab,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztfsm_(
+    __transr: *mut c_char,
+    __side: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __a: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer
+) -> c_int
+{
+    ztfsm_(
+        __transr,
+        __side,
+        __uplo,
+        __trans,
+        __diag,
+        __m,
+        __n,
+        __alpha,
+        __a,
+        __b,
+        __ldb
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztftri_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztftri_(
+        __transr,
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztfttp_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __arf: *mut __CLPK_doublecomplex,
+    __ap: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztfttp_(
+        __transr,
+        __uplo,
+        __n,
+        __arf,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztfttr_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __arf: *mut __CLPK_doublecomplex,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztfttr_(
+        __transr,
+        __uplo,
+        __n,
+        __arf,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztgevc_(
+    __side: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublecomplex,
+    __lds: *mut __CLPK_integer,
+    __p: *mut __CLPK_doublecomplex,
+    __ldp: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublecomplex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublecomplex,
+    __ldvr: *mut __CLPK_integer,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztgevc_(
+        __side,
+        __howmny,
+        __select,
+        __n,
+        __s,
+        __lds,
+        __p,
+        __ldp,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __mm,
+        __m,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztgex2_(
+    __wantq: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __j1: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztgex2_(
+        __wantq,
+        __wantz,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __j1,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztgexc_(
+    __wantq: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __ifst: *mut __CLPK_integer,
+    __ilst: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztgexc_(
+        __wantq,
+        __wantz,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __ifst,
+        __ilst,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztgsen_(
+    __ijob: *mut __CLPK_integer,
+    __wantq: *mut __CLPK_logical,
+    __wantz: *mut __CLPK_logical,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __alpha: *mut __CLPK_doublecomplex,
+    __beta: *mut __CLPK_doublecomplex,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __z__: *mut __CLPK_doublecomplex,
+    __ldz: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __pl: *mut __CLPK_doublereal,
+    __pr: *mut __CLPK_doublereal,
+    __dif: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __liwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztgsen_(
+        __ijob,
+        __wantq,
+        __wantz,
+        __select,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __alpha,
+        __beta,
+        __q,
+        __ldq,
+        __z__,
+        __ldz,
+        __m,
+        __pl,
+        __pr,
+        __dif,
+        __work,
+        __lwork,
+        __iwork,
+        __liwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztgsja_(
+    __jobu: *mut c_char,
+    __jobv: *mut c_char,
+    __jobq: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __tola: *mut __CLPK_doublereal,
+    __tolb: *mut __CLPK_doublereal,
+    __alpha: *mut __CLPK_doublereal,
+    __beta: *mut __CLPK_doublereal,
+    __u: *mut __CLPK_doublecomplex,
+    __ldu: *mut __CLPK_integer,
+    __v: *mut __CLPK_doublecomplex,
+    __ldv: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __ncycle: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztgsja_(
+        __jobu,
+        __jobv,
+        __jobq,
+        __m,
+        __p,
+        __n,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __tola,
+        __tolb,
+        __alpha,
+        __beta,
+        __u,
+        __ldu,
+        __v,
+        __ldv,
+        __q,
+        __ldq,
+        __work,
+        __ncycle,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztgsna_(
+    __job: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublecomplex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublecomplex,
+    __ldvr: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __dif: *mut __CLPK_doublereal,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztgsna_(
+        __job,
+        __howmny,
+        __select,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __s,
+        __dif,
+        __mm,
+        __m,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztgsy2_(
+    __trans: *mut c_char,
+    __ijob: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublecomplex,
+    __ldd: *mut __CLPK_integer,
+    __e: *mut __CLPK_doublecomplex,
+    __lde: *mut __CLPK_integer,
+    __f: *mut __CLPK_doublecomplex,
+    __ldf: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __rdsum: *mut __CLPK_doublereal,
+    __rdscal: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztgsy2_(
+        __trans,
+        __ijob,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __d__,
+        __ldd,
+        __e,
+        __lde,
+        __f,
+        __ldf,
+        __scale,
+        __rdsum,
+        __rdscal,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztgsyl_(
+    __trans: *mut c_char,
+    __ijob: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __d__: *mut __CLPK_doublecomplex,
+    __ldd: *mut __CLPK_integer,
+    __e: *mut __CLPK_doublecomplex,
+    __lde: *mut __CLPK_integer,
+    __f: *mut __CLPK_doublecomplex,
+    __ldf: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __dif: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __iwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztgsyl_(
+        __trans,
+        __ijob,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __d__,
+        __ldd,
+        __e,
+        __lde,
+        __f,
+        __ldf,
+        __scale,
+        __dif,
+        __work,
+        __lwork,
+        __iwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztpcon_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztpcon_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __ap,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztprfs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztprfs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztptri_(
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztptri_(
+        __uplo,
+        __diag,
+        __n,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztptrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztptrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __ap,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztpttf_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __arf: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztpttf_(
+        __transr,
+        __uplo,
+        __n,
+        __ap,
+        __arf,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztpttr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztpttr_(
+        __uplo,
+        __n,
+        __ap,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztrcon_(
+    __norm: *mut c_char,
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __rcond: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztrcon_(
+        __norm,
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __lda,
+        __rcond,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztrevc_(
+    __side: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublecomplex,
+    __ldt: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublecomplex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublecomplex,
+    __ldvr: *mut __CLPK_integer,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztrevc_(
+        __side,
+        __howmny,
+        __select,
+        __n,
+        __t,
+        __ldt,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __mm,
+        __m,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztrexc_(
+    __compq: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublecomplex,
+    __ldt: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __ifst: *mut __CLPK_integer,
+    __ilst: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztrexc_(
+        __compq,
+        __n,
+        __t,
+        __ldt,
+        __q,
+        __ldq,
+        __ifst,
+        __ilst,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztrrfs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __x: *mut __CLPK_doublecomplex,
+    __ldx: *mut __CLPK_integer,
+    __ferr: *mut __CLPK_doublereal,
+    __berr: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztrrfs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __x,
+        __ldx,
+        __ferr,
+        __berr,
+        __work,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztrsen_(
+    __job: *mut c_char,
+    __compq: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublecomplex,
+    __ldt: *mut __CLPK_integer,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __w: *mut __CLPK_doublecomplex,
+    __m: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __sep: *mut __CLPK_doublereal,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztrsen_(
+        __job,
+        __compq,
+        __select,
+        __n,
+        __t,
+        __ldt,
+        __q,
+        __ldq,
+        __w,
+        __m,
+        __s,
+        __sep,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztrsna_(
+    __job: *mut c_char,
+    __howmny: *mut c_char,
+    __select: *mut __CLPK_logical,
+    __n: *mut __CLPK_integer,
+    __t: *mut __CLPK_doublecomplex,
+    __ldt: *mut __CLPK_integer,
+    __vl: *mut __CLPK_doublecomplex,
+    __ldvl: *mut __CLPK_integer,
+    __vr: *mut __CLPK_doublecomplex,
+    __ldvr: *mut __CLPK_integer,
+    __s: *mut __CLPK_doublereal,
+    __sep: *mut __CLPK_doublereal,
+    __mm: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __ldwork: *mut __CLPK_integer,
+    __rwork: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztrsna_(
+        __job,
+        __howmny,
+        __select,
+        __n,
+        __t,
+        __ldt,
+        __vl,
+        __ldvl,
+        __vr,
+        __ldvr,
+        __s,
+        __sep,
+        __mm,
+        __m,
+        __work,
+        __ldwork,
+        __rwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztrsyl_(
+    __trana: *mut c_char,
+    __tranb: *mut c_char,
+    __isgn: *mut __CLPK_integer,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __scale: *mut __CLPK_doublereal,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztrsyl_(
+        __trana,
+        __tranb,
+        __isgn,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __c__,
+        __ldc,
+        __scale,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztrti2_(
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztrti2_(
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztrtri_(
+    __uplo: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztrtri_(
+        __uplo,
+        __diag,
+        __n,
+        __a,
+        __lda,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztrtrs_(
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __diag: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __nrhs: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __b: *mut __CLPK_doublecomplex,
+    __ldb: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztrtrs_(
+        __uplo,
+        __trans,
+        __diag,
+        __n,
+        __nrhs,
+        __a,
+        __lda,
+        __b,
+        __ldb,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztrttf_(
+    __transr: *mut c_char,
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __arf: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztrttf_(
+        __transr,
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __arf,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztrttp_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztrttp_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __ap,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztzrqf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztzrqf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_ztzrzf_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    ztzrzf_(
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zung2l_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zung2l_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zung2r_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zung2r_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zungbr_(
+    __vect: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zungbr_(
+        __vect,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunghr_(
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunghr_(
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zungl2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zungl2_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunglq_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunglq_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zungql_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zungql_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zungqr_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zungqr_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zungr2_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zungr2_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zungrq_(
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zungrq_(
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zungtr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zungtr_(
+        __uplo,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunm2l_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunm2l_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunm2r_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunm2r_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunmbr_(
+    __vect: *mut c_char,
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunmbr_(
+        __vect,
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunmhr_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ilo: *mut __CLPK_integer,
+    __ihi: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunmhr_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __ilo,
+        __ihi,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunml2_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunml2_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunmlq_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunmlq_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunmql_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunmql_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunmqr_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunmqr_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunmr2_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunmr2_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunmr3_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunmr3_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunmrq_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunmrq_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunmrz_(
+    __side: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __k: *mut __CLPK_integer,
+    __l: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunmrz_(
+        __side,
+        __trans,
+        __m,
+        __n,
+        __k,
+        __l,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zunmtr_(
+    __side: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __a: *mut __CLPK_doublecomplex,
+    __lda: *mut __CLPK_integer,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __lwork: *mut __CLPK_integer,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zunmtr_(
+        __side,
+        __uplo,
+        __trans,
+        __m,
+        __n,
+        __a,
+        __lda,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __lwork,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zupgtr_(
+    __uplo: *mut c_char,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __tau: *mut __CLPK_doublecomplex,
+    __q: *mut __CLPK_doublecomplex,
+    __ldq: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zupgtr_(
+        __uplo,
+        __n,
+        __ap,
+        __tau,
+        __q,
+        __ldq,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_zupmtr_(
+    __side: *mut c_char,
+    __uplo: *mut c_char,
+    __trans: *mut c_char,
+    __m: *mut __CLPK_integer,
+    __n: *mut __CLPK_integer,
+    __ap: *mut __CLPK_doublecomplex,
+    __tau: *mut __CLPK_doublecomplex,
+    __c__: *mut __CLPK_doublecomplex,
+    __ldc: *mut __CLPK_integer,
+    __work: *mut __CLPK_doublecomplex,
+    __info: *mut __CLPK_integer
+) -> c_int
+{
+    zupmtr_(
+        __side,
+        __uplo,
+        __trans,
+        __m,
+        __n,
+        __ap,
+        __tau,
+        __c__,
+        __ldc,
+        __work,
+        __info
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlamc1_(
+    __beta: *mut __CLPK_integer,
+    __t: *mut __CLPK_integer,
+    __rnd: *mut __CLPK_logical,
+    __ieee1: *mut __CLPK_logical
+) -> c_int
+{
+    dlamc1_(
+        __beta,
+        __t,
+        __rnd,
+        __ieee1
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slamch_(
+    __cmach: *mut c_char
+) -> __CLPK_doublereal
+{
+    slamch_(
+        __cmach
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slamc1_(
+    __beta: *mut __CLPK_integer,
+    __t: *mut __CLPK_integer,
+    __rnd: *mut __CLPK_logical,
+    __ieee1: *mut __CLPK_logical
+) -> c_int
+{
+    slamc1_(
+        __beta,
+        __t,
+        __rnd,
+        __ieee1
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slamc2_(
+    __beta: *mut __CLPK_integer,
+    __t: *mut __CLPK_integer,
+    __rnd: *mut __CLPK_logical,
+    __eps: *mut __CLPK_real,
+    __emin: *mut __CLPK_integer,
+    __rmin: *mut __CLPK_real,
+    __emax: *mut __CLPK_integer,
+    __rmax: *mut __CLPK_real
+) -> c_int
+{
+    slamc2_(
+        __beta,
+        __t,
+        __rnd,
+        __eps,
+        __emin,
+        __rmin,
+        __emax,
+        __rmax
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slamc3_(
+    __a: *mut __CLPK_real,
+    __b: *mut __CLPK_real
+) -> __CLPK_doublereal
+{
+    slamc3_(
+        __a,
+        __b
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slamc4_(
+    __emin: *mut __CLPK_integer,
+    __start: *mut __CLPK_real,
+    __base: *mut __CLPK_integer
+) -> c_int
+{
+    slamc4_(
+        __emin,
+        __start,
+        __base
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_slamc5_(
+    __beta: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __emin: *mut __CLPK_integer,
+    __ieee: *mut __CLPK_logical,
+    __emax: *mut __CLPK_integer,
+    __rmax: *mut __CLPK_real
+) -> c_int
+{
+    slamc5_(
+        __beta,
+        __p,
+        __emin,
+        __ieee,
+        __emax,
+        __rmax
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlamch_(
+    __cmach: *mut c_char
+) -> __CLPK_doublereal
+{
+    dlamch_(
+        __cmach
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlamc2_(
+    __beta: *mut __CLPK_integer,
+    __t: *mut __CLPK_integer,
+    __rnd: *mut __CLPK_logical,
+    __eps: *mut __CLPK_doublereal,
+    __emin: *mut __CLPK_integer,
+    __rmin: *mut __CLPK_doublereal,
+    __emax: *mut __CLPK_integer,
+    __rmax: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlamc2_(
+        __beta,
+        __t,
+        __rnd,
+        __eps,
+        __emin,
+        __rmin,
+        __emax,
+        __rmax
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlamc3_(
+    __a: *mut __CLPK_doublereal,
+    __b: *mut __CLPK_doublereal
+) -> __CLPK_doublereal
+{
+    dlamc3_(
+        __a,
+        __b
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlamc4_(
+    __emin: *mut __CLPK_integer,
+    __start: *mut __CLPK_doublereal,
+    __base: *mut __CLPK_integer
+) -> c_int
+{
+    dlamc4_(
+        __emin,
+        __start,
+        __base
+    )
+}
+
+#[no_mangle]
+pub unsafe extern "C" fn ffi_dlamc5_(
+    __beta: *mut __CLPK_integer,
+    __p: *mut __CLPK_integer,
+    __emin: *mut __CLPK_integer,
+    __ieee: *mut __CLPK_logical,
+    __emax: *mut __CLPK_integer,
+    __rmax: *mut __CLPK_doublereal
+) -> c_int
+{
+    dlamc5_(
+        __beta,
+        __p,
+        __emin,
+        __ieee,
+        __emax,
+        __rmax
     )
 }
 
