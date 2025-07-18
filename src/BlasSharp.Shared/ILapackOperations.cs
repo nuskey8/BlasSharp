@@ -606,7 +606,4 @@ public unsafe interface ILapackAuxiliaryRoutines
     public void Clarnv(int* idist, int* iseed, int* n, void* x);
     public void Dlarnv(int* idist, int* iseed, int* n, double* x);
     public void Zlarnv(int* idist, int* iseed, int* n, void* x);
-
-    // Error handling
-    public void Xerbla(byte* srname, int* info);
 }
