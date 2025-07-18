@@ -25,7 +25,7 @@ fn main() {
         .csharp_entry_point_prefix("")
         .csharp_method_prefix("")
         .csharp_namespace("BlasSharp.AppleAccelerate")
-        .csharp_dll_name("/System/Library/Frameworks/Accelerate.framework/Accelerate")
+        .csharp_dll_name("libaccelerate")
         .csharp_class_accessibility("public")
         .generate_to_file(
             "src/accelerate_ffi.rs",

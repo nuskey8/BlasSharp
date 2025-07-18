@@ -12,7 +12,7 @@ namespace BlasSharp.AppleAccelerate
 {
     public static unsafe partial class NativeMethods
     {
-        const string __DllName = "/System/Library/Frameworks/Accelerate.framework/Accelerate";
+        const string __DllName = "libaccelerate";
 
 
 
