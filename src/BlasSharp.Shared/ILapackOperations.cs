@@ -1,6 +1,6 @@
 namespace BlasSharp;
 
-public interface ILapackOperations : ILapackDriverRoutines, ILapackComputationalRoutines
+public interface ILapackOperations : ILapackDriverRoutines, ILapackComputationalRoutines, ILapackAuxiliaryRoutines
 {
 }
 
@@ -438,4 +438,175 @@ public unsafe interface ILapackComputationalRoutines
     public void Cbdsqr(byte* uplo, int* n, int* ncvt, int* nru, int* ncc, float* d, float* e, void* vt, int* ldvt, void* u, int* ldu, void* c, int* ldc, float* work, int* info);
     public void Dbdsqr(byte* uplo, int* n, int* ncvt, int* nru, int* ncc, double* d, double* e, double* vt, int* ldvt, double* u, int* ldu, double* c, int* ldc, double* work, int* info);
     public void Zbdsqr(byte* uplo, int* n, int* ncvt, int* nru, int* ncc, double* d, double* e, void* vt, int* ldvt, void* u, int* ldu, void* c, int* ldc, double* work, int* info);
+}
+
+public unsafe interface ILapackAuxiliaryRoutines
+{
+    // Complex vector operations
+    public void Clacgv(int* n, void* x, int* incx);
+    public void Zlacgv(int* n, void* x, int* incx);
+
+    // Matrix operations
+    public void Clacrm(int* m, int* n, void* a, int* lda, float* b, int* ldb, void* c, int* ldc, float* rwork);
+    public void Zlacrm(int* m, int* n, void* a, int* lda, double* b, int* ldb, void* c, int* ldc, double* rwork);
+
+    public void Clacrt(int* n, void* cx, int* incx, void* cy, int* incy, void* c, void* s);
+    public void Zlacrt(int* n, void* cx, int* incx, void* cy, int* incy, void* c, void* s);
+
+    public void Crot(int* n, void* cx, int* incx, void* cy, int* incy, float* c, void* s);
+    public void Zrot(int* n, void* cx, int* incx, void* cy, int* incy, double* c, void* s);
+
+    public void Csrot(int* n, void* cx, int* incx, void* cy, int* incy, float* c, float* s);
+    public void Zdrot(int* n, void* cx, int* incx, void* cy, int* incy, double* c, double* s);
+
+    // Symmetric matrix operations
+    public void Csymv(byte* uplo, int* n, void* alpha, void* a, int* lda, void* x, int* incx, void* beta, void* y, int* incy);
+    public void Zsymv(byte* uplo, int* n, void* alpha, void* a, int* lda, void* x, int* incx, void* beta, void* y, int* incy);
+
+    public void Csyr(byte* uplo, int* n, void* alpha, void* x, int* incx, void* a, int* lda);
+    public void Zsyr(byte* uplo, int* n, void* alpha, void* x, int* incx, void* a, int* lda);
+
+    public void Cspmv(byte* uplo, int* n, void* alpha, void* ap, void* x, int* incx, void* beta, void* y, int* incy);
+    public void Zspmv(byte* uplo, int* n, void* alpha, void* ap, void* x, int* incx, void* beta, void* y, int* incy);
+
+    public void Cspr(byte* uplo, int* n, void* alpha, void* x, int* incx, void* ap);
+    public void Zspr(byte* uplo, int* n, void* alpha, void* x, int* incx, void* ap);
+
+    // Utility functions
+    public int Ilaenv(int* ispec, byte* name, byte* opts, int* n1, int* n2, int* n3, int* n4);
+    public int Lsame(byte* ca, byte* cb);
+    public int Lsamen(int* n, byte* ca, byte* cb);
+
+    public int Icmax1(int* n, void* cx, int* incx);
+    public int Izmax1(int* n, void* cx, int* incx);
+
+    public float Scsum1(int* n, void* cx, int* incx);
+    public double Dzsum1(int* n, void* cx, int* incx);
+
+    // Matrix copying
+    public void Slacpy(byte* uplo, int* m, int* n, float* a, int* lda, float* b, int* ldb);
+    public void Clacpy(byte* uplo, int* m, int* n, void* a, int* lda, void* b, int* ldb);
+    public void Dlacpy(byte* uplo, int* m, int* n, double* a, int* lda, double* b, int* ldb);
+    public void Zlacpy(byte* uplo, int* m, int* n, void* a, int* lda, void* b, int* ldb);
+
+    // Matrix norms
+    public float Slange(byte* norm, int* m, int* n, float* a, int* lda, float* work);
+    public float Clange(byte* norm, int* m, int* n, void* a, int* lda, float* work);
+    public double Dlange(byte* norm, int* m, int* n, double* a, int* lda, double* work);
+    public double Zlange(byte* norm, int* m, int* n, void* a, int* lda, double* work);
+
+    public float Slansy(byte* norm, byte* uplo, int* n, float* a, int* lda, float* work);
+    public float Clansy(byte* norm, byte* uplo, int* n, void* a, int* lda, float* work);
+    public float Clanhe(byte* norm, byte* uplo, int* n, void* a, int* lda, float* work);
+    public double Dlansy(byte* norm, byte* uplo, int* n, double* a, int* lda, double* work);
+    public double Zlansy(byte* norm, byte* uplo, int* n, void* a, int* lda, double* work);
+    public double Zlanhe(byte* norm, byte* uplo, int* n, void* a, int* lda, double* work);
+
+    public float Slantr(byte* norm, byte* uplo, byte* diag, int* m, int* n, float* a, int* lda, float* work);
+    public float Clantr(byte* norm, byte* uplo, byte* diag, int* m, int* n, void* a, int* lda, float* work);
+    public double Dlantr(byte* norm, byte* uplo, byte* diag, int* m, int* n, double* a, int* lda, double* work);
+    public double Zlantr(byte* norm, byte* uplo, byte* diag, int* m, int* n, void* a, int* lda, double* work);
+
+    // Machine parameters
+    public float Slamch(byte* cmach);
+    public double Dlamch(byte* cmach);
+
+    // Mathematical utilities
+    public float Slapy2(float* x, float* y);
+    public double Dlapy2(double* x, double* y);
+    public float Slapy3(float* x, float* y, float* z);
+    public double Dlapy3(double* x, double* y, double* z);
+
+    // Matrix scaling
+    public void Slascl(byte* type, int* kl, int* ku, float* cfrom, float* cto, int* m, int* n, float* a, int* lda, int* info);
+    public void Clascl(byte* type, int* kl, int* ku, float* cfrom, float* cto, int* m, int* n, void* a, int* lda, int* info);
+    public void Dlascl(byte* type, int* kl, int* ku, double* cfrom, double* cto, int* m, int* n, double* a, int* lda, int* info);
+    public void Zlascl(byte* type, int* kl, int* ku, double* cfrom, double* cto, int* m, int* n, void* a, int* lda, int* info);
+
+    // Matrix initialization
+    public void Slaset(byte* uplo, int* m, int* n, float* alpha, float* beta, float* a, int* lda);
+    public void Claset(byte* uplo, int* m, int* n, void* alpha, void* beta, void* a, int* lda);
+    public void Dlaset(byte* uplo, int* m, int* n, double* alpha, double* beta, double* a, int* lda);
+    public void Zlaset(byte* uplo, int* m, int* n, void* alpha, void* beta, void* a, int* lda);
+
+    // Pivoting and permutation
+    public void Slaswp(int* n, float* a, int* lda, int* k1, int* k2, int* ipiv, int* incx);
+    public void Claswp(int* n, void* a, int* lda, int* k1, int* k2, int* ipiv, int* incx);
+    public void Dlaswp(int* n, double* a, int* lda, int* k1, int* k2, int* ipiv, int* incx);
+    public void Zlaswp(int* n, void* a, int* lda, int* k1, int* k2, int* ipiv, int* incx);
+
+    public void Slapmt(int* forwrd, int* m, int* n, float* x, int* ldx, int* k);
+    public void Clapmt(int* forwrd, int* m, int* n, void* x, int* ldx, int* k);
+    public void Dlapmt(int* forwrd, int* m, int* n, double* x, int* ldx, int* k);
+    public void Zlapmt(int* forwrd, int* m, int* n, void* x, int* ldx, int* k);
+
+    // Householder reflectors
+    public void Slarfg(int* n, float* alpha, float* x, int* incx, float* tau);
+    public void Clarfg(int* n, void* alpha, void* x, int* incx, void* tau);
+    public void Dlarfg(int* n, double* alpha, double* x, int* incx, double* tau);
+    public void Zlarfg(int* n, void* alpha, void* x, int* incx, void* tau);
+
+    public void Slarf(byte* side, int* m, int* n, float* v, int* incv, float* tau, float* c, int* ldc, float* work);
+    public void Clarf(byte* side, int* m, int* n, void* v, int* incv, void* tau, void* c, int* ldc, void* work);
+    public void Dlarf(byte* side, int* m, int* n, double* v, int* incv, double* tau, double* c, int* ldc, double* work);
+    public void Zlarf(byte* side, int* m, int* n, void* v, int* incv, void* tau, void* c, int* ldc, void* work);
+
+    // Plane rotations
+    public void Slartg(float* f, float* g, float* cs, float* sn, float* r);
+    public void Clartg(void* f, void* g, float* cs, void* sn, void* r);
+    public void Dlartg(double* f, double* g, double* cs, double* sn, double* r);
+    public void Zlartg(void* f, void* g, double* cs, void* sn, void* r);
+
+    public void Slargv(int* n, float* x, int* incx, float* y, int* incy, float* c, int* incc);
+    public void Clargv(int* n, void* x, int* incx, void* y, int* incy, float* c, void* s, int* incc);
+    public void Dlargv(int* n, double* x, int* incx, double* y, int* incy, double* c, int* incc);
+    public void Zlargv(int* n, void* x, int* incx, void* y, int* incy, double* c, void* s, int* incc);
+
+    public void Slasr(byte* side, byte* pivot, byte* direct, int* m, int* n, float* c, float* s, float* a, int* lda);
+    public void Clasr(byte* side, byte* pivot, byte* direct, int* m, int* n, float* c, float* s, void* a, int* lda);
+    public void Dlasr(byte* side, byte* pivot, byte* direct, int* m, int* n, double* c, double* s, double* a, int* lda);
+    public void Zlasr(byte* side, byte* pivot, byte* direct, int* m, int* n, double* c, double* s, void* a, int* lda);
+
+    // Unblocked algorithms
+    public void Sgetf2(int* m, int* n, float* a, int* lda, int* ipiv, int* info);
+    public void Cgetf2(int* m, int* n, void* a, int* lda, int* ipiv, int* info);
+    public void Dgetf2(int* m, int* n, double* a, int* lda, int* ipiv, int* info);
+    public void Zgetf2(int* m, int* n, void* a, int* lda, int* ipiv, int* info);
+
+    public void Spotf2(byte* uplo, int* n, float* a, int* lda, int* info);
+    public void Cpotf2(byte* uplo, int* n, void* a, int* lda, int* info);
+    public void Dpotf2(byte* uplo, int* n, double* a, int* lda, int* info);
+    public void Zpotf2(byte* uplo, int* n, void* a, int* lda, int* info);
+
+    public void Sgeqr2(int* m, int* n, float* a, int* lda, float* tau, float* work, int* info);
+    public void Cgeqr2(int* m, int* n, void* a, int* lda, void* tau, void* work, int* info);
+    public void Dgeqr2(int* m, int* n, double* a, int* lda, double* tau, double* work, int* info);
+    public void Zgeqr2(int* m, int* n, void* a, int* lda, void* tau, void* work, int* info);
+
+    // Generate orthogonal/unitary matrices
+    public void Sorg2r(int* m, int* n, int* k, float* a, int* lda, float* tau, float* work, int* info);
+    public void Cung2r(int* m, int* n, int* k, void* a, int* lda, void* tau, void* work, int* info);
+    public void Dorg2r(int* m, int* n, int* k, double* a, int* lda, double* tau, double* work, int* info);
+    public void Zung2r(int* m, int* n, int* k, void* a, int* lda, void* tau, void* work, int* info);
+
+    // Multiply by orthogonal/unitary matrices
+    public void Sorm2r(byte* side, byte* trans, int* m, int* n, int* k, float* a, int* lda, float* tau, float* c, int* ldc, float* work, int* info);
+    public void Cunm2r(byte* side, byte* trans, int* m, int* n, int* k, void* a, int* lda, void* tau, void* c, int* ldc, void* work, int* info);
+    public void Dorm2r(byte* side, byte* trans, int* m, int* n, int* k, double* a, int* lda, double* tau, double* c, int* ldc, double* work, int* info);
+    public void Zunm2r(byte* side, byte* trans, int* m, int* n, int* k, void* a, int* lda, void* tau, void* c, int* ldc, void* work, int* info);
+
+    // Triangular matrix inversion
+    public void Strti2(byte* uplo, byte* diag, int* n, float* a, int* lda, int* info);
+    public void Ctrti2(byte* uplo, byte* diag, int* n, void* a, int* lda, int* info);
+    public void Dtrti2(byte* uplo, byte* diag, int* n, double* a, int* lda, int* info);
+    public void Ztrti2(byte* uplo, byte* diag, int* n, void* a, int* lda, int* info);
+
+    // Random number generation
+    public void Slarnv(int* idist, int* iseed, int* n, float* x);
+    public void Clarnv(int* idist, int* iseed, int* n, void* x);
+    public void Dlarnv(int* idist, int* iseed, int* n, double* x);
+    public void Zlarnv(int* idist, int* iseed, int* n, void* x);
+
+    // Error handling
+    public void Xerbla(byte* srname, int* info);
 }
