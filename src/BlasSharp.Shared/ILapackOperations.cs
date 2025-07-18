@@ -1,6 +1,6 @@
 namespace BlasSharp;
 
-public interface ILapackOperations : ILapackDriverRoutines
+public interface ILapackOperations : ILapackDriverRoutines, ILapackComputationalRoutines
 {
 }
 
@@ -185,10 +185,10 @@ public unsafe interface ILapackDriverRoutines
     public void Zgeev(byte* jobvl, byte* jobvr, int* n, void* a, int* lda, void* w, void* vl, int* ldvl, void* vr, int* ldvr, void* work, int* lwork, double* rwork, int* info);
 
     // Nonsymmetric eigenvalue problems (Schur factorization)
-    public void Sgees(byte* jobvs, byte* sort, delegate* unmanaged[Cdecl]<float*, float*, int> select, int* n, float* a, int* lda, int* sdim, float* wr, float* wi, float* vs, int* ldvs, float* work, int* lwork, int* bwork, int* info);
-    public void Cgees(byte* jobvs, byte* sort, delegate* unmanaged[Cdecl]<void*, int> select, int* n, void* a, int* lda, int* sdim, void* w, void* vs, int* ldvs, void* work, int* lwork, float* rwork, int* bwork, int* info);
-    public void Dgees(byte* jobvs, byte* sort, delegate* unmanaged[Cdecl]<double*, double*, int> select, int* n, double* a, int* lda, int* sdim, double* wr, double* wi, double* vs, int* ldvs, double* work, int* lwork, int* bwork, int* info);
-    public void Zgees(byte* jobvs, byte* sort, delegate* unmanaged[Cdecl]<void*, int> select, int* n, void* a, int* lda, int* sdim, void* w, void* vs, int* ldvs, void* work, int* lwork, double* rwork, int* bwork, int* info);
+    public void Sgees(byte* jobvs, byte* sort, void* select, int* n, float* a, int* lda, int* sdim, float* wr, float* wi, float* vs, int* ldvs, float* work, int* lwork, int* bwork, int* info);
+    public void Cgees(byte* jobvs, byte* sort, void* select, int* n, void* a, int* lda, int* sdim, void* w, void* vs, int* ldvs, void* work, int* lwork, float* rwork, int* bwork, int* info);
+    public void Dgees(byte* jobvs, byte* sort, void* select, int* n, double* a, int* lda, int* sdim, double* wr, double* wi, double* vs, int* ldvs, double* work, int* lwork, int* bwork, int* info);
+    public void Zgees(byte* jobvs, byte* sort, void* select, int* n, void* a, int* lda, int* sdim, void* w, void* vs, int* ldvs, void* work, int* lwork, double* rwork, int* bwork, int* info);
 
     // Singular value decomposition
     public void Sgesvd(byte* jobu, byte* jobvt, int* m, int* n, float* a, int* lda, float* s, float* u, int* ldu, float* vt, int* ldvt, float* work, int* lwork, int* info);
@@ -243,4 +243,199 @@ public unsafe interface ILapackDriverRoutines
     public void Cggsvd(byte* jobu, byte* jobv, byte* jobq, int* m, int* n, int* p, int* k, int* l, void* a, int* lda, void* b, int* ldb, float* alpha, float* beta, void* u, int* ldu, void* v, int* ldv, void* q, int* ldq, void* work, float* rwork, int* iwork, int* info);
     public void Dggsvd(byte* jobu, byte* jobv, byte* jobq, int* m, int* n, int* p, int* k, int* l, double* a, int* lda, double* b, int* ldb, double* alpha, double* beta, double* u, int* ldu, double* v, int* ldv, double* q, int* ldq, double* work, int* iwork, int* info);
     public void Zggsvd(byte* jobu, byte* jobv, byte* jobq, int* m, int* n, int* p, int* k, int* l, void* a, int* lda, void* b, int* ldb, double* alpha, double* beta, void* u, int* ldu, void* v, int* ldv, void* q, int* ldq, void* work, double* rwork, int* iwork, int* info);
+}
+
+public unsafe interface ILapackComputationalRoutines
+{
+    // Linear equations - General matrix
+    public void Sgetrf(int* m, int* n, float* a, int* lda, int* ipiv, int* info);
+    public void Cgetrf(int* m, int* n, void* a, int* lda, int* ipiv, int* info);
+    public void Dgetrf(int* m, int* n, double* a, int* lda, int* ipiv, int* info);
+    public void Zgetrf(int* m, int* n, void* a, int* lda, int* ipiv, int* info);
+
+    public void Sgetrs(byte* trans, int* n, int* nrhs, float* a, int* lda, int* ipiv, float* b, int* ldb, int* info);
+    public void Cgetrs(byte* trans, int* n, int* nrhs, void* a, int* lda, int* ipiv, void* b, int* ldb, int* info);
+    public void Dgetrs(byte* trans, int* n, int* nrhs, double* a, int* lda, int* ipiv, double* b, int* ldb, int* info);
+    public void Zgetrs(byte* trans, int* n, int* nrhs, void* a, int* lda, int* ipiv, void* b, int* ldb, int* info);
+
+    public void Sgecon(byte* norm, int* n, float* a, int* lda, float* anorm, float* rcond, float* work, int* iwork, int* info);
+    public void Cgecon(byte* norm, int* n, void* a, int* lda, float* anorm, float* rcond, void* work, float* rwork, int* info);
+    public void Dgecon(byte* norm, int* n, double* a, int* lda, double* anorm, double* rcond, double* work, int* iwork, int* info);
+    public void Zgecon(byte* norm, int* n, void* a, int* lda, double* anorm, double* rcond, void* work, double* rwork, int* info);
+
+    public void Sgerfs(byte* trans, int* n, int* nrhs, float* a, int* lda, float* af, int* ldaf, int* ipiv, float* b, int* ldb, float* x, int* ldx, float* ferr, float* berr, float* work, int* iwork, int* info);
+    public void Cgerfs(byte* trans, int* n, int* nrhs, void* a, int* lda, void* af, int* ldaf, int* ipiv, void* b, int* ldb, void* x, int* ldx, float* ferr, float* berr, void* work, float* rwork, int* info);
+    public void Dgerfs(byte* trans, int* n, int* nrhs, double* a, int* lda, double* af, int* ldaf, int* ipiv, double* b, int* ldb, double* x, int* ldx, double* ferr, double* berr, double* work, int* iwork, int* info);
+    public void Zgerfs(byte* trans, int* n, int* nrhs, void* a, int* lda, void* af, int* ldaf, int* ipiv, void* b, int* ldb, void* x, int* ldx, double* ferr, double* berr, void* work, double* rwork, int* info);
+
+    public void Sgetri(int* n, float* a, int* lda, int* ipiv, float* work, int* lwork, int* info);
+    public void Cgetri(int* n, void* a, int* lda, int* ipiv, void* work, int* lwork, int* info);
+    public void Dgetri(int* n, double* a, int* lda, int* ipiv, double* work, int* lwork, int* info);
+    public void Zgetri(int* n, void* a, int* lda, int* ipiv, void* work, int* lwork, int* info);
+
+    public void Sgeequ(int* m, int* n, float* a, int* lda, float* r, float* c, float* rowcnd, float* colcnd, float* amax, int* info);
+    public void Cgeequ(int* m, int* n, void* a, int* lda, float* r, float* c, float* rowcnd, float* colcnd, float* amax, int* info);
+    public void Dgeequ(int* m, int* n, double* a, int* lda, double* r, double* c, double* rowcnd, double* colcnd, double* amax, int* info);
+    public void Zgeequ(int* m, int* n, void* a, int* lda, double* r, double* c, double* rowcnd, double* colcnd, double* amax, int* info);
+
+    // Linear equations - General band matrix
+    public void Sgbtrf(int* m, int* n, int* kl, int* ku, float* ab, int* ldab, int* ipiv, int* info);
+    public void Cgbtrf(int* m, int* n, int* kl, int* ku, void* ab, int* ldab, int* ipiv, int* info);
+    public void Dgbtrf(int* m, int* n, int* kl, int* ku, double* ab, int* ldab, int* ipiv, int* info);
+    public void Zgbtrf(int* m, int* n, int* kl, int* ku, void* ab, int* ldab, int* ipiv, int* info);
+
+    public void Sgbtrs(byte* trans, int* n, int* kl, int* ku, int* nrhs, float* ab, int* ldab, int* ipiv, float* b, int* ldb, int* info);
+    public void Cgbtrs(byte* trans, int* n, int* kl, int* ku, int* nrhs, void* ab, int* ldab, int* ipiv, void* b, int* ldb, int* info);
+    public void Dgbtrs(byte* trans, int* n, int* kl, int* ku, int* nrhs, double* ab, int* ldab, int* ipiv, double* b, int* ldb, int* info);
+    public void Zgbtrs(byte* trans, int* n, int* kl, int* ku, int* nrhs, void* ab, int* ldab, int* ipiv, void* b, int* ldb, int* info);
+
+    public void Sgbcon(byte* norm, int* n, int* kl, int* ku, float* ab, int* ldab, int* ipiv, float* anorm, float* rcond, float* work, int* iwork, int* info);
+    public void Cgbcon(byte* norm, int* n, int* kl, int* ku, void* ab, int* ldab, int* ipiv, float* anorm, float* rcond, void* work, float* rwork, int* info);
+    public void Dgbcon(byte* norm, int* n, int* kl, int* ku, double* ab, int* ldab, int* ipiv, double* anorm, double* rcond, double* work, int* iwork, int* info);
+    public void Zgbcon(byte* norm, int* n, int* kl, int* ku, void* ab, int* ldab, int* ipiv, double* anorm, double* rcond, void* work, double* rwork, int* info);
+
+    public void Sgbrfs(byte* trans, int* n, int* kl, int* ku, int* nrhs, float* ab, int* ldab, float* afb, int* ldafb, int* ipiv, float* b, int* ldb, float* x, int* ldx, float* ferr, float* berr, float* work, int* iwork, int* info);
+    public void Cgbrfs(byte* trans, int* n, int* kl, int* ku, int* nrhs, void* ab, int* ldab, void* afb, int* ldafb, int* ipiv, void* b, int* ldb, void* x, int* ldx, float* ferr, float* berr, void* work, float* rwork, int* info);
+    public void Dgbrfs(byte* trans, int* n, int* kl, int* ku, int* nrhs, double* ab, int* ldab, double* afb, int* ldafb, int* ipiv, double* b, int* ldb, double* x, int* ldx, double* ferr, double* berr, double* work, int* iwork, int* info);
+    public void Zgbrfs(byte* trans, int* n, int* kl, int* ku, int* nrhs, void* ab, int* ldab, void* afb, int* ldafb, int* ipiv, void* b, int* ldb, void* x, int* ldx, double* ferr, double* berr, void* work, double* rwork, int* info);
+
+    public void Sgbequ(int* m, int* n, int* kl, int* ku, float* ab, int* ldab, float* r, float* c, float* rowcnd, float* colcnd, float* amax, int* info);
+    public void Cgbequ(int* m, int* n, int* kl, int* ku, void* ab, int* ldab, float* r, float* c, float* rowcnd, float* colcnd, float* amax, int* info);
+    public void Dgbequ(int* m, int* n, int* kl, int* ku, double* ab, int* ldab, double* r, double* c, double* rowcnd, double* colcnd, double* amax, int* info);
+    public void Zgbequ(int* m, int* n, int* kl, int* ku, void* ab, int* ldab, double* r, double* c, double* rowcnd, double* colcnd, double* amax, int* info);
+
+    // Linear equations - General tridiagonal matrix  
+    public void Sgttrf(int* n, float* dl, float* d, float* du, float* du2, int* ipiv, int* info);
+    public void Cgttrf(int* n, void* dl, void* d, void* du, void* du2, int* ipiv, int* info);
+    public void Dgttrf(int* n, double* dl, double* d, double* du, double* du2, int* ipiv, int* info);
+    public void Zgttrf(int* n, void* dl, void* d, void* du, void* du2, int* ipiv, int* info);
+
+    public void Sgttrs(byte* trans, int* n, int* nrhs, float* dl, float* d, float* du, float* du2, int* ipiv, float* b, int* ldb, int* info);
+    public void Cgttrs(byte* trans, int* n, int* nrhs, void* dl, void* d, void* du, void* du2, int* ipiv, void* b, int* ldb, int* info);
+    public void Dgttrs(byte* trans, int* n, int* nrhs, double* dl, double* d, double* du, double* du2, int* ipiv, double* b, int* ldb, int* info);
+    public void Zgttrs(byte* trans, int* n, int* nrhs, void* dl, void* d, void* du, void* du2, int* ipiv, void* b, int* ldb, int* info);
+
+    public void Sgtcon(byte* norm, int* n, float* dl, float* d, float* du, float* du2, int* ipiv, float* anorm, float* rcond, float* work, int* iwork, int* info);
+    public void Cgtcon(byte* norm, int* n, void* dl, void* d, void* du, void* du2, int* ipiv, float* anorm, float* rcond, void* work, int* info);
+    public void Dgtcon(byte* norm, int* n, double* dl, double* d, double* du, double* du2, int* ipiv, double* anorm, double* rcond, double* work, int* iwork, int* info);
+    public void Zgtcon(byte* norm, int* n, void* dl, void* d, void* du, void* du2, int* ipiv, double* anorm, double* rcond, void* work, int* info);
+
+    public void Sgtrfs(byte* trans, int* n, int* nrhs, float* dl, float* d, float* du, float* dlf, float* df, float* duf, float* du2, int* ipiv, float* b, int* ldb, float* x, int* ldx, float* ferr, float* berr, float* work, int* iwork, int* info);
+    public void Cgtrfs(byte* trans, int* n, int* nrhs, void* dl, void* d, void* du, void* dlf, void* df, void* duf, void* du2, int* ipiv, void* b, int* ldb, void* x, int* ldx, float* ferr, float* berr, void* work, float* rwork, int* info);
+    public void Dgtrfs(byte* trans, int* n, int* nrhs, double* dl, double* d, double* du, double* dlf, double* df, double* duf, double* du2, int* ipiv, double* b, int* ldb, double* x, int* ldx, double* ferr, double* berr, double* work, int* iwork, int* info);
+    public void Zgtrfs(byte* trans, int* n, int* nrhs, void* dl, void* d, void* du, void* dlf, void* df, void* duf, void* du2, int* ipiv, void* b, int* ldb, void* x, int* ldx, double* ferr, double* berr, void* work, double* rwork, int* info);
+
+    // Linear equations - Symmetric/Hermitian positive definite matrix
+    public void Spotrf(byte* uplo, int* n, float* a, int* lda, int* info);
+    public void Cpotrf(byte* uplo, int* n, void* a, int* lda, int* info);
+    public void Dpotrf(byte* uplo, int* n, double* a, int* lda, int* info);
+    public void Zpotrf(byte* uplo, int* n, void* a, int* lda, int* info);
+
+    public void Spotrs(byte* uplo, int* n, int* nrhs, float* a, int* lda, float* b, int* ldb, int* info);
+    public void Cpotrs(byte* uplo, int* n, int* nrhs, void* a, int* lda, void* b, int* ldb, int* info);
+    public void Dpotrs(byte* uplo, int* n, int* nrhs, double* a, int* lda, double* b, int* ldb, int* info);
+    public void Zpotrs(byte* uplo, int* n, int* nrhs, void* a, int* lda, void* b, int* ldb, int* info);
+
+    public void Spocon(byte* uplo, int* n, float* a, int* lda, float* anorm, float* rcond, float* work, int* iwork, int* info);
+    public void Cpocon(byte* uplo, int* n, void* a, int* lda, float* anorm, float* rcond, void* work, float* rwork, int* info);
+    public void Dpocon(byte* uplo, int* n, double* a, int* lda, double* anorm, double* rcond, double* work, int* iwork, int* info);
+    public void Zpocon(byte* uplo, int* n, void* a, int* lda, double* anorm, double* rcond, void* work, double* rwork, int* info);
+
+    public void Sporfs(byte* uplo, int* n, int* nrhs, float* a, int* lda, float* af, int* ldaf, float* b, int* ldb, float* x, int* ldx, float* ferr, float* berr, float* work, int* iwork, int* info);
+    public void Cporfs(byte* uplo, int* n, int* nrhs, void* a, int* lda, void* af, int* ldaf, void* b, int* ldb, void* x, int* ldx, float* ferr, float* berr, void* work, float* rwork, int* info);
+    public void Dporfs(byte* uplo, int* n, int* nrhs, double* a, int* lda, double* af, int* ldaf, double* b, int* ldb, double* x, int* ldx, double* ferr, double* berr, double* work, int* iwork, int* info);
+    public void Zporfs(byte* uplo, int* n, int* nrhs, void* a, int* lda, void* af, int* ldaf, void* b, int* ldb, void* x, int* ldx, double* ferr, double* berr, void* work, double* rwork, int* info);
+
+    public void Spotri(byte* uplo, int* n, float* a, int* lda, int* info);
+    public void Cpotri(byte* uplo, int* n, void* a, int* lda, int* info);
+    public void Dpotri(byte* uplo, int* n, double* a, int* lda, int* info);
+    public void Zpotri(byte* uplo, int* n, void* a, int* lda, int* info);
+
+    public void Spoequ(int* n, float* a, int* lda, float* s, float* scond, float* amax, int* info);
+    public void Cpoequ(int* n, void* a, int* lda, float* s, float* scond, float* amax, int* info);
+    public void Dpoequ(int* n, double* a, int* lda, double* s, double* scond, double* amax, int* info);
+    public void Zpoequ(int* n, void* a, int* lda, double* s, double* scond, double* amax, int* info);
+
+    // Orthogonal factorizations - QR factorization
+    public void Sgeqrf(int* m, int* n, float* a, int* lda, float* tau, float* work, int* lwork, int* info);
+    public void Cgeqrf(int* m, int* n, void* a, int* lda, void* tau, void* work, int* lwork, int* info);
+    public void Dgeqrf(int* m, int* n, double* a, int* lda, double* tau, double* work, int* lwork, int* info);
+    public void Zgeqrf(int* m, int* n, void* a, int* lda, void* tau, void* work, int* lwork, int* info);
+
+    public void Sgeqp3(int* m, int* n, float* a, int* lda, int* jpvt, float* tau, float* work, int* lwork, int* info);
+    public void Cgeqp3(int* m, int* n, void* a, int* lda, int* jpvt, void* tau, void* work, int* lwork, float* rwork, int* info);
+    public void Dgeqp3(int* m, int* n, double* a, int* lda, int* jpvt, double* tau, double* work, int* lwork, int* info);
+    public void Zgeqp3(int* m, int* n, void* a, int* lda, int* jpvt, void* tau, void* work, int* lwork, double* rwork, int* info);
+
+    public void Sorgqr(int* m, int* n, int* k, float* a, int* lda, float* tau, float* work, int* lwork, int* info);
+    public void Cungqr(int* m, int* n, int* k, void* a, int* lda, void* tau, void* work, int* lwork, int* info);
+    public void Dorgqr(int* m, int* n, int* k, double* a, int* lda, double* tau, double* work, int* lwork, int* info);
+    public void Zungqr(int* m, int* n, int* k, void* a, int* lda, void* tau, void* work, int* lwork, int* info);
+
+    public void Sormqr(byte* side, byte* trans, int* m, int* n, int* k, float* a, int* lda, float* tau, float* c, int* ldc, float* work, int* lwork, int* info);
+    public void Cunmqr(byte* side, byte* trans, int* m, int* n, int* k, void* a, int* lda, void* tau, void* c, int* ldc, void* work, int* lwork, int* info);
+    public void Dormqr(byte* side, byte* trans, int* m, int* n, int* k, double* a, int* lda, double* tau, double* c, int* ldc, double* work, int* lwork, int* info);
+    public void Zunmqr(byte* side, byte* trans, int* m, int* n, int* k, void* a, int* lda, void* tau, void* c, int* ldc, void* work, int* lwork, int* info);
+
+    // Symmetric eigenproblem - tridiagonal reduction
+    public void Ssytrd(byte* uplo, int* n, float* a, int* lda, float* d, float* e, float* tau, float* work, int* lwork, int* info);
+    public void Chetrd(byte* uplo, int* n, void* a, int* lda, float* d, float* e, void* tau, void* work, int* lwork, int* info);
+    public void Dsytrd(byte* uplo, int* n, double* a, int* lda, double* d, double* e, double* tau, double* work, int* lwork, int* info);
+    public void Zhetrd(byte* uplo, int* n, void* a, int* lda, double* d, double* e, void* tau, void* work, int* lwork, int* info);
+
+    public void Sorgtr(byte* uplo, int* n, float* a, int* lda, float* tau, float* work, int* lwork, int* info);
+    public void Cungtr(byte* uplo, int* n, void* a, int* lda, void* tau, void* work, int* lwork, int* info);
+    public void Dorgtr(byte* uplo, int* n, double* a, int* lda, double* tau, double* work, int* lwork, int* info);
+    public void Zungtr(byte* uplo, int* n, void* a, int* lda, void* tau, void* work, int* lwork, int* info);
+
+    public void Sormtr(byte* side, byte* uplo, byte* trans, int* m, int* n, float* a, int* lda, float* tau, float* c, int* ldc, float* work, int* lwork, int* info);
+    public void Cunmtr(byte* side, byte* uplo, byte* trans, int* m, int* n, void* a, int* lda, void* tau, void* c, int* ldc, void* work, int* lwork, int* info);
+    public void Dormtr(byte* side, byte* uplo, byte* trans, int* m, int* n, double* a, int* lda, double* tau, double* c, int* ldc, double* work, int* lwork, int* info);
+    public void Zunmtr(byte* side, byte* uplo, byte* trans, int* m, int* n, void* a, int* lda, void* tau, void* c, int* ldc, void* work, int* lwork, int* info);
+
+    // Symmetric tridiagonal eigenvalues
+    public void Ssteqr(byte* compz, int* n, float* d, float* e, float* z, int* ldz, float* work, int* info);
+    public void Csteqr(byte* compz, int* n, float* d, float* e, void* z, int* ldz, float* work, int* info);
+    public void Dsteqr(byte* compz, int* n, double* d, double* e, double* z, int* ldz, double* work, int* info);
+    public void Zsteqr(byte* compz, int* n, double* d, double* e, void* z, int* ldz, double* work, int* info);
+
+    public void Ssterf(int* n, float* d, float* e, int* info);
+    public void Dsterf(int* n, double* d, double* e, int* info);
+
+    public void Sstedc(byte* compz, int* n, float* d, float* e, float* z, int* ldz, float* work, int* lwork, int* iwork, int* liwork, int* info);
+    public void Cstedc(byte* compz, int* n, float* d, float* e, void* z, int* ldz, void* work, int* lwork, float* rwork, int* lrwork, int* iwork, int* liwork, int* info);
+    public void Dstedc(byte* compz, int* n, double* d, double* e, double* z, int* ldz, double* work, int* lwork, int* iwork, int* liwork, int* info);
+    public void Zstedc(byte* compz, int* n, double* d, double* e, void* z, int* ldz, void* work, int* lwork, double* rwork, int* lrwork, int* iwork, int* liwork, int* info);
+
+    // Nonsymmetric eigenproblem - Hessenberg reduction
+    public void Sgehrd(int* n, int* ilo, int* ihi, float* a, int* lda, float* tau, float* work, int* lwork, int* info);
+    public void Cgehrd(int* n, int* ilo, int* ihi, void* a, int* lda, void* tau, void* work, int* lwork, int* info);
+    public void Dgehrd(int* n, int* ilo, int* ihi, double* a, int* lda, double* tau, double* work, int* lwork, int* info);
+    public void Zgehrd(int* n, int* ilo, int* ihi, void* a, int* lda, void* tau, void* work, int* lwork, int* info);
+
+    public void Sorghr(int* n, int* ilo, int* ihi, float* a, int* lda, float* tau, float* work, int* lwork, int* info);
+    public void Cunghr(int* n, int* ilo, int* ihi, void* a, int* lda, void* tau, void* work, int* lwork, int* info);
+    public void Dorghr(int* n, int* ilo, int* ihi, double* a, int* lda, double* tau, double* work, int* lwork, int* info);
+    public void Zunghr(int* n, int* ilo, int* ihi, void* a, int* lda, void* tau, void* work, int* lwork, int* info);
+
+    public void Shseqr(byte* job, byte* compz, int* n, int* ilo, int* ihi, float* h, int* ldh, float* wr, float* wi, float* z, int* ldz, float* work, int* lwork, int* info);
+    public void Chseqr(byte* job, byte* compz, int* n, int* ilo, int* ihi, void* h, int* ldh, void* w, void* z, int* ldz, void* work, int* lwork, int* info);
+    public void Dhseqr(byte* job, byte* compz, int* n, int* ilo, int* ihi, double* h, int* ldh, double* wr, double* wi, double* z, int* ldz, double* work, int* lwork, int* info);
+    public void Zhseqr(byte* job, byte* compz, int* n, int* ilo, int* ihi, void* h, int* ldh, void* w, void* z, int* ldz, void* work, int* lwork, int* info);
+
+    // Singular value decomposition - bidiagonal reduction
+    public void Sgebrd(int* m, int* n, float* a, int* lda, float* d, float* e, float* tauq, float* taup, float* work, int* lwork, int* info);
+    public void Cgebrd(int* m, int* n, void* a, int* lda, float* d, float* e, void* tauq, void* taup, void* work, int* lwork, int* info);
+    public void Dgebrd(int* m, int* n, double* a, int* lda, double* d, double* e, double* tauq, double* taup, double* work, int* lwork, int* info);
+    public void Zgebrd(int* m, int* n, void* a, int* lda, double* d, double* e, void* tauq, void* taup, void* work, int* lwork, int* info);
+
+    public void Sorgbr(byte* vect, int* m, int* n, int* k, float* a, int* lda, float* tau, float* work, int* lwork, int* info);
+    public void Cungbr(byte* vect, int* m, int* n, int* k, void* a, int* lda, void* tau, void* work, int* lwork, int* info);
+    public void Dorgbr(byte* vect, int* m, int* n, int* k, double* a, int* lda, double* tau, double* work, int* lwork, int* info);
+    public void Zungbr(byte* vect, int* m, int* n, int* k, void* a, int* lda, void* tau, void* work, int* lwork, int* info);
+
+    public void Sbdsqr(byte* uplo, int* n, int* ncvt, int* nru, int* ncc, float* d, float* e, float* vt, int* ldvt, float* u, int* ldu, float* c, int* ldc, float* work, int* info);
+    public void Cbdsqr(byte* uplo, int* n, int* ncvt, int* nru, int* ncc, float* d, float* e, void* vt, int* ldvt, void* u, int* ldu, void* c, int* ldc, float* work, int* info);
+    public void Dbdsqr(byte* uplo, int* n, int* ncvt, int* nru, int* ncc, double* d, double* e, double* vt, int* ldvt, double* u, int* ldu, double* c, int* ldc, double* work, int* info);
+    public void Zbdsqr(byte* uplo, int* n, int* ncvt, int* nru, int* ncc, double* d, double* e, void* vt, int* ldvt, void* u, int* ldu, void* c, int* ldc, double* work, int* info);
 }
