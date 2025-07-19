@@ -19,7 +19,7 @@ fn main() {
 
     csbindgen::Builder::default()
         .input_bindgen_file("src/accelerate.rs")
-        .method_filter(|x| x.starts_with("cblas_") || x.starts_with("appleblas_") || x.starts_with("sparse_"))
+        // .method_filter(|x| x.starts_with("cblas_") || x.starts_with("appleblas_") || x.starts_with("sparse_"))
         .rust_file_header("use super::accelerate::*;")
         .rust_method_prefix("ffi_")
         .csharp_entry_point_prefix("")
@@ -29,7 +29,7 @@ fn main() {
         .csharp_class_accessibility("public")
         .generate_to_file(
             "src/accelerate_ffi.rs",
-            "../../src/BlasSharp.AppleAccelerate/NativeMethods.CBLAS.g.cs",
+            "../../src/BlasSharp.AppleAccelerate/NativeMethods.g.cs",
         )
         .unwrap();
 }
