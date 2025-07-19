@@ -48,9 +48,9 @@ unsafe
 }
 ```
 
-## IBlasOperations
+## IBlasOperations / ILapackOperations
 
-The BlasSharp.Shared package provides `IBlasOperations`, which abstracts BLAS methods. Each package provides its own implementation.
+The BlasSharp.Shared package provides `IBlasOperations` / `ILapackOperations`, which abstracts BLAS/LAPACK routines. Each package provides its own implementation.
 
 ```cs
 public interface IBlasOperations : IBlasLevel1, IBlasLevel2, IBlasLevel3
@@ -63,6 +63,22 @@ public unsafe interface IBlasLevel1
     void Daxpy(int n, double alpha, double* x, int incX, double* y, int incY);
     void Caxpy(int n, void* alpha, void* x, int incX, void* y, int incY);
     void Zaxpy(int n, void* alpha, void* x, int incX, void* y, int incY);
+
+    ...
+}
+```
+
+```cs
+public interface ILapackOperations : ILapackDriverRoutines, ILapackComputationalRoutines, ILapackAuxiliaryRoutines
+{
+}
+
+public unsafe interface ILapackDriverRoutines
+{
+    int Sgesv(int* n, int* nrhs, float* a, int* lda, int* ipiv, float* b, int* ldb, int* info);
+    int Cgesv(int* n, int* nrhs, void* a, int* lda, int* ipiv, void* b, int* ldb, int* info);
+    int Dgesv(int* n, int* nrhs, double* a, int* lda, int* ipiv, double* b, int* ldb, int* info);
+    int Zgesv(int* n, int* nrhs, void* a, int* lda, int* ipiv, void* b, int* ldb, int* info);
 
     ...
 }

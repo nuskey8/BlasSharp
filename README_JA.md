@@ -48,9 +48,9 @@ unsafe
 }
 ```
 
-## IBlasOperations
+## IBlasOperations / ILapackOperations
 
-BlasSharp.SharedパッケージではBLASのメソッドを抽象化する`IBlasOperations`を提供しており、それぞれのパッケージで実装が用意されています。
+BlasSharp.SharedパッケージではBLAS及びLAPACKのルーチンを抽象化する`IBlasOperations` / `ILapackOperations`を提供しており、それぞれのパッケージで実装が用意されています。
 
 ```cs
 public interface IBlasOperations : IBlasLevel1, IBlasLevel2, IBlasLevel3
@@ -66,6 +66,24 @@ public unsafe interface IBlasLevel1
 
     ...
 }
+```
+
+```cs 
+
+public interface ILapackOperations : ILapackDriverRoutines, ILapackComputationalRoutines, ILapackAuxiliaryRoutines
+{
+}
+
+public unsafe interface ILapackDriverRoutines
+{
+    public int Sgesv(int* n, int* nrhs, float* a, int* lda, int* ipiv, float* b, int* ldb, int* info);
+    public int Cgesv(int* n, int* nrhs, void* a, int* lda, int* ipiv, void* b, int* ldb, int* info);
+    public int Dgesv(int* n, int* nrhs, double* a, int* lda, int* ipiv, double* b, int* ldb, int* info);
+    public int Zgesv(int* n, int* nrhs, void* a, int* lda, int* ipiv, void* b, int* ldb, int* info);
+
+    ...
+}
+
 ```
 
 ## OpenBLAS
